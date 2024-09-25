@@ -410,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5532013879456195588, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.81503356
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5532013879456195588, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalRotation.x
@@ -422,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5532013879456195588, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5794138
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5532013879456195588, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -430,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5532013879456195588, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 70.819
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1035275730820000495, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_LocalRotation.w
@@ -626,7 +626,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
   m_PrefabInstance: {fileID: 589353724}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1044483157
+--- !u!95 &1044483161
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -636,7 +636,7 @@ Animator:
   m_GameObject: {fileID: 1044483156}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 478f1f71cd6fbd04facbff49f7e7c743, type: 2}
+  m_Controller: {fileID: 9100000, guid: 867134941b1b8b64098c6b862755e72e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
