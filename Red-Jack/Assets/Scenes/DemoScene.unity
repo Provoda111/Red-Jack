@@ -6238,6 +6238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1861714698}
+  Shoot: 0
 --- !u!1001 &1058710495
 PrefabInstance:
   m_ObjectHideFlags: 0
