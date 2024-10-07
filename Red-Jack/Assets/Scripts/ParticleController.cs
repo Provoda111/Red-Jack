@@ -5,24 +5,26 @@ using UnityEngine;
 public class ParticleController : MonoBehaviour
 {
     public ParticleSystem particleSystem;
+    public bool Shoot = false;
     void Start()
     {
+        particleSystem.Stop();
     }
 
 
     void Update()
     {
-     //   if (Input.GetKeyUp("a"))
-       // {
-         //   particleSystem.Play();
-           // Debug.Log("Firee");
-            
-        //}
+        if (Input.GetKeyUp("a"))
+        {
+            Shoot = true;
+        }
     }
     public void Shot()
     {
-        //particleSystem.Play();
-
+        
+        particleSystem.Play();
+        Debug.Log("Firee");
+        //Shoot = false;  
     }
 
 
