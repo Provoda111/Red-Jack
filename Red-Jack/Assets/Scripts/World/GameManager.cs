@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<GameObject> cardDeck = new List<GameObject>();
+    [SerializeField] private GameCard card;
+
+    public Animator deckAnimator;
+
+    private void Update()
     {
         
     }
+    private void CardChooseStep()
+    {
 
-    // Update is called once per frame
-    void Update()
+    }
+    IEnumerator gameStart()
     {
         
+        yield return new WaitForSeconds(5f);
     }
 }
