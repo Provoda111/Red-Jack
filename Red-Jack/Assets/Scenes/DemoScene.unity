@@ -5364,6 +5364,7 @@ MonoBehaviour:
   cardDeck: []
   card: {fileID: 0}
   deckAnimator: {fileID: 1186335110}
+  player: {fileID: 0}
 --- !u!4 &446797990
 Transform:
   m_ObjectHideFlags: 0
@@ -6619,6 +6620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1200078258}
+  - component: {fileID: 1200078259}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6642,6 +6644,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1200078259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200078257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8adcbd4fbb01243a165396fa041435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCards: []
+  buffCards: []
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 128
+  canMoveCamera: 0
+  animator: {fileID: 1247853514}
 --- !u!1 &1247853510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,6 +6675,8 @@ GameObject:
   - component: {fileID: 1247853512}
   - component: {fileID: 1247853511}
   - component: {fileID: 1247853514}
+  - component: {fileID: 1247853515}
+  - component: {fileID: 1247853516}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6692,11 +6715,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 65.108345
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6719,8 +6742,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247853510}
-  m_LocalRotation: {x: 0.18178943, y: -0.0070429193, z: 0.0061226925, w: 0.98329324}
-  m_LocalPosition: {x: -0.021, y: 0.15, z: 0.3934135}
+  m_LocalRotation: {x: 0.18522072, y: 0, z: 0, w: 0.98269695}
+  m_LocalPosition: {x: -0.020999998, y: 0.15, z: 0.39341354}
   m_LocalScale: {x: 0.77903, y: 0.77903014, z: 0.77903014}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6747,6 +6770,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1247853515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247853510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1247853516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247853510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b2d087e4bfd2a448aeb15853d21424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  maxVerticalAngle: 30
+  maxHorizontalAngle: 45
+  player: {fileID: 1200078257}
+  playerController: {fileID: 1200078259}
 --- !u!4 &1250429483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5620023247811269349, guid: 1527a0cbd402ee2429fd6695e19c6786, type: 3}
@@ -7602,6 +7676,10 @@ PrefabInstance:
     - target: {fileID: 1120549061903663898, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
       propertyPath: m_Name
       value: Card_Heart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120549061903663898, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
+      propertyPath: m_TagString
+      value: Tag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}

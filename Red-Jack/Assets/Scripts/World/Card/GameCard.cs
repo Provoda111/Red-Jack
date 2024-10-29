@@ -5,13 +5,17 @@ using UnityEngine;
 public class GameCard : MonoBehaviour
 {
     [SerializeField] private int cardValue;
-    private bool isPointedAt;
+    public bool isPointedAt;
 
     private void Update()
     {
         if (isPointedAt)
         {
-            Debug.Log("The card is watched at");
+            isPointedAnimation();
         }
+    }
+    private void isPointedAnimation()
+    {
+        Debug.Log("The card is watched at");
     }
 }

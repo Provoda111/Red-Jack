@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> cardDeck = new List<GameObject>();
     [SerializeField] private GameCard card;
     public Animator deckAnimator;
+    public Player player;
 
     private void Update()
     {
