@@ -22,11 +22,16 @@ public class Camera : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         initialRotation = transform.localRotation;
     }
 
-    void Update()
+    void LateUpdate()
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            canMoveCamera = true;
+        }
         if (canMoveCamera)  
         {
             MoveCamera();
@@ -40,7 +45,6 @@ public class Camera : MonoBehaviour
 
         yRotation += mouseX;
         yRotation = Mathf.Clamp(yRotation, -maxHorizontalAngle, maxHorizontalAngle);
-
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -maxVerticalAngle, maxVerticalAngle);
 

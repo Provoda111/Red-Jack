@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,9 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] private List<GameObject> playerCards = new List<GameObject>();
     public List<BuffCard> buffCards = new List<BuffCard>();
     private GameCard card;
+    public UnityEngine.Camera cursorCamera;
+    private string hitTag;
 
     [SerializeField] LayerMask layersToHit;
-
     Ray ray;
     RaycastHit hit;
 
@@ -22,16 +24,22 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out hit, 20, layersToHit))
+        ray = cursorCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + 10, 0));
+        Debug.DrawRay(ray.origin, ray.direction * 1000);
+        if (Physics.Raycast(ray, out hit, 1000f))
         {
+            hitTag = hit.collider.tag;
             if (hit.collider.tag == "Card")
             {
-                Debug.Log($"Player's raycast has hit the {hit.collider.gameObject.name}");
-                card.isPointedAt = true;
+                card.isPointedAnimation();
             }
         }
+        
         AnimationHandler();
+    }
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 1000, 100), hitTag);
     }
     private void AnimationHandler()
     {

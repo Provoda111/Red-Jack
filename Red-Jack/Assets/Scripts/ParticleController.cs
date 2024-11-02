@@ -23,7 +23,6 @@ public class ParticleController : MonoBehaviour
     {
         
         particleSystem.Play();
-        Debug.Log("Firee");
         //Shoot = false;  
     }
 
