@@ -17,8 +17,7 @@ public class Camera : MonoBehaviour
     [SerializeField] private Player playerController;
     [SerializeField] private Animator animator;
 
-    private bool canMoveCamera = false;
-
+    public bool canMoveCamera = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

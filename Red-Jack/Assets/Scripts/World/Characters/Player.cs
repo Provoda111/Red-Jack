@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
 {
     private bool hasLost;
     [SerializeField] private List<GameObject> playerCards = new List<GameObject>();
-    public List<BuffCard> buffCards = new List<BuffCard>();
-    private GameCard card;
+    private List<BuffCard> buffCards = new List<BuffCard>();
+    private GameObject card;
+    private GameObject rayHitCard;
     public UnityEngine.Camera cursorCamera;
     private string hitTag;
+
+
+    private Camera gameCamera;
 
     [SerializeField] LayerMask layersToHit;
     Ray ray;
@@ -22,19 +26,42 @@ public class Player : MonoBehaviour
 
     // Audio variables
 
+    private void Start()
+    {
+        gameCamera = GetComponent<Camera>();
+    }
     private void Update()
     {
         ray = cursorCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + 10, 0));
         Debug.DrawRay(ray.origin, ray.direction * 1000);
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            hitTag = hit.collider.tag;
-            if (hit.collider.tag == "Card")
+            if (hit.collider.CompareTag("Card"))
             {
-                card.isPointedAnimation();
+                rayHitCard = hit.collider.gameObject;
             }
         }
-        
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            card = rayHitCard; // warning
+            hitTag = hit.collider.tag;
+            if (gameCamera.canMoveCamera)
+            {
+                GameCard cardController = rayHitCard.GetComponent<GameCard>();
+                if (hit.collider.CompareTag("Card"))
+                {
+                    cardController.IsPointedAnimation();
+                }
+                else
+                {
+                    cardController.IsNotPointedAt(); // warning
+                }
+            }
+        }
+        else
+        {
+            
+        }
         AnimationHandler();
     }
     private void OnGUI()

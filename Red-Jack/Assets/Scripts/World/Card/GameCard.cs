@@ -9,10 +9,16 @@ public class GameCard : MonoBehaviour
 
     private void Update()
     {
+
     }
-    public void isPointedAnimation()
+    public void IsPointedAnimation()
     {
         Debug.Log("The card is watched at");
-        cardAnimator.SetTrigger("cardRaise");
+        cardAnimator.SetBool("cardRaise", true);
+    }
+    public void IsNotPointedAt()
+    {
+        Debug.Log("The card isn't watched at");
+        cardAnimator.SetBool("cardRaise", false);
     }
 }

@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //If test №1
-        if (Input.GetKeyUp(KeyCode.H))
+        if (Input.GetKeyUp(KeyCode.H)) //If test №1
         {
             StartCoroutine(gameStart());
         }
