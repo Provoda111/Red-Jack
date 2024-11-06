@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public UnityEngine.Camera cursorCamera;
     private string hitTag;
 
-
     private Camera gameCamera;
 
     [SerializeField] LayerMask layersToHit;
@@ -23,6 +22,8 @@ public class Player : MonoBehaviour
     RaycastHit hit;
 
     public Animator animator;
+
+    private GameCard cardController;
 
     // Audio variables
 
@@ -39,28 +40,22 @@ public class Player : MonoBehaviour
             if (hit.collider.CompareTag("Card"))
             {
                 rayHitCard = hit.collider.gameObject;
+                card = rayHitCard;
             }
         }
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            card = rayHitCard;
             hitTag = hit.collider.tag;
             if (gameCamera.canMoveCamera)
             {
-                GameCard cardController = rayHitCard.GetComponent<GameCard>();
-                if (hit.collider.CompareTag("Card"))
-                {
-                    cardController.IsPointedAnimation();
-                }
-                else
-                {
-                    cardController.IsNotPointedAt();
-                }
+                cardController = card.GetComponent<GameCard>();
+                if (hit.collider.CompareTag("Card")) { cardController.IsPointedAnimation(); }
+                else { cardController.IsNotPointedAt(); }
             }
         }
         else
         {
-            
+
         }
         AnimationHandler();
     }
@@ -70,6 +65,5 @@ public class Player : MonoBehaviour
     }
     private void AnimationHandler()
     {
-        
     }
 }

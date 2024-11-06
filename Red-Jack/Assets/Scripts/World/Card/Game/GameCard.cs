@@ -17,11 +17,12 @@ public class GameCard : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(startPosition.x, transform.position.y, startPosition.z);
-        if (isAtTheTable)
-        {
-            
-        }
+        transform.position = new Vector3(startPosition.x, transform.position.y, startPosition.z); // Collider problem
+        if (isAtTheTable) { UpdatePosition(); } // Collider problem
+    }
+    private void UpdatePosition()
+    {
+        
     }
     public void IsPointedAnimation()
     {
@@ -32,5 +33,9 @@ public class GameCard : MonoBehaviour
     {
         Debug.Log("The card isn't watched at");
         cardAnimator.SetBool("cardRaise", false);
+    }
+    public void GoToPlayer()
+    {
+
     }
 }
