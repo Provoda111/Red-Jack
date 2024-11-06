@@ -6,10 +6,15 @@ public class GameCard : MonoBehaviour
 {
     [SerializeField] private int cardValue;
     [SerializeField] private Animator cardAnimator;
-
-    private void Update()
+    private Vector3 startPosition;
+    private void Start()
     {
+        startPosition = transform.position;
+    }
 
+    private void LateUpdate()
+    {
+        transform.position = new Vector3(startPosition.x, transform.position.y, startPosition.z);
     }
     public void IsPointedAnimation()
     {

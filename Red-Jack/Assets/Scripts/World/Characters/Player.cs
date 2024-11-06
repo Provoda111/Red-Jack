@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         }
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            card = rayHitCard; // warning
+            card = rayHitCard;
             hitTag = hit.collider.tag;
             if (gameCamera.canMoveCamera)
             {
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    cardController.IsNotPointedAt(); // warning
+                    cardController.IsNotPointedAt();
                 }
             }
         }
