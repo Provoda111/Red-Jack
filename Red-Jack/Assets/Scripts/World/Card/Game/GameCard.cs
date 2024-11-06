@@ -7,6 +7,9 @@ public class GameCard : MonoBehaviour
     [SerializeField] private int cardValue;
     [SerializeField] private Animator cardAnimator;
     private Vector3 startPosition;
+
+    public bool isAtTheTable = true;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -15,6 +18,10 @@ public class GameCard : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = new Vector3(startPosition.x, transform.position.y, startPosition.z);
+        if (isAtTheTable)
+        {
+            
+        }
     }
     public void IsPointedAnimation()
     {
