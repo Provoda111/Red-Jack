@@ -5,13 +5,14 @@ using UnityEngine;
 public class GameCard : MonoBehaviour
 {
     [SerializeField] private int cardValue;
-    [SerializeField] private Animator cardAnimator;
+    private Animator cardAnimator;
     private Vector3 startPosition;
 
     public bool isAtTheTable = true;
 
     private void Start()
     {
+        cardAnimator = GetComponent<Animator>();
         startPosition = transform.position;
     }
 
@@ -35,6 +36,10 @@ public class GameCard : MonoBehaviour
         cardAnimator.SetBool("cardRaise", false);
     }
     public void GoToPlayer()
+    {
+
+    }
+    public void GoToDeck()
     {
 
     }

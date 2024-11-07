@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
             {
                 rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;
+                cardController = card.GetComponent<GameCard>();
             }
         }
         if (Physics.Raycast(ray, out hit, 1000f))
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
             hitTag = hit.collider.tag;
             if (gameCamera.canMoveCamera)
             {
-                cardController = card.GetComponent<GameCard>();
                 if (hit.collider.CompareTag("Card")) { cardController.IsPointedAnimation(); }
                 else { cardController.IsNotPointedAt(); }
             }
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 1000, 100), hitTag);
+        //GUI.Label(new Rect(10, 10, 1000, 100), hitTag);
     }
     private void AnimationHandler()
     {

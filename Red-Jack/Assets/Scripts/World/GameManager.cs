@@ -29,13 +29,15 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GiveCards()
     {
-        yield return new WaitForSeconds(3.5f);
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
             Debug.Log(cardIndex);
             Instantiate(cardDeck[cardIndex], cardDeckObject.transform);
             cardDeck.Remove(cardDeck[cardIndex]);
+            Debug.Log(cardIndex);
+            yield return new WaitForSeconds(3.5f);
+
         }
     }
 }
