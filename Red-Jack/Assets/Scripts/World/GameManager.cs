@@ -32,10 +32,12 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
+            GameCard selectedCard = cardDeck[cardIndex].GetComponent<GameCard>();
             Debug.Log(cardIndex);
             Instantiate(cardDeck[cardIndex], cardDeckObject.transform);
-            cardDeck.Remove(cardDeck[cardIndex]);
-            Debug.Log(cardIndex);
+            StartCoroutine(selectedCard.GoToCenter());
+            //selectedCard.StartCoroutine(GoToCenter()); | TEST IT #1
+            cardDeck.RemoveAt(cardIndex);
             yield return new WaitForSeconds(3.5f);
 
         }
