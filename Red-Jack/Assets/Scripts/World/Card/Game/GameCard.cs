@@ -43,14 +43,26 @@ public class GameCard : MonoBehaviour
     }
     public void GoToCenter()
     {
-        //targetPosition = GameObject.Find("CheckpointForCenter");
-        
-       /*while (Vector3.Distance(transform.position, targetPosition.transform.position) > 0.01f)
+        targetPosition = GameObject.Find("CheckpointForCenter");
+        if (targetPosition != null)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition.transform.position, 0.01f * Time.deltaTime);
-            yield return null;
-        }*/
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition.transform.position, 0.01f);
-        targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f, targetPosition.transform.position.y, targetPosition.transform.position.z);
+            float distance = Vector3.Distance(transform.position, targetPosition.transform.position);
+            if (distance > 0.01f)
+            {
+                GameObject cardsAtTheCenter = GameObject.Find("CardsAtTheCenter");
+                transform.SetParent(cardsAtTheCenter.transform, true);
+                
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition.transform.position, 
+                    Time.deltaTime * 1f);
+            }
+            targetPosition.transform.position = new Vector3(
+                targetPosition.transform.position.x + 0.226f,
+                targetPosition.transform.position.y,
+                targetPosition.transform.position.z
+            );
+        }
     }
 }

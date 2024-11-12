@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> cardDeck = new List<GameObject>();
     public GameObject cardDeckObject;
-    public GameObject foo;
-    [SerializeField] private GameCard card;
+    //[SerializeField] private GameCard card;
     public Animator deckAnimator;
     public Player player;
 
@@ -36,12 +35,8 @@ public class GameManager : MonoBehaviour
             GameObject cardSpawner = GameObject.Find("CardSpawner");
             GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform);
             GameCard card = cardObject.GetComponent<GameCard>();
-            card.targetPosition = GameObject.Find("CheckpointForCenter");
             card.GoToCenter();
-            /*while (Vector3.Distance(card.gameObject.transform.position, card.targetPosition.transform.position) > 0.01f)
-            {
-                card.GoToCenter();
-            }*/
+            card.gameObject.name = $"Card{i + 1}";
             cardDeck.Remove(cardDeck[cardIndex]);
             yield return new WaitForSeconds(3.5f);
 

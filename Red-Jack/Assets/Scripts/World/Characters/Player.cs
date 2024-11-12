@@ -39,23 +39,19 @@ public class Player : MonoBehaviour
         {
             if (hit.collider.CompareTag("Card"))
             {
-                rayHitCard = hit.collider.gameObject;
+                /*rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;
-                cardController = card.GetComponent<GameCard>();
+                cardController = card.GetComponent<GameCard>();*/
             }
         }
         if (Physics.Raycast(ray, out hit, 1000f))
         {
             hitTag = hit.collider.tag;
-            if (gameCamera.canMoveCamera)
+            /*if (gameCamera.canMoveCamera)
             {
                 if (hit.collider.CompareTag("Card")) { cardController.IsPointedAnimation(); }
                 else { cardController.IsNotPointedAt(); }
-            }
-        }
-        else
-        {
-
+            }*/
         }
         AnimationHandler();
     }
