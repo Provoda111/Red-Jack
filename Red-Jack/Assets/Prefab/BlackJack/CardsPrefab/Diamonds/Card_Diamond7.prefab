@@ -112,8 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardValue: 7
-  targetPosition: {fileID: 0}
-  isAtTheTable: 1
 --- !u!95 &-3445390392398783433
 Animator:
   serializedVersion: 5

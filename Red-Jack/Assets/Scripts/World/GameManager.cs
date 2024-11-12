@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GiveCards()
     {
+        Debug.Log("1");
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
@@ -38,7 +39,9 @@ public class GameManager : MonoBehaviour
             card.GoToCenter();
             card.gameObject.name = $"Card{i + 1}";
             cardDeck.Remove(cardDeck[cardIndex]);
+            Debug.Log("2");
             yield return new WaitForSeconds(3.5f);
+            Debug.Log("3");
 
         }
     }

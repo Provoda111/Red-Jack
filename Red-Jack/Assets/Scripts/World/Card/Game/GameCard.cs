@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameCard : MonoBehaviour
@@ -7,19 +8,28 @@ public class GameCard : MonoBehaviour
     [SerializeField] private int cardValue;
     private Animator cardAnimator;
     private Vector3 startPosition;
-    public GameObject targetPosition;
-    public bool isAtTheTable = true;
+    internal bool isAtTheTable = false;
+    GameObject targetPosition;
 
     private void Start()
     {
         cardAnimator = GetComponent<Animator>();
         startPosition = transform.position;
+        targetPosition = GameObject.Find("CheckpointForCenter");
     }
 
     private void LateUpdate()
     {
         //transform.position = new Vector3(startPosition.x, transform.position.y, startPosition.z); // Collider problem
-        if (isAtTheTable) { UpdatePosition(); } // Collider problem
+        //if (isAtTheTable) { UpdatePosition(); } // Collider problem
+        if (isAtTheTable)
+        {
+            targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f,
+                targetPosition.transform.position.y,
+                targetPosition.transform.position.z);
+            gameObject.GetComponent<CardMover>().enabled = false;
+            isAtTheTable = false;
+        }
     }
     private void UpdatePosition()
     {
@@ -43,26 +53,7 @@ public class GameCard : MonoBehaviour
     }
     public void GoToCenter()
     {
-        targetPosition = GameObject.Find("CheckpointForCenter");
-        if (targetPosition != null)
-        {
-            float distance = Vector3.Distance(transform.position, targetPosition.transform.position);
-            if (distance > 0.01f)
-            {
-                GameObject cardsAtTheCenter = GameObject.Find("CardsAtTheCenter");
-                transform.SetParent(cardsAtTheCenter.transform, true);
-                
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition.transform.position, 
-                    Time.deltaTime * 1f);
-            }
-            targetPosition.transform.position = new Vector3(
-                targetPosition.transform.position.x + 0.226f,
-                targetPosition.transform.position.y,
-                targetPosition.transform.position.z
-            );
-        }
+        gameObject.AddComponent<CardMover>();
+        gameObject.GetComponent<CardMover>().enabled = true;
     }
 }
