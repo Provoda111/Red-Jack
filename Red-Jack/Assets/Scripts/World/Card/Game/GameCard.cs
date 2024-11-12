@@ -51,6 +51,6 @@ public class GameCard : MonoBehaviour
             yield return null;
         }*/
         transform.position = Vector3.MoveTowards(transform.position, targetPosition.transform.position, 0.01f);
-        targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.37296f, targetPosition.transform.position.y, targetPosition.transform.position.z);
+        targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f, targetPosition.transform.position.y, targetPosition.transform.position.z);
     }
 }
