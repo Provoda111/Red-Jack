@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
         {
             if (hit.collider.CompareTag("Card"))
             {
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
+                    card.GoToPlayer();
+                }
                 /*rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;
                 cardController = card.GetComponent<GameCard>();*/

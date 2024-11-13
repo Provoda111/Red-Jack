@@ -9,7 +9,8 @@ public class GameCard : MonoBehaviour
     private Animator cardAnimator;
     private Vector3 startPosition;
     internal bool isAtTheTable = false;
-    GameObject targetPosition;
+    internal bool isAtTheHand = true;
+    internal GameObject targetPosition;
 
     private void Start()
     {
@@ -24,11 +25,19 @@ public class GameCard : MonoBehaviour
         //if (isAtTheTable) { UpdatePosition(); } // Collider problem
         if (isAtTheTable)
         {
-            targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f,
+            if (targetPosition.name == "CheckpointForCenter")
+            {
+                targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f,
                 targetPosition.transform.position.y,
                 targetPosition.transform.position.z);
-            gameObject.GetComponent<CardMover>().enabled = false;
+            }
+            //gameObject.GetComponent<CardMover>().enabled = false;
+            Destroy(GetComponent<CardMover>());
             isAtTheTable = false;
+        }
+        if (isAtTheHand)
+        {
+            WriteCardInfo();
         }
     }
     private void UpdatePosition()
@@ -43,9 +52,13 @@ public class GameCard : MonoBehaviour
     {
         cardAnimator.SetBool("cardRaise", false);
     }
-    public void GoToPlayer()
+    internal void GoToPlayer()
     {
-
+        gameObject.AddComponent<CardMover>();
+        gameObject.GetComponent<CardMover>().enabled = true;
+        targetPosition = GameObject.Find("Slot 1");
+        
+        
     }
     public void GoToDeck()
     {
@@ -55,5 +68,11 @@ public class GameCard : MonoBehaviour
     {
         gameObject.AddComponent<CardMover>();
         gameObject.GetComponent<CardMover>().enabled = true;
+        targetPosition = GameObject.Find("CheckpointForCenter");
+    }
+    internal void WriteCardInfo()
+    {
+        TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
+        cardValueText.text = $"{cardValue}";
     }
 }
