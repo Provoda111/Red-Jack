@@ -18,7 +18,7 @@ public class CardMover : MonoBehaviour
             if (distance < 0.01f)
             {
                 //if (cardController.target)
-                transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
+                //transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
                 gameObject.GetComponent<GameCard>().isAtTheTable = true;
             }
             else

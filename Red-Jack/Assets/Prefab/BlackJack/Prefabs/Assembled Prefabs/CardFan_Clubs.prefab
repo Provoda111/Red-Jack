@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4285000894260529900}
   - {fileID: 4285000894854074442}
@@ -98,7 +99,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -52.741
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3884820943163930010, guid: 18c6a9a978394df4596d3f6ec9c6f6fb, type: 3}
+    - {fileID: 4514662299505008252, guid: 18c6a9a978394df4596d3f6ec9c6f6fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18c6a9a978394df4596d3f6ec9c6f6fb, type: 3}
 --- !u!4 &4285000895164972142 stripped
 Transform:
@@ -160,7 +163,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -85.08
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4877812968672446282, guid: 6355a5e4b343a0f4f88854099a35e7da, type: 3}
+    - {fileID: 4206225330666812663, guid: 6355a5e4b343a0f4f88854099a35e7da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6355a5e4b343a0f4f88854099a35e7da, type: 3}
 --- !u!4 &4285000893385295409 stripped
 Transform:
@@ -222,7 +227,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_ClubAce
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3630380650535287879, guid: 3c7827269bdf2ba4b9c1f07269a3617d, type: 3}
+    - {fileID: 3874032688830802330, guid: 3c7827269bdf2ba4b9c1f07269a3617d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c7827269bdf2ba4b9c1f07269a3617d, type: 3}
 --- !u!4 &4285000894260529900 stripped
 Transform:
@@ -284,7 +291,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_Club8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5513262516286731137, guid: 31165ab1c9ffb1b4393a869ca8d9c607, type: 3}
+    - {fileID: 3959425617904843093, guid: 31165ab1c9ffb1b4393a869ca8d9c607, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31165ab1c9ffb1b4393a869ca8d9c607, type: 3}
 --- !u!4 &4285000895183983827 stripped
 Transform:
@@ -346,7 +355,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_Club6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5617222985472751062, guid: bf75833717328c748bbbef20e8986a16, type: 3}
+    - {fileID: 2723874661462488635, guid: bf75833717328c748bbbef20e8986a16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf75833717328c748bbbef20e8986a16, type: 3}
 --- !u!4 &4285000893590792884 stripped
 Transform:
@@ -408,7 +419,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -81.169
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7534260701254191538, guid: c88d2bc2e8a4e0f4a94e90b25657eca8, type: 3}
+    - {fileID: 2023514526703507048, guid: c88d2bc2e8a4e0f4a94e90b25657eca8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c88d2bc2e8a4e0f4a94e90b25657eca8, type: 3}
 --- !u!4 &4285000894213595127 stripped
 Transform:
@@ -470,7 +483,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -33.434
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4006499826495587153, guid: 60fe154d0d5302e429e647a07712a783, type: 3}
+    - {fileID: 2184167937861412595, guid: 60fe154d0d5302e429e647a07712a783, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60fe154d0d5302e429e647a07712a783, type: 3}
 --- !u!4 &4285000894546950919 stripped
 Transform:
@@ -532,7 +547,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_ClubJack
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6081413165506438957, guid: 622932214f41b5f4991ddf56e8795153, type: 3}
+    - {fileID: 8408586300305174002, guid: 622932214f41b5f4991ddf56e8795153, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 622932214f41b5f4991ddf56e8795153, type: 3}
 --- !u!4 &4285000894461317606 stripped
 Transform:
@@ -594,7 +611,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_Club10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8569250241457703193, guid: 45b0da87b7aa95043ac945346660c238, type: 3}
+    - {fileID: 8602655023653858907, guid: 45b0da87b7aa95043ac945346660c238, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 45b0da87b7aa95043ac945346660c238, type: 3}
 --- !u!4 &4285000895016566455 stripped
 Transform:
@@ -656,7 +675,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_Club7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2004951583806337980, guid: d9cf5bcb0390da349a9956421105f799, type: 3}
+    - {fileID: 8160968633028048071, guid: d9cf5bcb0390da349a9956421105f799, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9cf5bcb0390da349a9956421105f799, type: 3}
 --- !u!4 &4285000894262227625 stripped
 Transform:
@@ -718,7 +739,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_Club5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8198070848790986663, guid: d9e3c74f8d6625445af8dbcf82cf1dab, type: 3}
+    - {fileID: 7319133680495680948, guid: d9e3c74f8d6625445af8dbcf82cf1dab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9e3c74f8d6625445af8dbcf82cf1dab, type: 3}
 --- !u!4 &4285000893113966076 stripped
 Transform:
@@ -780,7 +803,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.803
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942822490033966937, guid: 9b1450ad91edbd64199dee0d33d9c9a2, type: 3}
+    - {fileID: 5617761753054702781, guid: 9b1450ad91edbd64199dee0d33d9c9a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b1450ad91edbd64199dee0d33d9c9a2, type: 3}
 --- !u!4 &4285000894854074442 stripped
 Transform:
@@ -842,7 +867,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_ClubKing
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2921619802712783226, guid: 16ee3d16d985a9d4f9275ef7691e0e43, type: 3}
+    - {fileID: 4959563530498574045, guid: 16ee3d16d985a9d4f9275ef7691e0e43, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 16ee3d16d985a9d4f9275ef7691e0e43, type: 3}
 --- !u!4 &4285000894544937873 stripped
 Transform:

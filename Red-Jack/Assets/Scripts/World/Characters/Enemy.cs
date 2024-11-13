@@ -7,4 +7,5 @@ public class Enemy : MonoBehaviour
     private bool hasLost;
     public List<BuffCard> buffCards = new List<BuffCard>();
     [SerializeField] private List<GameObject> enemyCards = new List<GameObject>();
+    internal bool canMakeMove = false;
 }

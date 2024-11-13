@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     private GameCard cardController;
+    internal bool canMakeMove;
 
     // Audio variables
 
@@ -37,7 +39,8 @@ public class Player : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 1000);
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            if (hit.collider.CompareTag("Card"))
+            hitTag = hit.collider.tag;
+            if (hitTag == "Card")
             {
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
@@ -49,22 +52,9 @@ public class Player : MonoBehaviour
                 cardController = card.GetComponent<GameCard>();*/
             }
         }
-        if (Physics.Raycast(ray, out hit, 1000f))
-        {
-            hitTag = hit.collider.tag;
-            /*if (gameCamera.canMoveCamera)
-            {
-                if (hit.collider.CompareTag("Card")) { cardController.IsPointedAnimation(); }
-                else { cardController.IsNotPointedAt(); }
-            }*/
-        }
-        AnimationHandler();
     }
     private void OnGUI()
     {
         //GUI.Label(new Rect(10, 10, 1000, 100), hitTag);
-    }
-    private void AnimationHandler()
-    {
     }
 }
