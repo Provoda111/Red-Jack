@@ -5828,7 +5828,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &465595920
 GameObject:
@@ -5896,7 +5896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &466980273
 PrefabInstance:
@@ -6294,7 +6294,7 @@ GameObject:
   - component: {fileID: 610964359}
   m_Layer: 0
   m_Name: Slot 5
-  m_TagString: Untagged
+  m_TagString: Player's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6307,7 +6307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610964357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -0.524, z: 0.429}
+  m_LocalPosition: {x: 0.18, y: -0.394, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6376,7 +6376,7 @@ GameObject:
   - component: {fileID: 655084502}
   m_Layer: 0
   m_Name: Slot 3
-  m_TagString: Untagged
+  m_TagString: Enemy's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6389,7 +6389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655084500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.062999934, y: 0.5762598, z: 0.6859999}
+  m_LocalPosition: {x: -0.062999934, y: 0.871, z: 0.6859999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6421,7 +6421,7 @@ GameObject:
   - component: {fileID: 731801062}
   m_Layer: 0
   m_Name: Slot 3
-  m_TagString: Untagged
+  m_TagString: Player's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6434,7 +6434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731801060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4839999, y: -0.524, z: 0.429}
+  m_LocalPosition: {x: -0.4839999, y: -0.3940001, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6548,7 +6548,7 @@ RectTransform:
   m_Children:
   - {fileID: 2024953596}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6649,8 +6649,8 @@ GameObject:
   - component: {fileID: 759784694}
   - component: {fileID: 759784695}
   m_Layer: 0
-  m_Name: Slot 5
-  m_TagString: Untagged
+  m_Name: Slot 1
+  m_TagString: Enemy's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6663,7 +6663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759784693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8430002, y: 0.5762598, z: 0.6859999}
+  m_LocalPosition: {x: -0.8430002, y: 0.8629999, z: 0.6859999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6851,6 +6851,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 429202, guid: acbb3223474da5a478e39cc3031f80c9, type: 3}
   m_PrefabInstance: {fileID: 798251491}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &815605927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815605929}
+  - component: {fileID: 815605928}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &815605928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815605927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6caab35dca800b4d88630e4e5f47e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamerSlots: []
+  carddd: {fileID: 163211197}
+--- !u!4 &815605929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815605927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6645502, y: 5.9922986, z: -8.922907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1438392073}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &857043179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7202,7 +7249,7 @@ Transform:
   - {fileID: 156679787}
   - {fileID: 1961420363}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &968961017
 PrefabInstance:
@@ -7229,7 +7276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 344294215525210528, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 344294215525210528, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
       propertyPath: m_LocalScale.y
@@ -7402,7 +7449,7 @@ GameObject:
   - component: {fileID: 1032885812}
   m_Layer: 0
   m_Name: Slot 1
-  m_TagString: Untagged
+  m_TagString: Player's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7415,7 +7462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032885810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.264, y: -0.524, z: 0.429}
+  m_LocalPosition: {x: -1.264, y: -0.3940001, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7503,8 +7550,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070750267}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: 4.12526, z: -9.45}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.459, y: -0.48373985, z: 1.1389999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7513,8 +7560,8 @@ Transform:
   - {fileID: 731801061}
   - {fileID: 1573300664}
   - {fileID: 610964358}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1200078258}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1164339474
 GameObject:
@@ -7527,8 +7574,8 @@ GameObject:
   - component: {fileID: 1164339475}
   - component: {fileID: 1164339476}
   m_Layer: 0
-  m_Name: Slot 4
-  m_TagString: Untagged
+  m_Name: Slot 2
+  m_TagString: Enemy's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7541,7 +7588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164339474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.44699997, y: 0.5762598, z: 0.6859999}
+  m_LocalPosition: {x: -0.44699997, y: 0.871, z: 0.6859999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7648,8 +7695,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1247853513}
+  - {fileID: 1070750268}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1200078259
 MonoBehaviour:
@@ -7663,12 +7711,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8adcbd4fbb01243a165396fa041435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCards: []
+  gamerSlots: []
   cursorCamera: {fileID: 1247853512}
   layersToHit:
     serializedVersion: 2
     m_Bits: 128
   animator: {fileID: 1247853514}
+  carddd: {fileID: 2095509539}
 --- !u!114 &1200078260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7923,7 +7972,7 @@ GameObject:
   - component: {fileID: 1293341360}
   m_Layer: 0
   m_Name: Slot 2
-  m_TagString: Untagged
+  m_TagString: Player's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7936,7 +7985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293341358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.868, y: -0.524, z: 0.429}
+  m_LocalPosition: {x: -0.868, y: -0.3940001, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8010,8 +8059,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438392072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.388, y: 3.025, z: -7.14}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.27655017, y: -2.9672985, z: 1.782907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8020,8 +8069,8 @@ Transform:
   - {fileID: 655084501}
   - {fileID: 2142158994}
   - {fileID: 1955826314}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 815605929}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1455043643
 GameObject:
@@ -8140,7 +8189,7 @@ GameObject:
   - component: {fileID: 1573300665}
   m_Layer: 0
   m_Name: Slot 4
-  m_TagString: Untagged
+  m_TagString: Player's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8153,7 +8202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573300663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.148, y: -0.524, z: 0.429}
+  m_LocalPosition: {x: -0.148, y: -0.3940001, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8198,7 +8247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 344294215525210528, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 344294215525210528, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}
       propertyPath: m_LocalScale.y
@@ -8293,7 +8342,7 @@ Transform:
   - {fileID: 857043180}
   - {fileID: 302604087}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1793670171
 PrefabInstance:
@@ -8411,8 +8460,8 @@ GameObject:
   - component: {fileID: 1955826314}
   - component: {fileID: 1955826315}
   m_Layer: 0
-  m_Name: Slot 1
-  m_TagString: Untagged
+  m_Name: Slot 5
+  m_TagString: Enemy's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8425,7 +8474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955826313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.60099995, y: 0.5762598, z: 0.6859999}
+  m_LocalPosition: {x: 0.60099995, y: 0.871, z: 0.6859999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8999,8 +9048,8 @@ GameObject:
   - component: {fileID: 2142158994}
   - component: {fileID: 2142158995}
   m_Layer: 0
-  m_Name: Slot 2
-  m_TagString: Untagged
+  m_Name: Slot 4
+  m_TagString: Enemy's card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9013,7 +9062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142158993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27299997, y: 0.5762598, z: 0.6859999}
+  m_LocalPosition: {x: 0.27299997, y: 0.871, z: 0.6859999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

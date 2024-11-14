@@ -25,13 +25,13 @@ public class Player : Gamer
     private GameCard cardController;
     internal bool canMakeMove;
 
-
+    public GameObject carddd;
 
     // Audio variables
 
     public void Start()
     {
-        slots = new List<GameObject>();
+        gamerSlots = GameObject.FindGameObjectsWithTag("Player's card").ToList();
         gameCards = new List<GameObject>();
         buffCards = new List<GameObject>();
         hasLost = false;
@@ -55,6 +55,11 @@ public class Player : Gamer
                 card = rayHitCard;
                 cardController = card.GetComponent<GameCard>();*/
             }
+        }
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            GameCard card = carddd.GetComponent<GameCard>();
+            card.GoToPlayer(this.gameObject);
         }
     }
     private void OnGUI()

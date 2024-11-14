@@ -19,7 +19,7 @@ public class CardMover : MonoBehaviour
             {
                 //if (cardController.target)
                 //transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
-                gameObject.GetComponent<GameCard>().isAtTheTable = true;
+                cardController.isAtTheTable = true;
             }
             else
             {

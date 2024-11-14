@@ -10,7 +10,7 @@ public class GameCard : MonoBehaviour
     private Animator cardAnimator;
     internal bool isAtTheTable = false;
     internal bool isAtTheHand = true;
-    internal GameObject targetPosition;
+    [SerializeField] internal GameObject targetPosition;
 
     private void Start()
     {
@@ -33,7 +33,6 @@ public class GameCard : MonoBehaviour
                 targetPosition.transform.position.y,
                 targetPosition.transform.position.z);
             }
-            //gameObject.GetComponent<CardMover>().enabled = false;
             Destroy(GetComponent<CardMover>());
             isAtTheTable = false;
         }
@@ -44,15 +43,17 @@ public class GameCard : MonoBehaviour
     }
     internal void GoToPlayer(GameObject caller)
     {
+        Gamer gamer = caller.GetComponent<Gamer>();
+        //targetPosition = GameObject.Find($"Slot 1");
+        gamer.AddCardToSlot(this.gameObject);
+        targetPosition.transform.position = gamer.slotPosition;
+        
         /// <summary>
         /// Assignment: check if the caller of this void is player, then it goes to player's card slot.
         /// If the caller is enemy, then card goes to his card slot. 
         /// </summary>
         gameObject.AddComponent<CardMover>();
         gameObject.GetComponent<CardMover>().enabled = true;
-        targetPosition = GameObject.Find($"Slot 1");
-
-        Gamer gamer = caller.GetComponent<Gamer>();
     }
     public void GoToDeck()
     {
@@ -65,12 +66,18 @@ public class GameCard : MonoBehaviour
         targetPosition = GameObject.Find("CheckpointForCenter");
         /*if (Vector3.Distance(transform.position, targetPosition.transform.position) < 0.01f)
         {
+            targetPosition.transform.position = new Vector3(targetPosition.transform.position.x + 0.226f,
+            targetPosition.transform.position.y,
+            targetPosition.transform.position.z);
+        }*/
+        /*if (Vector3.Distance(transform.position, targetPosition.transform.position) < 0.01f)
+        {
             transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
         }*/
     }
     internal void WriteCardInfo()
     {
-        TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
-        cardValueText.text = $"{cardValue}";
+        /*TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
+        cardValueText.text = $"{cardValue}";*/
     }
 }
