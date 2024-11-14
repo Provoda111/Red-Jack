@@ -12,14 +12,23 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.H)) //If test №1
+        /*if (Input.GetKeyUp(KeyCode.H)) //If test №1
         {
             StartCoroutine(GiveCards());
-        }
+        }*/
     }
     private void CardChooseStep()
     {
 
+    }
+    
+    public void GiveCardsActivator() // For demo
+    {
+        StartCoroutine(GiveCards());
+    }
+    public void GivePlayerCard() // For demo
+    {
+        
     }
     IEnumerator gameStart()
     {
@@ -27,7 +36,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         deckAnimator.SetTrigger("HasFlipped");
     }
-    IEnumerator GiveCards()
+    public IEnumerator GiveCards()
     {
         for (int i = 0; i < 3; i++)
         {

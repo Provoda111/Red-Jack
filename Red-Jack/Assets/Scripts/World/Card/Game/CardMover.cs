@@ -1,3 +1,4 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,27 +6,36 @@ using UnityEngine;
 
 public class CardMover : MonoBehaviour
 {
-    GameCard cardController;
-    private void Start()
+    private Transform target;
+    private float speed = 1f;
+
+   
+    public event Action OnReachedTarget;
+
+   
+    public void SetTarget(Transform targetPosition, float moveSpeed)
     {
-        cardController = gameObject.GetComponent<GameCard>();
+        target = targetPosition;
+        speed = moveSpeed;
     }
-    void Update()
+
+    private void Update()
     {
-        if (cardController.targetPosition != null)
+        if (target != null)
         {
-            float distance = Vector3.Distance(transform.position, cardController.targetPosition.transform.position);
-            if (distance < 0.01f)
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target.position,
+                Time.deltaTime * speed);
+
+          
+            if (Vector3.Distance(transform.position, target.position) < 0.01f)
             {
-                //if (cardController.target)
-                //transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
-                cardController.isAtTheTable = true;
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, cardController.targetPosition.transform.position,
-                    Time.deltaTime * 1f);
+                
+                OnReachedTarget?.Invoke();
+                Destroy(this); 
             }
         }
     }
+
 }
