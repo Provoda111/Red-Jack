@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Player : MonoBehaviour
+public class Player : Gamer
 {
-    private bool hasLost;
-    [SerializeField] private List<GameObject> playerCards = new List<GameObject>();
-    private List<BuffCard> buffCards = new List<BuffCard>();
     private GameObject card;
     private GameObject rayHitCard;
     public UnityEngine.Camera cursorCamera;
@@ -27,10 +25,16 @@ public class Player : MonoBehaviour
     private GameCard cardController;
     internal bool canMakeMove;
 
+
+
     // Audio variables
 
-    private void Start()
+    public void Start()
     {
+        slots = new List<GameObject>();
+        gameCards = new List<GameObject>();
+        buffCards = new List<GameObject>();
+        hasLost = false;
         gameCamera = GetComponent<Camera>();
     }
     private void Update()
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
-                    card.GoToPlayer();
+                    card.GoToPlayer(this.gameObject);
                 }
                 /*rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;

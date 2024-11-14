@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Gamer
 {
-    private bool hasLost;
-    public List<BuffCard> buffCards = new List<BuffCard>();
-    [SerializeField] private List<GameObject> enemyCards = new List<GameObject>();
-    internal bool canMakeMove = false;
+    public void Start()
+    {
+        slots = new List<GameObject>();
+        gameCards = new List<GameObject>();
+        buffCards = new List<GameObject>();
+        hasLost = false;
+    }
 }

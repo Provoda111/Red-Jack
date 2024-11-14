@@ -42,7 +42,7 @@ public class GameCard : MonoBehaviour
             WriteCardInfo();
         }
     }
-    internal void GoToPlayer()
+    internal void GoToPlayer(GameObject caller)
     {
         /// <summary>
         /// Assignment: check if the caller of this void is player, then it goes to player's card slot.
@@ -51,6 +51,8 @@ public class GameCard : MonoBehaviour
         gameObject.AddComponent<CardMover>();
         gameObject.GetComponent<CardMover>().enabled = true;
         targetPosition = GameObject.Find($"Slot 1");
+
+        Gamer gamer = caller.GetComponent<Gamer>();
     }
     public void GoToDeck()
     {

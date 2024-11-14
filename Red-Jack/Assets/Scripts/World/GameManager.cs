@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(3.5f);
         }
     }
-    IEnumerator GivePlayerCardFromDeck()
+    /*IEnumerator GivePlayerCardFromDeck()
     {
         for (int i = 0; i < 1; i++)
         {
@@ -49,9 +49,9 @@ public class GameManager : MonoBehaviour
             GameObject cardSpawner = GameObject.Find("CardSpawner");
             GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform);
             GameCard card = cardObject.GetComponent<GameCard>();
-            card.GoToPlayer();
+            //card.GoToPlayer();
             cardDeck.Remove(cardDeck[cardIndex]);
         }
         yield return new WaitForSeconds(1f);
-    }
+    }*/
 }
