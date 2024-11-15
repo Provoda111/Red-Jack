@@ -9277,7 +9277,8 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 6996385895b383749b266464bf872c69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6996385895b383749b266464bf872c69, type: 3}
 --- !u!1001 &1242145583
 PrefabInstance:
