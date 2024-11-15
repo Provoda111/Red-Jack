@@ -6274,6 +6274,7 @@ MonoBehaviour:
   deckAnimator: {fileID: 1186335110}
   player: {fileID: 1200078259}
   cardSpawner: {fileID: 1961420363}
+  cardRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &446797990
 Transform:
   m_ObjectHideFlags: 0
