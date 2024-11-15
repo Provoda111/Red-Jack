@@ -27,40 +27,35 @@ public class GameCard : MonoBehaviour
     }
     internal void GoToPlayer(GameObject caller)
     {
-        GameObject slotObject = new GameObject("SlotPosition");
         CardMover mover = gameObject.AddComponent<CardMover>(); ;
         if (!isAtTheHand)
         {
             Gamer gamer = caller.GetComponent<Gamer>();
             gamer.AddCardToSlot(this.gameObject);
-
-            slotObject.transform.position = gamer.slotPosition;
-            mover.SetTarget(slotObject.transform, 1f);
+            targetPosition.transform.position = gamer.slotPosition;
+            mover.SetTarget(targetPosition.transform, 1f);
         }
         mover.OnReachedTarget += () =>
         {
             isAtTheHand = true;
-            Destroy(slotObject); 
+            //Destroy(slotObject); 
         };
 
     }
     public void GetCard(GameObject caller)
     {
-        GameObject slotObject = new GameObject("SlotPosition");
-        CardMover mover = gameObject.AddComponent<CardMover>(); ;
+        /*CardMover mover = gameObject.AddComponent<CardMover>();
         if (!isAtTheHand)
         {
             Gamer gamer = caller.GetComponent<Gamer>();
             gamer.AddCardToSlot(this.gameObject);
-
-            slotObject.transform.position = gamer.slotPosition;
-            mover.SetTarget(slotObject.transform, 1f);
+            targetPosition.transform.position = gamer.slotPosition;
+            mover.SetTarget(targetPosition.transform, 1f);
         }
         mover.OnReachedTarget += () =>
         {
             isAtTheHand = true;
-            Destroy(slotObject);
-        };
+        };*/
     }
     public void GoToDeck()
     {
@@ -82,11 +77,13 @@ public class GameCard : MonoBehaviour
             targetPosition.transform.position.x + 0.226f,
             targetPosition.transform.position.y,
             targetPosition.transform.position.z);
+        transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
+        
     }
 
     internal void WriteCardInfo()
     {
-        /*TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
-        cardValueText.text = $"{cardValue}";*/
+        TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
+        cardValueText.text = $"{cardValue}";
     }
 }

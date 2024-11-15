@@ -9,13 +9,18 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private GameCard card;
     public Animator deckAnimator;
     public Player player;
+    public Transform cardSpawner;
 
     private void Update()
     {
-        /*if (Input.GetKeyUp(KeyCode.H)) //If test №1
+        if (Input.GetKeyUp(KeyCode.H)) //If test №1
         {
             StartCoroutine(GiveCards());
-        }*/
+        }
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            GivePlayerCard();
+        }
     }
     private void CardChooseStep()
     {
@@ -28,7 +33,12 @@ public class GameManager : MonoBehaviour
     }
     public void GivePlayerCard() // For demo
     {
-        
+        int cIndex = Random.Range(0, cardDeck.Count);
+        GameObject cardSpawner = GameObject.Find("CardSpawner");
+        GameObject cardObject = Instantiate(cardDeck[cIndex], cardSpawner.transform);
+        GameCard card = cardObject.GetComponent<GameCard>();
+        card.GoToPlayer(GameObject.Find("Player"));
+        cardDeck.Remove(cardDeck[cIndex]);
     }
     IEnumerator gameStart()
     {
@@ -41,8 +51,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
-            GameObject cardSpawner = GameObject.Find("CardSpawner");
-            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform);
+            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform.position);
+            //cardObject.transform.SetParent(GameObject.Find("CardToCenter").transform, true);
             GameCard card = cardObject.GetComponent<GameCard>();
             card.GoToCenter();
             card.gameObject.name = $"Card{i + 1}";

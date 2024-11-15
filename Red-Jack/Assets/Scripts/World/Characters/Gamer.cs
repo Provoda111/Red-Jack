@@ -18,19 +18,25 @@ public class Gamer : MonoBehaviour
         // set the cards targetposition to move to
         // Signal the move?
         // Tell the slot is taken
-
+        if (gamerSlots.Count < 5)
+        {
+            
+        }
         Transform slotDetect = gamerSlots.Find(x => x.name.Contains("Slot")).transform;
         if (slotDetect.childCount == 0)
         {
             slotPosition = slotDetect.position;
+            gamerSlots.RemoveAt(0);
         }
         //Vector3 slotPosition = gamerSlots.Find(x => x.name.Contains("Slot")).transform.position;
         // GameObject slotPosition = GameObject.Find("Slot", emptySlots.Find(cardObject));
-        gamerSlots.RemoveAt(0);
     }
     internal void RemoveCardFromSlot(GameObject cardObject)
     {
-        gamerSlots.Add(cardObject);
+        if (gamerSlots.Count > 0)
+        {
+            gamerSlots.Add(cardObject);
+        }
     }
 
     /*protected Gamer(List<GameObject> slots, List<GameObject> gameCards, List<GameObject> buffCards, bool hasLost)
