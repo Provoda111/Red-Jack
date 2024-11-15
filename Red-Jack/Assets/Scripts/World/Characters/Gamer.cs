@@ -26,6 +26,7 @@ public class Gamer : MonoBehaviour
         if (slotDetect.childCount == 0)
         {
             slotPosition = slotDetect.position;
+            gameCards.Add(cardObject);
             gamerSlots.RemoveAt(0);
         }
         //Vector3 slotPosition = gamerSlots.Find(x => x.name.Contains("Slot")).transform.position;

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Transform cardSpawner;
 
-    public Quaternion cardRotation;
+    internal Quaternion cardRotation;
 
     private void Update()
     {
