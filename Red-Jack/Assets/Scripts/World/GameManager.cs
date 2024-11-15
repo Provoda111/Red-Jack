@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
-            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform.position);
+            GameObject cardObject = Instantiate(cardDeck[cardIndex],  cardSpawner.transform);
             //cardObject.transform.SetParent(GameObject.Find("CardToCenter").transform, true);
             GameCard card = cardObject.GetComponent<GameCard>();
             card.GoToCenter();
