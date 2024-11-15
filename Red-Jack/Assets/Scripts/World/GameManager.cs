@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Transform cardSpawner;
 
+    public Quaternion cardRotation;
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.H)) //If test №1
@@ -51,7 +53,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, cardDeck.Count);
-            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform.position);
+            cardRotation.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
+            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform.position, cardRotation);
             //cardObject.transform.SetParent(GameObject.Find("CardToCenter").transform, true);
             GameCard card = cardObject.GetComponent<GameCard>();
             card.GoToCenter();
