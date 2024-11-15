@@ -9,9 +9,7 @@ public class CardMover : MonoBehaviour
     private Transform target;
     private float speed = 1f;
 
-   
     public event Action OnReachedTarget;
-
    
     public void SetTarget(Transform targetPosition, float moveSpeed)
     {
@@ -27,11 +25,8 @@ public class CardMover : MonoBehaviour
                 transform.position,
                 target.position,
                 Time.deltaTime * speed);
-
-          
             if (Vector3.Distance(transform.position, target.position) < 0.01f)
             {
-                
                 OnReachedTarget?.Invoke();
                 Destroy(this); 
             }
