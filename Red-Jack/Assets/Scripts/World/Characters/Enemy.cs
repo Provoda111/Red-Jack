@@ -16,10 +16,6 @@ public class Enemy : Gamer
     }
     public void Update()
     {
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            GameCard card = carddd.GetComponent<GameCard>();
-            card.GoToPlayer(this.gameObject);
-        }
+        
     }
 }

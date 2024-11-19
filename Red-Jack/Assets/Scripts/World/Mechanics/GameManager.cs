@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject cardDeckObject;
     //[SerializeField] private GameCard card;
     public Player player;
+    public Enemy enemy;
     public Transform cardSpawner;
     private Deck deck;
 
@@ -23,22 +24,22 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(deck.CardsToCenter());
         }
-        if (Input.GetKeyUp(KeyCode.J)) //If test №2
+        if (Input.GetKeyUp(KeyCode.V))
         {
-            deck.GiveCardToPlayer();
+            StartCoroutine(GiveCardToGamers());
         }
     }
-    /*IEnumerator GivePlayerCardFromDeck()
+    private IEnumerator GiveCardToGamers()
     {
         for (int i = 0; i < 1; i++)
         {
-            int cardIndex = Random.Range(0, cardDeck.Count);
-            GameObject cardSpawner = GameObject.Find("CardSpawner");
-            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.transform);
-            GameCard card = cardObject.GetComponent<GameCard>();
-            //card.GoToPlayer();
-            cardDeck.Remove(cardDeck[cardIndex]);
+            if (GamerChooser.playerMove)
+            {
+                deck.GiveCardToPlayer(player.gameObject);
+                yield return new WaitForSeconds(3f);
+                deck.GiveCardToPlayer(enemy.gameObject);
+            }
         }
-        yield return new WaitForSeconds(1f);
-    }*/
+        yield return new WaitForSeconds(3f);
+    }
 }

@@ -29,7 +29,6 @@ public class GameCard : MonoBehaviour
     }
     internal void GoToPlayer(GameObject caller)
     {
-        Debug.Log("Going to the player");
         CardMover mover = gameObject.AddComponent<CardMover>(); ;
         if (!isAtTheHand)
         {

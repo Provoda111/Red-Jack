@@ -12,12 +12,20 @@ public class Gamer : MonoBehaviour
 
     internal Vector3 slotPosition;
 
+    public GameObject helpCardObject;
+    private Deck deck;
+    private void Start()
+    {
+        deck = GameObject.Find("Deck").GetComponent<Deck>();
+    }
     internal void AddCardToSlot(GameObject cardObject)
     {
+        helpCardObject = cardObject;
         Transform slotDetect = gamerSlots.Find(x => x.name.Contains("Slot")).transform;
         if (slotDetect.childCount == 0)
         {
             slotPosition = slotDetect.position;
+            //deck.GiveCardToPlayer();
             gameCards.Add(cardObject);
             gamerSlots.RemoveAt(0);
         }

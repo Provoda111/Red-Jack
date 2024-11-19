@@ -28,14 +28,13 @@ public class Deck : MonoBehaviour
             yield return new WaitForSeconds(3.5f);
         }
     }
-    internal void GiveCardToPlayer()
+    internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
         int cardIndex = Random.Range(0, cardDeck.Count);
         GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
                 cardDeck[cardIndex].transform.rotation);
         GameCard card = cardObject.GetComponent<GameCard>();
-        Player player = GameObject.Find("Player").GetComponent<Player>();
-        player.AddCardToSlot(cardObject);
+        card.GoToPlayer(whoGetsCard);
         cardDeck.Remove(cardDeck[cardIndex]);
     }
 }
