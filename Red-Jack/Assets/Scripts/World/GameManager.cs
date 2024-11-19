@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> cardDeck = new List<GameObject>();
     public GameObject cardDeckObject;
     //[SerializeField] private GameCard card;
     public Player player;

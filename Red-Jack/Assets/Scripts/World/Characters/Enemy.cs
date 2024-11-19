@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : Gamer
 {
     public GameObject carddd;
+    private GameObject selectCard;
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();

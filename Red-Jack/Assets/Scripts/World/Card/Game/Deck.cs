@@ -8,7 +8,7 @@ public class Deck : MonoBehaviour
     private Animator deckAnimator;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform cardSpawner;
-    internal List<GameObject> cardDeck = new List<GameObject>();
+    [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
     
     internal void CallCardsToCenter()
     {
@@ -18,22 +18,24 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            int cardIndex = Random.Range(0, gameManager.cardDeck.Count);
-            GameObject cardObject = Instantiate(gameManager.cardDeck[cardIndex], cardSpawner, false);
+            int cardIndex = Random.Range(0, cardDeck.Count);
+            GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position, 
+                cardDeck[cardIndex].transform.rotation);
             GameCard card = cardObject.GetComponent<GameCard>();
             card.GoToCenter();
-            //card.gameObject.name = $"Card{i + 1}";
-            gameManager.cardDeck.Remove(gameManager.cardDeck[cardIndex]);
+            cardDeck.Remove(cardDeck[cardIndex]);
+            card.gameObject.name = $"Card{i + 1}";
             yield return new WaitForSeconds(3.5f);
         }
     }
     internal void GiveCardToPlayer()
     {
-        int cardIndex = Random.Range(0, gameManager.cardDeck.Count);
-        GameObject cardObject = Instantiate(gameManager.cardDeck[cardIndex], cardSpawner.transform);
+        int cardIndex = Random.Range(0, cardDeck.Count);
+        GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
+                cardDeck[cardIndex].transform.rotation);
         GameCard card = cardObject.GetComponent<GameCard>();
         Player player = GameObject.Find("Player").GetComponent<Player>();
         player.AddCardToSlot(cardObject);
-        gameManager.cardDeck.Remove(gameManager.cardDeck[cardIndex]);
+        cardDeck.Remove(cardDeck[cardIndex]);
     }
 }
