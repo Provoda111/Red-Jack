@@ -302,6 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156679787}
+  - component: {fileID: 156679788}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -325,6 +326,20 @@ Transform:
   m_Father: {fileID: 952166477}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156679788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156679786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4b73dababb9a147bebab1b5efd55c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 446797989}
+  cardSpawner: {fileID: 1961420363}
 --- !u!1 &163211197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1120549061903663898, guid: 831bdb67d06fc234d953ba6d2badc31b, type: 3}

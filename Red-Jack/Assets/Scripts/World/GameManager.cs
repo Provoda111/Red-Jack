@@ -13,19 +13,22 @@ public class GameManager : MonoBehaviour
 
     internal Quaternion cardRotation;
 
+    private void Start()
+    {
+        deck = GameObject.Find("Deck").GetComponent<Deck>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.H)) //If test №1
         {
             StartCoroutine(deck.CardsToCenter());
         }
+        if (Input.GetKeyUp(KeyCode.J)) //If test №2
+        {
+            deck.GiveCardToPlayer();
+        }
     }
-    /*IEnumerator gameStart()
-    {
-        deckAnimator.SetTrigger("HasShuffled");
-        yield return new WaitForSeconds(5f);
-        deckAnimator.SetTrigger("HasFlipped");
-    }*/
     /*IEnumerator GivePlayerCardFromDeck()
     {
         for (int i = 0; i < 1; i++)

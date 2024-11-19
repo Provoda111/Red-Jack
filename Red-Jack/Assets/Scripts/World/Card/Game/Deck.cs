@@ -19,7 +19,7 @@ public class Deck : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int cardIndex = Random.Range(0, gameManager.cardDeck.Count);
-            GameObject cardObject = Instantiate(gameManager.cardDeck[cardIndex], cardSpawner.transform);
+            GameObject cardObject = Instantiate(gameManager.cardDeck[cardIndex], cardSpawner, false);
             GameCard card = cardObject.GetComponent<GameCard>();
             card.GoToCenter();
             //card.gameObject.name = $"Card{i + 1}";
@@ -27,7 +27,7 @@ public class Deck : MonoBehaviour
             yield return new WaitForSeconds(3.5f);
         }
     }
-    private void GiveCardToPlayer()
+    internal void GiveCardToPlayer()
     {
         int cardIndex = Random.Range(0, gameManager.cardDeck.Count);
         GameObject cardObject = Instantiate(gameManager.cardDeck[cardIndex], cardSpawner.transform);
