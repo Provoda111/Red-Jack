@@ -20,8 +20,8 @@ public class Camera : MonoBehaviour
     public bool canMoveCamera = false;
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         initialRotation = transform.localRotation;
     }
 

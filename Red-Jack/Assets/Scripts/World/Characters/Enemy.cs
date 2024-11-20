@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : Gamer
 {
     public GameObject carddd;
+    private GameObject selectCard;
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
@@ -15,10 +16,6 @@ public class Enemy : Gamer
     }
     public void Update()
     {
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            GameCard card = carddd.GetComponent<GameCard>();
-            card.GoToPlayer(this.gameObject);
-        }
+        
     }
 }

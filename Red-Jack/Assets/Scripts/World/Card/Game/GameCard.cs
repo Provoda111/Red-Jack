@@ -11,7 +11,9 @@ public class GameCard : MonoBehaviour
     private Animator cardAnimator;
     [SerializeField] internal bool isAtTheTable = false;
     [SerializeField] internal bool isAtTheHand = false;
-    [SerializeField] internal GameObject targetPosition;
+    [SerializeField] internal Vector3 targetPosition;
+    static internal Vector3 targetOffset;
+    [SerializeField] private Deck deck;
 
     private void Start()
     {
@@ -32,8 +34,8 @@ public class GameCard : MonoBehaviour
         {
             Gamer gamer = caller.GetComponent<Gamer>();
             gamer.AddCardToSlot(this.gameObject);
-            targetPosition.transform.position = gamer.slotPosition;
-            mover.SetTarget(targetPosition.transform, 1f);
+            this.targetPosition = gamer.slotPosition;
+            mover.SetTarget(targetPosition, 1f);
         }
         mover.OnReachedTarget += () =>
         {
@@ -42,43 +44,28 @@ public class GameCard : MonoBehaviour
         };
 
     }
-    public void GetCard(GameObject caller)
-    {
-        /*CardMover mover = gameObject.AddComponent<CardMover>();
-        if (!isAtTheHand)
-        {
-            Gamer gamer = caller.GetComponent<Gamer>();
-            gamer.AddCardToSlot(this.gameObject);
-            targetPosition.transform.position = gamer.slotPosition;
-            mover.SetTarget(targetPosition.transform, 1f);
-        }
-        mover.OnReachedTarget += () =>
-        {
-            isAtTheHand = true;
-        };*/
-    }
     public void GoToDeck()
     {
 
     }
     public void GoToCenter()
     {
-        targetPosition = GameObject.Find("CheckpointForCenter");
+        this.targetPosition = GameObject.Find("CheckpointForCenter").transform.position;
+        targetPosition += targetOffset;
 
         CardMover mover = gameObject.AddComponent<CardMover>();
-        mover.SetTarget(targetPosition.transform, 1f);
+        mover.SetTarget(this.targetPosition, 1f);
 
         mover.OnReachedTarget += OnReachedCenter;
     }
     private void OnReachedCenter()
     {
         isAtTheTable = true;
-        targetPosition.transform.position = new Vector3(
-            targetPosition.transform.position.x + 0.226f,
-            targetPosition.transform.position.y,
-            targetPosition.transform.position.z);
+        targetOffset = new Vector3(
+            targetOffset.x + 0.226f,
+            targetOffset.y,
+            targetOffset.z);
         transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
-        
     }
 
     internal void WriteCardInfo()

@@ -12,20 +12,20 @@ public class Gamer : MonoBehaviour
 
     internal Vector3 slotPosition;
 
+    public GameObject helpCardObject;
+    private Deck deck;
+    private void Start()
+    {
+        deck = GameObject.Find("Deck").GetComponent<Deck>();
+    }
     internal void AddCardToSlot(GameObject cardObject)
     {
-        // Find the first available slot from gamers possible slots?
-        // set the cards targetposition to move to
-        // Signal the move?
-        // Tell the slot is taken
-        if (gamerSlots.Count < 5)
-        {
-            
-        }
+        helpCardObject = cardObject;
         Transform slotDetect = gamerSlots.Find(x => x.name.Contains("Slot")).transform;
         if (slotDetect.childCount == 0)
         {
             slotPosition = slotDetect.position;
+            //deck.GiveCardToPlayer();
             gameCards.Add(cardObject);
             gamerSlots.RemoveAt(0);
         }
@@ -39,12 +39,4 @@ public class Gamer : MonoBehaviour
             gamerSlots.Add(cardObject);
         }
     }
-
-    /*protected Gamer(List<GameObject> slots, List<GameObject> gameCards, List<GameObject> buffCards, bool hasLost)
-    {
-        this.slots = slots;
-        this.gameCards = gameCards;
-        this.buffCards = buffCards;
-        this.hasLost = hasLost;
-    }*/
 }
