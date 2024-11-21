@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(GiveCardToGamers());
         }
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            enemy.ChooseRandomCardFromCenter();
+        }
     }
     private IEnumerator GiveCardToGamers()
     {

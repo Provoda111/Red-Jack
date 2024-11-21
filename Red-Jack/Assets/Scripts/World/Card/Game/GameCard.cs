@@ -29,10 +29,16 @@ public class GameCard : MonoBehaviour
     }
     internal void GoToPlayer(GameObject caller)
     {
-        CardMover mover = gameObject.AddComponent<CardMover>(); ;
+        CardMover mover = gameObject.AddComponent<CardMover>();
         if (!isAtTheHand)
         {
             Gamer gamer = caller.GetComponent<Gamer>();
+            if (gamer == null)
+            {
+                Debug.LogError("Caller is not a Gamer!");
+                return;
+            }
+
             gamer.AddCardToSlot(this.gameObject);
             this.targetPosition = gamer.slotPosition;
             mover.SetTarget(targetPosition, 1f);
@@ -40,9 +46,7 @@ public class GameCard : MonoBehaviour
         mover.OnReachedTarget += () =>
         {
             isAtTheHand = true;
-            //Destroy(slotObject); 
         };
-
     }
     public void GoToDeck()
     {

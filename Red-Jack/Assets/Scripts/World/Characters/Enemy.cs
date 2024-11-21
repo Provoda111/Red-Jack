@@ -18,4 +18,18 @@ public class Enemy : Gamer
     {
         
     }
+    public void ChooseRandomCardFromCenter()
+    {
+        var centerCards = GameObject.Find("CardsAtTheCenter").transform
+            .GetComponentsInChildren<GameCard>()
+            .Where(card => card.isAtTheTable)
+            .ToList();
+
+        if (centerCards.Count > 0)
+        {
+            GameCard chosenCard = centerCards[Random.Range(0, centerCards.Count)];
+            chosenCard.GoToPlayer(this.gameObject);
+        }
+    }
+
 }

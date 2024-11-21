@@ -21,16 +21,31 @@ public class Gamer : MonoBehaviour
     internal void AddCardToSlot(GameObject cardObject)
     {
         helpCardObject = cardObject;
-        Transform slotDetect = gamerSlots.Find(x => x.name.Contains("Slot")).transform;
-        if (slotDetect.childCount == 0)
+
+        if (gamerSlots == null || gamerSlots.Count == 0)
         {
-            slotPosition = slotDetect.position;
-            //deck.GiveCardToPlayer();
-            gameCards.Add(cardObject);
-            gamerSlots.RemoveAt(0);
+            Debug.LogError("No available slots in gamerSlots!");
+            return;
         }
-        //Vector3 slotPosition = gamerSlots.Find(x => x.name.Contains("Slot")).transform.position;
-        // GameObject slotPosition = GameObject.Find("Slot", emptySlots.Find(cardObject));
+
+        var slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
+        if (slotDetect == null)
+        {
+            Debug.LogError("No suitable slot found in gamerSlots!");
+            return;
+        }
+
+        Transform slotTransform = slotDetect.transform;
+        if (slotTransform.childCount == 0)
+        {
+            slotPosition = slotTransform.position;
+            gameCards.Add(cardObject);
+            gamerSlots.Remove(slotDetect);
+        }
+        else
+        {
+            Debug.LogError("Slot already occupied!");
+        }
     }
     internal void RemoveCardFromSlot(GameObject cardObject)
     {
