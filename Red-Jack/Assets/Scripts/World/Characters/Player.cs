@@ -49,7 +49,6 @@ public class Player : Gamer
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
                     GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
-                    AddCardToSlot(card.gameObject);
                     card.GoToPlayer(this.gameObject);
                 }
                 /*rayHitCard = hit.collider.gameObject;

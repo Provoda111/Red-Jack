@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gamer : MonoBehaviour
 {
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
-    internal List<GameObject> gameCards = new List<GameObject>();
-    internal List<GameObject> buffCards = new List<GameObject>();
+    [SerializeField] internal List<GameObject> gameCards = new List<GameObject>();
+    [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
 
     protected bool hasLost;
 
@@ -22,18 +22,7 @@ public class Gamer : MonoBehaviour
     {
         helpCardObject = cardObject;
 
-        if (gamerSlots == null || gamerSlots.Count == 0)
-        {
-            Debug.LogError("No available slots in gamerSlots!");
-            return;
-        }
-
         var slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
-        if (slotDetect == null)
-        {
-            Debug.LogError("No suitable slot found in gamerSlots!");
-            return;
-        }
 
         Transform slotTransform = slotDetect.transform;
         if (slotTransform.childCount == 0)
@@ -41,6 +30,7 @@ public class Gamer : MonoBehaviour
             slotPosition = slotTransform.position;
             gameCards.Add(cardObject);
             gamerSlots.Remove(slotDetect);
+            cardObject.transform.SetParent(slotTransform, true);
         }
         else
         {
@@ -51,7 +41,7 @@ public class Gamer : MonoBehaviour
     {
         if (gamerSlots.Count > 0)
         {
-            gamerSlots.Add(cardObject);
+            gamerSlots.Remove(cardObject);
         }
     }
 }

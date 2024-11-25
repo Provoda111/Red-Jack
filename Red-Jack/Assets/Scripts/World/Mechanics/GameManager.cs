@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject cardDeckObject;
-    //[SerializeField] private GameCard card;
     public Player player;
     public Enemy enemy;
-    public Transform cardSpawner;
     private Deck deck;
+
+    // For Deck.cs
+    internal bool cardHasBeenSharedToCenter = false;
 
     internal Quaternion cardRotation;
 
     private void Start()
     {
         deck = GameObject.Find("Deck").GetComponent<Deck>();
+        GamerChooser.MoveDeterminer();
     }
 
     private void Update()
@@ -32,8 +34,12 @@ public class GameManager : MonoBehaviour
         {
             enemy.ChooseRandomCardFromCenter();
         }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            StartCoroutine(CardGoesBackToDeck());
+        }
     }
-    private IEnumerator GiveCardToGamers()
+    private IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
     {
         for (int i = 0; i < 1; i++)
         {
@@ -43,7 +49,25 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(3f);
                 deck.GiveCardToPlayer(enemy.gameObject);
             }
+            else
+            {
+                deck.GiveCardToPlayer(enemy.gameObject);
+                yield return new WaitForSeconds(3f);
+                deck.GiveCardToPlayer(player.gameObject);
+            }
         }
         yield return new WaitForSeconds(3f);
+    }
+    private IEnumerator CardGoesBackToDeck()
+    {
+        Transform cardsAtTheCenterObject = GameObject.Find("CardsAtTheCenter").transform;
+        GameCard lastCardCenter;
+        if (cardHasBeenSharedToCenter && cardsAtTheCenterObject.childCount == 1)
+        {
+            lastCardCenter = cardsAtTheCenterObject.GetComponentInChildren<GameCard>();
+            lastCardCenter.GoToDeck();
+            //.Where(card => card.isAtTheCenter);
+        }
+        yield return new WaitForSeconds(2f);
     }
 }

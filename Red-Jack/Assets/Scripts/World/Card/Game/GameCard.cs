@@ -9,11 +9,13 @@ public class GameCard : MonoBehaviour
 {
     [SerializeField] private int cardValue;
     private Animator cardAnimator;
-    [SerializeField] internal bool isAtTheTable = false;
     [SerializeField] internal bool isAtTheHand = false;
+    internal bool isAtTheCenter = false;
     [SerializeField] internal Vector3 targetPosition;
     static internal Vector3 targetOffset;
     [SerializeField] private Deck deck;
+
+    CardMover mover;
 
     private void Start()
     {
@@ -29,16 +31,10 @@ public class GameCard : MonoBehaviour
     }
     internal void GoToPlayer(GameObject caller)
     {
-        CardMover mover = gameObject.AddComponent<CardMover>();
+        AddCardMover();
         if (!isAtTheHand)
         {
             Gamer gamer = caller.GetComponent<Gamer>();
-            if (gamer == null)
-            {
-                Debug.LogError("Caller is not a Gamer!");
-                return;
-            }
-
             gamer.AddCardToSlot(this.gameObject);
             this.targetPosition = gamer.slotPosition;
             mover.SetTarget(targetPosition, 1f);
@@ -50,28 +46,39 @@ public class GameCard : MonoBehaviour
     }
     public void GoToDeck()
     {
-
+        Vector3 deckPosition = GameObject.Find("Deck").transform.position;
+        AddCardMover();
+        this.targetPosition = deckPosition;
+        mover.SetTarget(this.targetPosition, 1f);
+        mover.OnReachedTarget += () =>
+        {
+            Destroy(this.gameObject);
+        };
+        deck.cardDeck.Add(this.gameObject);
     }
     public void GoToCenter()
     {
         this.targetPosition = GameObject.Find("CheckpointForCenter").transform.position;
         targetPosition += targetOffset;
 
-        CardMover mover = gameObject.AddComponent<CardMover>();
+        AddCardMover();
         mover.SetTarget(this.targetPosition, 1f);
 
         mover.OnReachedTarget += OnReachedCenter;
     }
     private void OnReachedCenter()
     {
-        isAtTheTable = true;
+        isAtTheCenter = true;
         targetOffset = new Vector3(
             targetOffset.x + 0.226f,
             targetOffset.y,
             targetOffset.z);
         transform.SetParent(GameObject.Find("CardsAtTheCenter").transform, true);
     }
-
+    private void AddCardMover()
+    {
+        mover = gameObject.AddComponent<CardMover>();
+    }
     internal void WriteCardInfo()
     {
         TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();

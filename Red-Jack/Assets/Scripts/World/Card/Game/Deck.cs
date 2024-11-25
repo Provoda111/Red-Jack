@@ -27,6 +27,7 @@ public class Deck : MonoBehaviour
             card.gameObject.name = $"Card{i + 1}";
             yield return new WaitForSeconds(3.5f);
         }
+        gameManager.cardHasBeenSharedToCenter = true;
     }
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {

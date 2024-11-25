@@ -8,7 +8,7 @@ public static class GamerChooser
     static internal string whoMoves;
     static private int randomNumber;
 
-    internal static void MoveDeterminer()
+    internal static void MoveDeterminer() // NEEDS TO BE OPTIMIZED
     {
         randomNumber = Random.Range(1, 2);
         switch (randomNumber)
@@ -23,13 +23,12 @@ public static class GamerChooser
                 break;
         }
     }
-
-    internal static void PlayerHasMoved()
+    internal static void PlayerHasMoved() // NEEDS TO BE OPTIMIZED
     {
         playerMove = false;
         enemyMove = true;
     }
-    internal static void EnemyHasMoved()
+    internal static void EnemyHasMoved() // NEEDS TO BE OPTIMIZED
     {
         playerMove = true;
         enemyMove = false;
