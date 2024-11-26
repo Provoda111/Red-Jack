@@ -5491,10 +5491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c8a88d8eee9a342a1cc923865baa87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDeckObject: {fileID: 1961420362}
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
-  cardSpawner: {fileID: 1961420363}
 --- !u!4 &446797990
 Transform:
   m_ObjectHideFlags: 0
@@ -6559,6 +6557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamerSlots: []
+  gameCards: []
+  buffCards: []
   helpCardObject: {fileID: 0}
   carddd: {fileID: 0}
 --- !u!4 &815605929
@@ -7567,6 +7567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamerSlots: []
+  gameCards: []
+  buffCards: []
   helpCardObject: {fileID: 0}
   cursorCamera: {fileID: 1247853512}
   layersToHit:
@@ -8252,6 +8254,32 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 6996385895b383749b266464bf872c69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6996385895b383749b266464bf872c69, type: 3}
+--- !u!1 &1202083797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100154, guid: 6996385895b383749b266464bf872c69, type: 3}
+  m_PrefabInstance: {fileID: 1202083796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1202083798
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202083797}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49b5a8551c137f14ea8d0aa0f685db61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1242145583
 PrefabInstance:
   m_ObjectHideFlags: 0
