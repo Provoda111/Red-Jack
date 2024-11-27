@@ -22,10 +22,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.H)) //If test №1
-        {
-            StartCoroutine(deck.CardsToCenter());
-        }
         if (Input.GetKeyUp(KeyCode.V))
         {
             StartCoroutine(GiveCardToGamers());
@@ -46,17 +42,16 @@ public class GameManager : MonoBehaviour
             if (GamerChooser.playerMove)
             {
                 deck.GiveCardToPlayer(player.gameObject);
+                GamerChooser.PlayerHasMoved();
                 yield return new WaitForSeconds(3f);
-                deck.GiveCardToPlayer(enemy.gameObject);
             }
-            else
+            else if (GamerChooser.enemyMove)
             {
                 deck.GiveCardToPlayer(enemy.gameObject);
+                GamerChooser.EnemyHasMoved();
                 yield return new WaitForSeconds(3f);
-                deck.GiveCardToPlayer(player.gameObject);
             }
         }
-        yield return new WaitForSeconds(3f);
     }
     private IEnumerator CardGoesBackToDeck()
     {

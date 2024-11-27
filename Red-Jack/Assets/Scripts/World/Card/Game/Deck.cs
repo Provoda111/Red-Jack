@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,9 @@ public class Deck : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
-    
+
+    public event Action oneCardOnCenter;
+
     internal void CallCardsToCenter()
     {
         StartCoroutine(CardsToCenter());
@@ -19,7 +22,7 @@ public class Deck : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             deckAnimator.SetTrigger("GiveCardsToCenter");
-            int cardIndex = Random.Range(0, cardDeck.Count);
+            int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
             GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position, 
                 cardDeck[cardIndex].transform.rotation);
             GameCard card = cardObject.GetComponent<GameCard>();
@@ -30,13 +33,17 @@ public class Deck : MonoBehaviour
         }
         gameManager.cardHasBeenSharedToCenter = true;
     }
+
+    
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
-        int cardIndex = Random.Range(0, cardDeck.Count);
+        Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
+        int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
         GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
-                cardDeck[cardIndex].transform.rotation);
+                newCardRotation);
         GameCard card = cardObject.GetComponent<GameCard>();
         card.GoToPlayer(whoGetsCard);
         cardDeck.Remove(cardDeck[cardIndex]);
     }
+
 }

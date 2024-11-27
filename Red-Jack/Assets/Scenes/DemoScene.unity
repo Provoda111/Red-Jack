@@ -403,6 +403,32 @@ MonoBehaviour:
   playerAnimator: {fileID: 1247853514}
   deckAnimator: {fileID: 1825914834}
   firstStepDone: 0
+  postProcessingVolume: {fileID: 1247853517}
+  openingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.044923123
+      outSlope: 0.044923123
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0499878
+      value: 1.0471687
+      inSlope: 0.044923123
+      outSlope: 0.044923123
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  vignetteDuration: 2
 --- !u!4 &176056040
 Transform:
   m_ObjectHideFlags: 0
@@ -8402,6 +8428,7 @@ GameObject:
   - component: {fileID: 1247853514}
   - component: {fileID: 1247853515}
   - component: {fileID: 1247853516}
+  - component: {fileID: 1247853517}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8549,6 +8576,23 @@ MonoBehaviour:
   playerController: {fileID: 0}
   animator: {fileID: 1247853514}
   canMoveCamera: 0
+--- !u!114 &1247853517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247853510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 62c243165b59c1f4ea84369a050cf4ba, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!4 &1250429483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5620023247811269349, guid: 1527a0cbd402ee2429fd6695e19c6786, type: 3}

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3374926157278016671}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: -0.0038201897, y: 0.024745107, z: -0.05368113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7507733012336869203}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
 --- !u!33 &1311161348272791936
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardValue: 9
-  isAtTheTable: 0
   isAtTheHand: 0
-  targetPosition: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  deck: {fileID: 0}
 --- !u!1 &3497094775127781262
 GameObject:
   m_ObjectHideFlags: 0
