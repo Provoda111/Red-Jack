@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
-public class Camera : MonoBehaviour
+public class PlayerCamera : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public float maxVerticalAngle = 30f;
@@ -29,7 +31,7 @@ public class Camera : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            canMoveCamera = true;
+            //canMoveCamera = true;
         }
         if (canMoveCamera)  
         {
@@ -37,6 +39,10 @@ public class Camera : MonoBehaviour
         }
     }
 
+    public void canMoveCameraVoid()
+    {
+        canMoveCamera = true;
+    }
     private void MoveCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;

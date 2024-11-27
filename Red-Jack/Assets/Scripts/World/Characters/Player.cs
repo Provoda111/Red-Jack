@@ -14,16 +14,13 @@ public class Player : Gamer
     public UnityEngine.Camera cursorCamera;
     private string hitTag;
 
-    private Camera gameCamera;
+    private PlayerCamera gameCamera;
 
     [SerializeField] LayerMask layersToHit;
     Ray ray;
     RaycastHit hit;
 
     public Animator animator;
-
-    private GameCard cardController;
-    internal bool canMakeMove;
 
     public GameObject carddd;
 
@@ -35,7 +32,7 @@ public class Player : Gamer
         gameCards = new List<GameObject>();
         buffCards = new List<GameObject>();
         hasLost = false;
-        gameCamera = GetComponent<Camera>();
+        gameCamera = GetComponent<PlayerCamera>();
     }
     private void Update()
     {

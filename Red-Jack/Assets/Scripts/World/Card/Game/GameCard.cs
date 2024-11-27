@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameCard : MonoBehaviour
 {
-    [SerializeField] private int cardValue;
+    [SerializeField] internal int cardValue;
     private Animator cardAnimator;
     [SerializeField] internal bool isAtTheHand = false;
     internal bool isAtTheCenter = false;
@@ -54,6 +54,14 @@ public class GameCard : MonoBehaviour
         {
             Destroy(this.gameObject);
         };
+        if (deck != null)
+        {
+            Debug.Log("A");
+        }
+        if (deck == null)
+        {
+            Debug.Log("b");
+        }
         deck.cardDeck.Add(this.gameObject);
     }
     public void GoToCenter()

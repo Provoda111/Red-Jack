@@ -7,6 +7,7 @@ public class Gamer : MonoBehaviour
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
     [SerializeField] internal List<GameObject> gameCards = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
+    internal int gamerValues;
 
     protected bool hasLost;
 
@@ -36,12 +37,14 @@ public class Gamer : MonoBehaviour
         {
             Debug.LogError("Slot already occupied!");
         }
+        gamerValues += cardObject.GetComponent<GameCard>().cardValue;
     }
     internal void RemoveCardFromSlot(GameObject cardObject)
     {
         if (gamerSlots.Count > 0)
         {
-            gamerSlots.Remove(cardObject);
+            gameCards.Remove(cardObject);
+            gamerValues -= cardObject.GetComponent<GameCard>().cardValue;
         }
     }
 }

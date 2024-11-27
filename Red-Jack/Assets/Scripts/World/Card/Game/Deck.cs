@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    private Animator deckAnimator;
+    [SerializeField] private Animator deckAnimator;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
@@ -18,6 +18,7 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
+            deckAnimator.SetTrigger("GiveCardsToCenter");
             int cardIndex = Random.Range(0, cardDeck.Count);
             GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position, 
                 cardDeck[cardIndex].transform.rotation);
