@@ -34,6 +34,7 @@ public class Enemy : Gamer
                 chosenCard.isAtTheCenter = false;
                 chosenCard.isAtTheHand = true;
             }
+            GamerChooser.EnemyHasMoved();
         }
     }
 

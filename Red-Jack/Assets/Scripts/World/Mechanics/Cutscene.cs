@@ -9,6 +9,8 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Deck deck;
     [SerializeField] private PlayerCamera playerCamera;
+    [SerializeField] private Player player;
+    [SerializeField] private Enemy enemy;
 
     // Audio controller
 
@@ -24,18 +26,14 @@ public class Cutscene : MonoBehaviour
 
     [SerializeField] private bool firstStepDone = false;
 
-    [SerializeField] private PostProcessVolume postProcessingVolume; // Assign via Inspector
-    [SerializeField] private AnimationCurve openingCurve; // Define in Inspector
+    [SerializeField] private int gameStep;
 
-    // Variables
-    [SerializeField] private float vignetteDuration = 2f; // Eye-opening effect duration
-
-    private Vignette vignette;
 
     // Start is called before the first frame update
     void Start()
     {
         GamerChooser.MoveDeterminer();
+        gameStep = 1;
     }
     private void Awake()
     {
@@ -49,49 +47,33 @@ public class Cutscene : MonoBehaviour
     }
     private IEnumerator GameFirstStep()
     {
-        // Closing eyes thing (MAYBE)
-        
-
-        playerAnimator.SetBool("Awake", true);
-        yield return new WaitForSeconds(14f);
-        playerAnimator.SetBool("Awake", false);
-        
-        yield return new WaitForSeconds(2f);
-
-        StartCoroutine(deck.CardsToCenter());
-
-        yield return new WaitForSeconds(4f);
-
-    }
-    private IEnumerator OpenEyes()
-    {
-        if (postProcessingVolume.profile.TryGetSettings(out Vignette v))
+        switch (gameStep)
         {
-            vignette = v;
+            case 1:
+                playerAnimator.SetBool("Awake", true);
+                yield return new WaitForSeconds(14f);
+                playerAnimator.SetBool("Awake", false);
+                yield return new WaitForSeconds(2f);
+                gameStep += 1;
+                yield break;
+            case 2:
+                StartCoroutine(deck.CardsToCenter());
+                if (deck.cardHasBeenSharedToCenter)
+                {
+                    enemy.ChooseRandomCardFromCenter();
+                    gameStep += 1;
+                }
+                yield break;
+            case 3:
+                enemy.ChooseRandomCardFromCenter();
+                yield break;
+            case 4:
+                yield return new WaitForSeconds(10f);
+                StartCoroutine(deck.GiveCardToGamers());
+                yield break;
+            case 5:
+                yield break;
         }
-        else
-        {
-            Debug.LogError("Vignette effect is not set in the Post-Processing Volume.");
-            yield break;
-        }
-
-        // Step 1: Eye-opening effect
-        float elapsedTime = 0f;
-        float initialIntensity = 1f;
-        vignette.intensity.value = initialIntensity;
-
-        while (elapsedTime < vignetteDuration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            // Smoothly reduce intensity using the animation curve
-            float t = elapsedTime / vignetteDuration;
-            vignette.intensity.value = Mathf.Lerp(initialIntensity, 0f, openingCurve.Evaluate(t));
-
-            yield return null;
-        }
-
-        // Ensure vignette intensity is fully off at the end
-        vignette.intensity.value = 0f;
+        Debug.Log("");
     }
 }

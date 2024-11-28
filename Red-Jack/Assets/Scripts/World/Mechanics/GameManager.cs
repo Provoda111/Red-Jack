@@ -5,15 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Player player;
-    public Enemy enemy;
-    private Deck deck;
-
-
-    // For Deck.cs
-    internal bool cardHasBeenSharedToCenter = false;
-
-    internal Quaternion cardRotation;
+    [SerializeField] private Player player;
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private Deck deck;
 
     private void Start()
     {
@@ -25,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.V))
         {
-            StartCoroutine(GiveCardToGamers());
+            StartCoroutine(deck.GiveCardToGamers());
         }
         if (Input.GetKeyUp(KeyCode.J))
         {
@@ -33,37 +27,19 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
-            StartCoroutine(CardGoesBackToDeck());
+            CardGoesBackToDeck();
         }
     }
-    private IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
-    {
-        for (int i = 0; i < 1; i++)
-        {
-            if (GamerChooser.playerMove)
-            {
-                deck.GiveCardToPlayer(player.gameObject);
-                GamerChooser.PlayerHasMoved();
-                yield return new WaitForSeconds(3f);
-            }
-            else if (GamerChooser.enemyMove)
-            {
-                deck.GiveCardToPlayer(enemy.gameObject);
-                GamerChooser.EnemyHasMoved();
-                yield return new WaitForSeconds(3f);
-            }
-        }
-    }
-    private IEnumerator CardGoesBackToDeck()
+    private void CardGoesBackToDeck()
     {
         Transform cardsAtTheCenterObject = GameObject.Find("CardsAtTheCenter").transform;
         GameCard lastCardCenter;
-        if (cardHasBeenSharedToCenter && cardsAtTheCenterObject.childCount == 1)
+        if (deck.cardHasBeenSharedToCenter && cardsAtTheCenterObject.childCount == 1)
         {
+            Debug.Log("The last card on center can be returned");
             lastCardCenter = cardsAtTheCenterObject.GetComponentInChildren<GameCard>();
             lastCardCenter.GoToDeck();
             //.Where(card => card.isAtTheCenter);
         }
-        yield return new WaitForSeconds(2f);
     }
 }

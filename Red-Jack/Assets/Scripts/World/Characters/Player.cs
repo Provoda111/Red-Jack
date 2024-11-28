@@ -29,7 +29,7 @@ public class Player : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Player's card").ToList();
-        gameCards = new List<GameObject>();
+        gameCards = new List<GameObject>(); 
         buffCards = new List<GameObject>();
         hasLost = false;
         gameCamera = GetComponent<PlayerCamera>();
@@ -45,17 +45,17 @@ public class Player : Gamer
             {
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
-                    GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
-                    card.GoToPlayer(this.gameObject);
+                    if (GamerChooser.playerMove)
+                    {
+                        GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
+                        card.GoToPlayer(this.gameObject);
+                        GamerChooser.PlayerHasMoved();
+                    }
                 }
                 /*rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;
                 cardController = card.GetComponent<GameCard>();*/
             }
         }
-    }
-    private void OnGUI()
-    {
-        //GUI.Label(new Rect(10, 10, 1000, 100), hitTag);
     }
 }

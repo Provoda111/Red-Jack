@@ -14,6 +14,7 @@ public class GameCard : MonoBehaviour
     [SerializeField] internal Vector3 targetPosition;
     static internal Vector3 targetOffset;
     [SerializeField] private Deck deck;
+    private bool hasBeenRevealed;
 
     public Blackjack blackjack;
 
@@ -22,6 +23,7 @@ public class GameCard : MonoBehaviour
     private void Start()
     {
         cardAnimator = GetComponent<Animator>();
+        deck = GameObject.Find("Deck").GetComponent<Deck>();
     }
 
     private void Update()
@@ -56,14 +58,6 @@ public class GameCard : MonoBehaviour
         {
             Destroy(this.gameObject);
         };
-        if (deck != null)
-        {
-            Debug.Log("A");
-        }
-        if (deck == null)
-        {
-            Debug.Log("b");
-        }
         deck.cardDeck.Add(this.gameObject);
     }
     public void GoToCenter()

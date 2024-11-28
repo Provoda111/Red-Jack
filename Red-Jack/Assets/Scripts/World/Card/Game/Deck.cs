@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Deck : MonoBehaviour
 {
@@ -11,8 +12,17 @@ public class Deck : MonoBehaviour
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
 
+    internal bool cardHasBeenSharedToCenter = false;
+
     public event Action oneCardOnCenter;
 
+    [SerializeField] private Player player;
+    [SerializeField] private Enemy enemy;
+
+    private void Start()
+    {
+        
+    }
     internal void CallCardsToCenter()
     {
         StartCoroutine(CardsToCenter());
@@ -31,7 +41,7 @@ public class Deck : MonoBehaviour
             card.gameObject.name = $"Card{i + 1}";
             yield return new WaitForSeconds(3.5f);
         }
-        gameManager.cardHasBeenSharedToCenter = true;
+        cardHasBeenSharedToCenter = true;
     }
 
     
@@ -45,5 +55,45 @@ public class Deck : MonoBehaviour
         card.GoToPlayer(whoGetsCard);
         cardDeck.Remove(cardDeck[cardIndex]);
     }
+    internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            if (GamerChooser.playerMove)
+            {
+                GiveCardToPlayer(player.gameObject);
+                GamerChooser.PlayerHasMoved();
+                yield return new WaitForSeconds(3f);
+            }
+            if (GamerChooser.enemyMove)
+            {
+                //enemy.ChooseRandomCardFromCenter();
+                GiveCardToPlayer(enemy.gameObject);
+                GamerChooser.EnemyHasMoved();
+                yield return new WaitForSeconds(3f);
+            }
+        }
+    }
+    internal void GamersChooseCard()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            if (GamerChooser.playerMove)
+            {
+                GamerChooser.playerMove = true;
+            }
+            if (GamerChooser.enemyMove)
+            {
+                enemy.ChooseRandomCardFromCenter();
+            }
+        }
+    }
+    internal void GiveCardToEnemy()
+    {
+        
+    }
+    internal void GiveCardToPlayer()
+    {
 
+    }
 }
