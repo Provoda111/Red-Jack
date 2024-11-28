@@ -368,6 +368,8 @@ MonoBehaviour:
   - {fileID: 748800313423445420, guid: 6f5c9f926a1cb8647a8d0d882300cb89, type: 3}
   - {fileID: 7515482420652955562, guid: 7e4e4c09d820ec34dbfd247cb5efdd72, type: 3}
   - {fileID: 8816023348059597911, guid: 4c8aafa92e8173947b4ee2add433d99b, type: 3}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1 &176056038
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,35 +402,12 @@ MonoBehaviour:
   gameManager: {fileID: 446797989}
   deck: {fileID: 156679788}
   playerCamera: {fileID: 1247853516}
+  player: {fileID: 1200078259}
+  enemy: {fileID: 815605928}
   playerAnimator: {fileID: 1247853514}
   deckAnimator: {fileID: 1825914834}
   firstStepDone: 0
-  postProcessingVolume: {fileID: 1247853517}
-  openingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0.044923123
-      outSlope: 0.044923123
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0499878
-      value: 1.0471687
-      inSlope: 0.044923123
-      outSlope: 0.044923123
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  vignetteDuration: 2
+  gameStep: 0
 --- !u!4 &176056040
 Transform:
   m_ObjectHideFlags: 0
@@ -5570,6 +5549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
+  deck: {fileID: 0}
 --- !u!4 &446797990
 Transform:
   m_ObjectHideFlags: 0
@@ -6634,7 +6614,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamerSlots: []
-  gameCards: []
   buffCards: []
   helpCardObject: {fileID: 0}
   carddd: {fileID: 0}
@@ -7645,15 +7624,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamerSlots: []
-  gameCards: []
   buffCards: []
   helpCardObject: {fileID: 0}
   cursorCamera: {fileID: 1247853512}
+  gameCamera: {fileID: 1247853516}
   layersToHit:
     serializedVersion: 2
     m_Bits: 128
   animator: {fileID: 1247853514}
-  carddd: {fileID: 0}
 --- !u!1001 &1202083796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8573,8 +8551,8 @@ MonoBehaviour:
   mouseSensitivity: 100
   maxVerticalAngle: 30
   maxHorizontalAngle: 45
-  player: {fileID: 0}
-  playerController: {fileID: 0}
+  player: {fileID: 1200078257}
+  playerController: {fileID: 1200078259}
   animator: {fileID: 1247853514}
   canMoveCamera: 0
 --- !u!114 &1247853517

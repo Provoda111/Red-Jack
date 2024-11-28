@@ -9,12 +9,11 @@ using UnityEngine.Rendering;
 
 public class Player : Gamer
 {
-    private GameObject card;
-    private GameObject rayHitCard;
+
     public UnityEngine.Camera cursorCamera;
     private string hitTag;
 
-    private PlayerCamera gameCamera;
+    [SerializeField] private PlayerCamera gameCamera;
 
     [SerializeField] LayerMask layersToHit;
     Ray ray;
@@ -22,17 +21,12 @@ public class Player : Gamer
 
     public Animator animator;
 
-    public GameObject carddd;
-
     // Audio variables
 
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Player's card").ToList();
-        gameCards = new List<GameObject>(); 
-        buffCards = new List<GameObject>();
         hasLost = false;
-        gameCamera = GetComponent<PlayerCamera>();
     }
     private void Update()
     {
@@ -51,11 +45,23 @@ public class Player : Gamer
                         card.GoToPlayer(this.gameObject);
                         GamerChooser.PlayerHasMoved();
                     }
+                    else
+                    {
+                        Debug.Log("Player can't move");
+                    }
                 }
                 /*rayHitCard = hit.collider.gameObject;
                 card = rayHitCard;
                 cardController = card.GetComponent<GameCard>();*/
             }
         }
+    }
+    internal IEnumerator LaunchAwakeAnimation()
+    {
+        
+        animator.SetBool("Awake", true);
+        yield return new WaitForSeconds(14f);
+        animator.SetBool("Awake", false);
+        yield return new WaitForSeconds(2f);
     }
 }

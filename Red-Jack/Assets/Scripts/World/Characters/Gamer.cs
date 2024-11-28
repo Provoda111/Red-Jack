@@ -5,11 +5,11 @@ using UnityEngine;
 public class Gamer : MonoBehaviour
 {
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
-    [SerializeField] internal List<GameObject> gameCards = new List<GameObject>();
+    [SerializeField] static internal List<GameObject> gameCards = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
 
-    protected bool hasLost;
+    protected bool hasLost = false;
 
     internal Vector3 slotPosition;
 

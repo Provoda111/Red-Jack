@@ -10,32 +10,31 @@ public class Enemy : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
-        /*gameCards = new List<GameObject>();
-        buffCards = new List<GameObject>();
-        hasLost = false;*/
+        
     }
     public void Update()
     {
         
     }
-    public void ChooseRandomCardFromCenter()
+    internal void ChooseRandomCardFromCenter()
     {
-        var centerCards = GameObject.Find("CardsAtTheCenter").transform
+        if (GamerChooser.enemyMove)
+        {
+            var centerCards = GameObject.Find("CardsAtTheCenter").transform
             .GetComponentsInChildren<GameCard>()
             .Where(card => card.isAtTheCenter)
             .ToList();
-
-        if (centerCards.Count > 0)
-        {
-            GameCard chosenCard = centerCards[Random.Range(0, centerCards.Count)];
-            if (!chosenCard.isAtTheHand)
+            if (centerCards.Count > 0)
             {
-                chosenCard.GoToPlayer(this.gameObject);
-                chosenCard.isAtTheCenter = false;
-                chosenCard.isAtTheHand = true;
+                GameCard chosenCard = centerCards[Random.Range(0, centerCards.Count)];
+                if (!chosenCard.isAtTheHand)
+                {
+                    chosenCard.GoToPlayer(this.gameObject);
+                    chosenCard.isAtTheCenter = false;
+                    chosenCard.isAtTheHand = true;
+                }
+                GamerChooser.EnemyHasMoved();
             }
-            GamerChooser.EnemyHasMoved();
         }
     }
-
 }

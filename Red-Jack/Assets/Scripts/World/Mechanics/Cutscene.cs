@@ -32,48 +32,48 @@ public class Cutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GamerChooser.MoveDeterminer();
         gameStep = 1;
     }
-    private void Awake()
-    {
-        StartCoroutine(GameFirstStep());
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        //StartCoroutine(GameFirstStep());
+        GameFirstStep();
     }
-    private IEnumerator GameFirstStep()
+    private void GameFirstStep()
     {
         switch (gameStep)
         {
             case 1:
-                playerAnimator.SetBool("Awake", true);
-                yield return new WaitForSeconds(14f);
-                playerAnimator.SetBool("Awake", false);
-                yield return new WaitForSeconds(2f);
-                gameStep += 1;
-                yield break;
+                Debug.Log("1");
+                StartCoroutine(player.LaunchAwakeAnimation());
+                gameStep++;
+                break;
+
             case 2:
                 StartCoroutine(deck.CardsToCenter());
                 if (deck.cardHasBeenSharedToCenter)
                 {
-                    enemy.ChooseRandomCardFromCenter();
-                    gameStep += 1;
+                    if (GamerChooser.enemyMove)
+                    {
+                        enemy.ChooseRandomCardFromCenter();
+                    }
+                    if (player.gamerSlots.Count < 5 && enemy.gamerSlots.Count < 5)
+                    {
+                        gameStep++;
+                    }
                 }
-                yield break;
+                break;
             case 3:
-                enemy.ChooseRandomCardFromCenter();
-                yield break;
-            case 4:
-                yield return new WaitForSeconds(10f);
                 StartCoroutine(deck.GiveCardToGamers());
-                yield break;
+                gameStep++;
+                break;
+
+            case 4:
+                
+                break;
+
             case 5:
-                yield break;
+                break;
         }
-        Debug.Log("");
     }
 }
