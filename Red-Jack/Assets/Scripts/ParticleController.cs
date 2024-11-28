@@ -8,7 +8,7 @@ public class ParticleController : MonoBehaviour
     public bool Shoot = false;
     void Start()
     {
-        particleSystem.Stop();
+        //particleSystem.Stop();
     }
 
 
@@ -22,7 +22,7 @@ public class ParticleController : MonoBehaviour
     public void Shot()
     {
         
-        particleSystem.Play();
+        //particleSystem.Play();
         //Shoot = false;  
     }
 

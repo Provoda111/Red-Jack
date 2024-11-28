@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Blackjack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshPro CardSumm;
+    public static int cardSumm = 0;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        CardSumm.text = cardSumm + "/21";
+        if (cardSumm <= 21)
+        {
+            CardSumm.color = Color.green;
+        }
+        else if (cardSumm > 21)
+        {
+            CardSumm.color = Color.red;
+        }
     }
 }

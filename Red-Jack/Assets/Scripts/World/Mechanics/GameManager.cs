@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Enemy enemy;
     private Deck deck;
 
+
     // For Deck.cs
     internal bool cardHasBeenSharedToCenter = false;
 

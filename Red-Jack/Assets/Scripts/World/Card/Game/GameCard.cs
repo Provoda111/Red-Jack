@@ -15,6 +15,8 @@ public class GameCard : MonoBehaviour
     static internal Vector3 targetOffset;
     [SerializeField] private Deck deck;
 
+    public Blackjack blackjack;
+
     CardMover mover;
 
     private void Start()
@@ -91,5 +93,6 @@ public class GameCard : MonoBehaviour
     {
         TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
         cardValueText.text = $"{cardValue}";
+        Blackjack.cardSumm =+ cardValue;
     }
 }
