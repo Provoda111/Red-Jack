@@ -26,6 +26,7 @@ public class Player : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Player's card").ToList();
+        buffSlots = GameObject.FindGameObjectsWithTag("Player's buff").ToList();
         hasLost = false;
     }
     private void Update()
