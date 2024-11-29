@@ -10,6 +10,7 @@ public class GameCard : MonoBehaviour
     [SerializeField] internal int cardValue;
     private Animator cardAnimator;
     [SerializeField] internal bool isAtTheHand = false;
+    [SerializeField] internal bool isAtThePlayer = false;
     internal bool isAtTheCenter = false;
     [SerializeField] internal Vector3 targetPosition;
     static internal Vector3 targetOffset;
@@ -28,7 +29,7 @@ public class GameCard : MonoBehaviour
 
     private void Update()
     {
-        if (isAtTheHand)
+        if (isAtThePlayer)
         {
             WriteCardInfo();
         }
@@ -43,10 +44,20 @@ public class GameCard : MonoBehaviour
             this.targetPosition = gamer.slotPosition;
             mover.SetTarget(targetPosition, 1f);
         }
-        mover.OnReachedTarget += () =>
+        if (caller.name == "Player")
         {
-            isAtTheHand = true;
-        };
+            mover.OnReachedTarget += () =>
+            {
+                isAtThePlayer = true;
+            };
+        }
+        else
+        {
+            mover.OnReachedTarget += () =>
+            {
+                isAtTheHand = true;
+            };
+        }
     }
     public void GoToDeck()
     {
@@ -87,7 +98,6 @@ public class GameCard : MonoBehaviour
     {
         TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
         cardValueText.text = $"{cardValue}";
-        Blackjack.cardSumm =+ cardValue;
     }
     internal void FromPlayerToCenter(GameObject caller)
     {

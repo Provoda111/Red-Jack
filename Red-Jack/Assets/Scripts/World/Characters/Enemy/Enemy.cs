@@ -10,6 +10,10 @@ public class Enemy : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
+        gamerSlots.Sort(delegate (GameObject x, GameObject y)
+        {
+            return x.name.CompareTo(y.name);
+        });
         buffSlots = GameObject.FindGameObjectsWithTag("Enemy's buff").ToList();
     }
     public void Update()

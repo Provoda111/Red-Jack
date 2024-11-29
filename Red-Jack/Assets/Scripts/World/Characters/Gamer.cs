@@ -10,7 +10,7 @@ public class Gamer : MonoBehaviour
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
 
-    protected bool hasLost = false;
+    static internal bool hasLost = false;
 
     internal Vector3 slotPosition;
 
@@ -24,8 +24,7 @@ public class Gamer : MonoBehaviour
     {
         helpCardObject = cardObject;
 
-        var slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
-
+        GameObject slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
         Transform slotTransform = slotDetect.transform;
         if (slotTransform.childCount == 0)
         {
@@ -50,7 +49,11 @@ public class Gamer : MonoBehaviour
     }
     internal void AddBuffCard(GameObject buffCardObject)
     {
-        
+        var slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
+
+        Transform slotTransform = slotDetect.transform;
+        buffCards.Add(buffCardObject);
+        buffSlots.Remove(slotDetect);
     }
     internal void RemoveBuffCard(GameObject buffCardObject)
     {
