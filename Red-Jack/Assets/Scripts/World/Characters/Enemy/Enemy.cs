@@ -10,7 +10,7 @@ public class Enemy : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
-        
+        buffSlots = GameObject.FindGameObjectsWithTag("Enemy's buff").ToList();
     }
     public void Update()
     {

@@ -48,5 +48,15 @@ public class Gamer : MonoBehaviour
             gamerValues -= cardObject.GetComponent<GameCard>().cardValue;
         }
     }
-    
+    internal void AddBuffCard(GameObject buffCardObject)
+    {
+        
+    }
+    internal void RemoveBuffCard(GameObject buffCardObject)
+    {
+        if (buffCards.Count > 0)
+        {
+
+        }
+    }
 }
