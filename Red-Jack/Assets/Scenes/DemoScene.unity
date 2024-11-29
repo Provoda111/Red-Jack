@@ -6376,6 +6376,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &633198499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633198494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4022557464af47d48be34e1b318bdf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &646571205
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,6 +7711,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1861714698}
   Shoot: 0
+--- !u!114 &1044483169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044483156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98f2ce5058ad3445b2e57af7c62bd82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070750267
 GameObject:
   m_ObjectHideFlags: 0
@@ -8482,6 +8506,26 @@ PrefabInstance:
     - target: {fileID: 400094, guid: 6996385895b383749b266464bf872c69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 6996385895b383749b266464bf872c69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99907964
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 6996385895b383749b266464bf872c69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00076820486
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 6996385895b383749b266464bf872c69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.02031716
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 6996385895b383749b266464bf872c69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.03776959
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 6996385895b383749b266464bf872c69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: 6996385895b383749b266464bf872c69, type: 3}
       propertyPath: m_LocalRotation.w

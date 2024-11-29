@@ -9,7 +9,6 @@ public class Revolver : MonoBehaviour
     private void Start()
     {
         WhereBullet = Random.Range(1, 7);
-        Debug.Log("Satunnainen luku: " + WhereBullet);
     }
 
     void TryToShot ()
