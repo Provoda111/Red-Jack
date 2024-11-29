@@ -7,6 +7,8 @@ TagManager:
   - Card
   - Player's card
   - Enemy's card
+  - Player's buff
+  - Enemy's buff
   layers:
   - Default
   - TransparentFX

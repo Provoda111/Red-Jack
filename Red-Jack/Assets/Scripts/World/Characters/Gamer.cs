@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gamer : MonoBehaviour
 {
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
+    [SerializeField] internal List<GameObject> buffSlots = new List<GameObject>();
     [SerializeField] static internal List<GameObject> gameCards = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
@@ -47,4 +48,5 @@ public class Gamer : MonoBehaviour
             gamerValues -= cardObject.GetComponent<GameCard>().cardValue;
         }
     }
+    
 }

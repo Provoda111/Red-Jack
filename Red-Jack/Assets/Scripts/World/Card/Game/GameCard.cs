@@ -89,4 +89,8 @@ public class GameCard : MonoBehaviour
         cardValueText.text = $"{cardValue}";
         Blackjack.cardSumm =+ cardValue;
     }
+    internal void FromPlayerToCenter(GameObject caller)
+    {
+
+    }
 }

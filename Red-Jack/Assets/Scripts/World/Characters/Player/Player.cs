@@ -58,7 +58,6 @@ public class Player : Gamer
     }
     internal IEnumerator LaunchAwakeAnimation()
     {
-        
         animator.SetBool("Awake", true);
         yield return new WaitForSeconds(14f);
         animator.SetBool("Awake", false);
