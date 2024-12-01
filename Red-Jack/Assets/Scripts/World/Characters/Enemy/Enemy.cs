@@ -41,4 +41,25 @@ public class Enemy : Gamer
             }
         }
     }
+    internal void HitOrNo()
+    {
+        if (GamerChooser.enemyMove)
+        {
+            int randomNumber = Random.Range(0, 2);
+            switch (randomNumber)
+            {
+                case 0:
+                    AddCardToSlot(this.gameObject);
+                    break;
+                case 1:
+                    SkipMove();
+                    break;
+            }
+            GamerChooser.EnemyHasMoved();
+        }
+    }
+    private void SkipMove()
+    {
+        Debug.Log("Enemy doesn't wan't to move");
+    }
 }

@@ -77,6 +77,7 @@ public class Cutscene : MonoBehaviour
                 break;
             case 5:
                 StartCoroutine(deck.GiveCardToGamers());
+                GamerChooser.MoveDeterminer();
                 gameStep++;
                 break;
         }
