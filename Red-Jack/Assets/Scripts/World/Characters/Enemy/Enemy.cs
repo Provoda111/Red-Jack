@@ -7,6 +7,7 @@ public class Enemy : Gamer
 {
     public GameObject carddd;
     private GameObject selectCard;
+    [SerializeField] private Deck deck;
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
@@ -18,6 +19,10 @@ public class Enemy : Gamer
     }
     public void Update()
     {
+        if (GamerChooser.enemyMove)
+        {
+            StartCoroutine(HitOrNo());
+        }
     }
     internal void ChooseRandomCardFromCenter()
     {
@@ -40,15 +45,17 @@ public class Enemy : Gamer
             }
         }
     }
-    internal void HitOrNo()
+    internal IEnumerator HitOrNo()
     {
+        
         if (GamerChooser.enemyMove)
         {
             int randomNumber = Random.Range(0, 2);
+            yield return new WaitForSeconds(5f);
             switch (randomNumber)
             {
                 case 0:
-                    AddCardToSlot(this.gameObject);
+                    deck.GiveCardToPlayer(this.gameObject);
                     break;
                 case 1:
                     SkipMove();

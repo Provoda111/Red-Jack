@@ -25,11 +25,13 @@ public static class GamerChooser
     }*/
     internal static void PlayerHasMoved() // NEEDS TO BE OPTIMIZED
     {
+        Debug.Log("Enemy is moving");
         playerMove = false;
         enemyMove = true;
     }
     internal static void EnemyHasMoved() // NEEDS TO BE OPTIMIZED
     {
+        Debug.Log("Player is moving");
         playerMove = true;
         enemyMove = false;
     }
