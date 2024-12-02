@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject cardHitText;
     [SerializeField] private GameObject cardSurrenderText;
     [SerializeField] private Player player;
-    // Start is called before the first frame update
+    
     void Start()
     {
         
@@ -18,22 +18,26 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ShowButtonUI();
+        if (GamerChooser.playerMove)
+        {
+            ShowButtonUI();
+        }
+        if (GamerChooser.enemyMove)
+        {
+            HideButtonUI();
+        }
     }
     private void ShowButtonUI()
     {
-        if (GamerChooser.playerMove)
-        {
-            cardStandText.SetActive(true);
-            cardHitText.SetActive(true);
-            cardSurrenderText.SetActive(true);
-        }
-        else
-        {
-            cardStandText.SetActive(false);
-            cardHitText.SetActive(false);
-            cardSurrenderText.SetActive(false);
-        }
+        cardStandText.SetActive(true);
+        cardHitText.SetActive(true);
+        cardSurrenderText.SetActive(true);
+    }
+    private void HideButtonUI()
+    {
+        cardStandText.SetActive(false);
+        cardHitText.SetActive(false);
+        cardSurrenderText.SetActive(false);
     }
     private void BlackJackHit()
     {

@@ -71,13 +71,13 @@ public class Cutscene : MonoBehaviour
                     }
                     if (player.gamerSlots.Count < 5 && enemy.gamerSlots.Count < 5)
                     {
+                        gameManager.CardGoesBackToDeck();
                         gameStep++;
                     }
                 }
                 break;
             case 5:
                 StartCoroutine(deck.GiveCardToGamers());
-                GamerChooser.MoveDeterminer();
                 gameStep++;
                 break;
         }

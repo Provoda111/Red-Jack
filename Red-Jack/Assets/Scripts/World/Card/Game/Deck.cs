@@ -67,14 +67,12 @@ public class Deck : MonoBehaviour
             }
             if (GamerChooser.enemyMove)
             {
-                //enemy.ChooseRandomCardFromCenter();
                 GiveCardToPlayer(enemy.gameObject);
                 GamerChooser.EnemyHasMoved();
                 yield return new WaitForSeconds(3f);
             }
             yield return new WaitForSeconds(2f);
         }
-        yield return new WaitForSeconds(5f);
     }
     internal void GamersChooseCard()
     {

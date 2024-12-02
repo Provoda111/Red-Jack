@@ -55,9 +55,6 @@ public class Player : Gamer
                         Debug.Log("Player can't move");
                     }
                 }
-                /*rayHitCard = hit.collider.gameObject;
-                card = rayHitCard;
-                cardController = card.GetComponent<GameCard>();*/
             }
         }
     }

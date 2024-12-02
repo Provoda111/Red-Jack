@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         deck = GameObject.Find("Deck").GetComponent<Deck>();
-        GamerChooser.MoveDeterminer();
+        //GamerChooser.MoveDeterminer();
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             CardGoesBackToDeck();
         }
     }
-    private void CardGoesBackToDeck()
+    internal void CardGoesBackToDeck()
     {
         Transform cardsAtTheCenterObject = GameObject.Find("CardsAtTheCenter").transform;
         GameCard lastCardCenter;

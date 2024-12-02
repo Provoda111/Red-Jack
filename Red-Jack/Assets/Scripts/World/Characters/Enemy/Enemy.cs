@@ -18,7 +18,6 @@ public class Enemy : Gamer
     }
     public void Update()
     {
-        
     }
     internal void ChooseRandomCardFromCenter()
     {
