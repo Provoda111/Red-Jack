@@ -29,6 +29,7 @@ public class Deck : MonoBehaviour
     }
     internal IEnumerator CardsToCenter()
     {
+        yield return new WaitForSeconds(3.5f);
         for (int i = 0; i < 3; i++)
         {
             deckAnimator.SetTrigger("GiveCardsToCenter");

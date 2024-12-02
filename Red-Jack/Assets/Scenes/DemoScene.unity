@@ -7241,6 +7241,7 @@ MonoBehaviour:
   buffCards: []
   helpCardObject: {fileID: 0}
   carddd: {fileID: 0}
+  deck: {fileID: 156679788}
 --- !u!4 &815605929
 Transform:
   m_ObjectHideFlags: 0

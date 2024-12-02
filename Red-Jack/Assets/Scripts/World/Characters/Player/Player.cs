@@ -48,7 +48,6 @@ public class Player : Gamer
                     {
                         GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
                         card.GoToPlayer(this.gameObject);
-                        GamerChooser.PlayerHasMoved();
                     }
                     else
                     {

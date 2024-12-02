@@ -54,10 +54,8 @@ public class Cutscene : MonoBehaviour
                     gameStep++;
                 }
                 break;
-            case 3:
-                StartCoroutine(WaitTime(3f));
+            case 3:           
                 StartCoroutine(deck.CardsToCenter());
-                StartCoroutine(WaitTime(3f));
                 gameStep++;
                 break;
 
@@ -79,6 +77,9 @@ public class Cutscene : MonoBehaviour
             case 5:
                 StartCoroutine(deck.GiveCardToGamers());
                 gameStep++;
+                break;
+            case 6:
+
                 break;
         }
     }
