@@ -47,10 +47,10 @@ public class Enemy : Gamer
     }
     internal IEnumerator HitOrNo()
     {
-        
+        int randomNumber = Random.Range(0, 2);
         if (GamerChooser.enemyMove)
         {
-            int randomNumber = Random.Range(0, 2);
+            GamerChooser.EnemyHasMoved();
             yield return new WaitForSeconds(5f);
             switch (randomNumber)
             {
@@ -61,7 +61,6 @@ public class Enemy : Gamer
                     SkipMove();
                     break;
             }
-            GamerChooser.EnemyHasMoved();
         }
     }
     private void SkipMove()
