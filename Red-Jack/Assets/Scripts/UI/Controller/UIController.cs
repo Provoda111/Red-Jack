@@ -33,10 +33,10 @@ public class UIController : MonoBehaviour
                     BlackJackSurrender();
                 }
             }
-        }
-        else
-        {
-            HideButtonUI();
+            if (GamerChooser.enemyMove)
+            {
+                HideButtonUI();
+            }
         }
     }
     private void ShowButtonUI()

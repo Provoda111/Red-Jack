@@ -5,8 +5,6 @@ public static class GamerChooser
 {
     [SerializeField] static internal bool playerMove = false;
     [SerializeField] static internal bool enemyMove = true;
-    static internal string whoMoves;
-    static private int randomNumber;
 
     internal static void PlayerHasMoved() // NEEDS TO BE OPTIMIZED
     {
