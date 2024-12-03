@@ -77,13 +77,16 @@ public class Cutscene : MonoBehaviour
                 gameStep++;
                 break;
             case 6:
-                if (GamerChooser.enemyMove)
+                if (deck.cardHasBeenSharedToGamers)
                 {
-                    StartCoroutine(enemy.HitOrNo());
-                }
-                if (GamerChooser.playerMove)
-                {
-                    Debug.Log("Player can play");
+                    if (GamerChooser.enemyMove)
+                    {
+                        StartCoroutine(enemy.HitOrNo());
+                    }
+                    if (GamerChooser.playerMove)
+                    {
+                        Debug.Log("Player can play");
+                    }
                 }
                 break;
         }

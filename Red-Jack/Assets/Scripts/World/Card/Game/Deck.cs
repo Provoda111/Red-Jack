@@ -14,7 +14,7 @@ public class Deck : MonoBehaviour
 
     [SerializeField] internal bool cardHasBeenSharedToCenter = false;
 
-    public event Action oneCardOnCenter;
+    internal bool cardHasBeenSharedToGamers = false;
 
     [SerializeField] private Player player;
     [SerializeField] private Enemy enemy;
@@ -58,26 +58,11 @@ public class Deck : MonoBehaviour
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
     {
-        for (int i = 0; i < 1; i++)
-        {
-            GiveCardToPlayer(player.gameObject);
-            yield return new WaitForSeconds(3f);
-            GiveCardToPlayer(enemy.gameObject);
-            yield return new WaitForSeconds(3f);
-            /*if (GamerChooser.playerMove)
-            {
-                GiveCardToPlayer(player.gameObject);
-                GamerChooser.PlayerHasMoved();
-                yield return new WaitForSeconds(3f);
-            }
-            if (GamerChooser.enemyMove)
-            {
-                GiveCardToPlayer(enemy.gameObject);
-                GamerChooser.EnemyHasMoved();
-                yield return new WaitForSeconds(3f);
-            }*/
-            yield return new WaitForSeconds(2f);
-        }
+        GiveCardToPlayer(player.gameObject);
+        yield return new WaitForSeconds(3f);
+        GiveCardToPlayer(enemy.gameObject);
+        yield return new WaitForSeconds(5f);
+        cardHasBeenSharedToGamers = true;
     }
     internal void GiveCardToEnemy()
     {

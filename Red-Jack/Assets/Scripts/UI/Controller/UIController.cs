@@ -19,17 +19,21 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GamerChooser.playerMove)
+        if (deck.cardHasBeenSharedToGamers)
         {
-            ShowButtonUI();
+            if (GamerChooser.playerMove)
+            {
+                ShowButtonUI();
+                if (Input.GetKeyUp(KeyCode.H))
+                {
+                    BlackJackHit();
+                    GamerChooser.PlayerHasMoved();
+                }
+            }
         }
-        if (GamerChooser.enemyMove)
+        else
         {
             HideButtonUI();
-        }
-        if (Input.GetKeyUp(KeyCode.H))
-        {
-            BlackJackHit();
         }
     }
     private void ShowButtonUI()
@@ -46,25 +50,23 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackHit()
     {
-        Debug.Log("A");
-        if (GamerChooser.playerMove)
-        {
-            deck.GiveCardToPlayer(player.gameObject);
-            GamerChooser.PlayerHasMoved();
-        }
+        Debug.Log("1");
+        deck.GiveCardToPlayer(player.gameObject);
+        Debug.Log("2");
     }
     private void BlackJackStand()
     {
         if (GamerChooser.playerMove)
         {
             Debug.Log("Player doesn't wan't to move");
+            GamerChooser.PlayerHasMoved();
         }
     }
     private void BlackJackSurrender()
     {
         if (GamerChooser.playerMove)
         {
-
+            Debug.Log("Surrender");
         }
     }
 }

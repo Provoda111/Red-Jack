@@ -47,11 +47,10 @@ public class Player : Gamer
                     if (GamerChooser.playerMove)
                     {
                         GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
-                        card.GoToPlayer(this.gameObject);
-                    }
-                    else
-                    {
-                        Debug.Log("Player can't move");
+                        if (card.isAtTheCenter)
+                        {
+                            card.GoToPlayer(this.gameObject);
+                        }
                     }
                 }
             }
