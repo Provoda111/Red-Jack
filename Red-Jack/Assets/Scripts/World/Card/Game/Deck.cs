@@ -12,7 +12,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
 
-    internal bool cardHasBeenSharedToCenter = false;
+    [SerializeField] internal bool cardHasBeenSharedToCenter = false;
 
     public event Action oneCardOnCenter;
 
@@ -60,7 +60,11 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < 1; i++)
         {
-            if (GamerChooser.playerMove)
+            GiveCardToPlayer(player.gameObject);
+            yield return new WaitForSeconds(3f);
+            GiveCardToPlayer(enemy.gameObject);
+            yield return new WaitForSeconds(3f);
+            /*if (GamerChooser.playerMove)
             {
                 GiveCardToPlayer(player.gameObject);
                 GamerChooser.PlayerHasMoved();
@@ -71,22 +75,8 @@ public class Deck : MonoBehaviour
                 GiveCardToPlayer(enemy.gameObject);
                 GamerChooser.EnemyHasMoved();
                 yield return new WaitForSeconds(3f);
-            }
+            }*/
             yield return new WaitForSeconds(2f);
-        }
-    }
-    internal void GamersChooseCard()
-    {
-        for (int i = 0; i < 1; i++)
-        {
-            if (GamerChooser.playerMove)
-            {
-                GamerChooser.playerMove = true;
-            }
-            if (GamerChooser.enemyMove)
-            {
-                enemy.ChooseRandomCardFromCenter();
-            }
         }
     }
     internal void GiveCardToEnemy()

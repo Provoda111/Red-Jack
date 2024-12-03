@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject cardHitText;
     [SerializeField] private GameObject cardSurrenderText;
     [SerializeField] private Player player;
+    [SerializeField] private Deck deck;
     
     void Start()
     {
@@ -26,6 +27,10 @@ public class UIController : MonoBehaviour
         {
             HideButtonUI();
         }
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            BlackJackHit();
+        }
     }
     private void ShowButtonUI()
     {
@@ -41,12 +46,10 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackHit()
     {
-        if (Input.GetKeyUp(KeyCode.H))
+        Debug.Log("A");
+        if (GamerChooser.playerMove)
         {
-            if (GamerChooser.playerMove)
-            {
-                player.AddCardToSlot(player.gameObject);
-            }
+            deck.GiveCardToPlayer(player.gameObject);
             GamerChooser.PlayerHasMoved();
         }
     }
@@ -54,7 +57,7 @@ public class UIController : MonoBehaviour
     {
         if (GamerChooser.playerMove)
         {
-
+            Debug.Log("Player doesn't wan't to move");
         }
     }
     private void BlackJackSurrender()

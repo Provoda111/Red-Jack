@@ -13,17 +13,14 @@ public class Gamer : MonoBehaviour
     static internal bool hasLost = false;
 
     internal Vector3 slotPosition;
-
-    public GameObject helpCardObject;
-    private Deck deck;
+  
+    [SerializeField] internal Deck deck;
     private void Start()
     {
         deck = GameObject.Find("Deck").GetComponent<Deck>();
     }
     internal void AddCardToSlot(GameObject cardObject)
     {
-        helpCardObject = cardObject;
-
         GameObject slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
         Transform slotTransform = slotDetect.transform;
         if (slotTransform.childCount == 0)
@@ -61,5 +58,9 @@ public class Gamer : MonoBehaviour
         {
 
         }
+    }
+    internal void Surrender()
+    {
+
     }
 }

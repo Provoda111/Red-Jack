@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public static class GamerChooser
 {
-    static internal bool playerMove = true;
-    static internal bool enemyMove = false;
+    [SerializeField] static internal bool playerMove = false;
+    [SerializeField] static internal bool enemyMove = true;
     static internal string whoMoves;
     static private int randomNumber;
 

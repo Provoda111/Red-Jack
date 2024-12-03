@@ -44,7 +44,6 @@ public class Cutscene : MonoBehaviour
         switch (gameStep)
         {
             case 1:
-                Debug.Log("1");
                 StartCoroutine(player.LaunchAwakeAnimation());
                 gameStep++;
                 break;
@@ -58,12 +57,11 @@ public class Cutscene : MonoBehaviour
                 StartCoroutine(deck.CardsToCenter());
                 gameStep++;
                 break;
-
             case 4:
                 StartCoroutine(WaitTime(3f));
                 if (deck.cardHasBeenSharedToCenter)
                 {
-                    if (GamerChooser.enemyMove)
+                    if (enemy.gamerSlots.Count != 4)
                     {
                         enemy.ChooseRandomCardFromCenter();
                     }
@@ -79,7 +77,14 @@ public class Cutscene : MonoBehaviour
                 gameStep++;
                 break;
             case 6:
-
+                if (GamerChooser.enemyMove)
+                {
+                    StartCoroutine(enemy.HitOrNo());
+                }
+                if (GamerChooser.playerMove)
+                {
+                    Debug.Log("Player can play");
+                }
                 break;
         }
     }

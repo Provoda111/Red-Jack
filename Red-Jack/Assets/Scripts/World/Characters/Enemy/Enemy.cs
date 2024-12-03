@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Enemy : Gamer
 {
-    public GameObject carddd;
-    private GameObject selectCard;
-    [SerializeField] private Deck deck;
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
@@ -19,29 +16,29 @@ public class Enemy : Gamer
     }
     public void Update()
     {
-        if (GamerChooser.enemyMove)
-        {
-            StartCoroutine(HitOrNo());
-        }
+
     }
     internal void ChooseRandomCardFromCenter()
     {
-        if (GamerChooser.enemyMove)
+        if (deck.cardHasBeenSharedToCenter)
         {
-            var centerCards = GameObject.Find("CardsAtTheCenter").transform
-            .GetComponentsInChildren<GameCard>()
-            .Where(card => card.isAtTheCenter)
-            .ToList();
-            if (centerCards.Count > 0)
+            if (GamerChooser.enemyMove)
             {
-                GameCard chosenCard = centerCards[Random.Range(0, centerCards.Count)];
-                if (!chosenCard.isAtTheHand)
+                var centerCards = GameObject.Find("CardsAtTheCenter").transform
+                .GetComponentsInChildren<GameCard>()
+                .Where(card => card.isAtTheCenter)
+                .ToList();
+                if (centerCards.Count > 0)
                 {
-                    chosenCard.GoToPlayer(this.gameObject);
-                    chosenCard.isAtTheCenter = false;
-                    chosenCard.isAtTheHand = true;
+                    GameCard chosenCard = centerCards[Random.Range(0, centerCards.Count)];
+                    if (!chosenCard.isAtTheHand)
+                    {
+                        chosenCard.GoToPlayer(this.gameObject);
+                        chosenCard.isAtTheCenter = false;
+                        chosenCard.isAtTheHand = true;
+                    }
+                    GamerChooser.EnemyHasMoved();
                 }
-                GamerChooser.EnemyHasMoved();
             }
         }
     }
