@@ -10,6 +10,27 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject cardSurrenderText;
     [SerializeField] private Player player;
     [SerializeField] private Deck deck;
+    private void OnEnable()
+    {
+        GamerChooser.OnPlayerMoveChanged += UpdateUIVisibility; 
+    }
+
+    private void OnDisable()
+    {
+        GamerChooser.OnPlayerMoveChanged -= UpdateUIVisibility; 
+    }
+
+    private void UpdateUIVisibility()
+    {
+        if (deck.cardHasBeenSharedToCenter && GamerChooser.playerMove)
+        {
+            ShowButtonUI();
+        }
+        else
+        {
+            HideButtonUI();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,7 +39,6 @@ public class UIController : MonoBehaviour
         {
             if (GamerChooser.playerMove)
             {
-                ShowButtonUI();
                 if (Input.GetKeyUp(KeyCode.H))
                 {
                     BlackJackHit();
@@ -32,11 +52,7 @@ public class UIController : MonoBehaviour
                 {
                     BlackJackSurrender();
                 }
-            }
-            if (GamerChooser.enemyMove)
-            {
-                HideButtonUI();
-            }
+            }         
         }
     }
     private void ShowButtonUI()

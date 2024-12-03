@@ -83,10 +83,6 @@ public class Cutscene : MonoBehaviour
                     {
                         StartCoroutine(enemy.HitOrNo());
                     }
-                    if (GamerChooser.playerMove)
-                    {
-                        Debug.Log("Player can play");
-                    }
                 }
                 break;
         }

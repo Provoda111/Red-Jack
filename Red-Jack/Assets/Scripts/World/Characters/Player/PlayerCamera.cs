@@ -20,13 +20,36 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private Animator animator;
 
     public bool canMoveCamera = false;
+
+    public Camera mainCamera;
+    public float zoomSpeed = 5f; 
+    public float targetZoom = 20f; 
+    public float normalZoom = 40f; 
+
+    private float currentZoom; 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         initialRotation = transform.localRotation;
+        currentZoom = mainCamera.fieldOfView;
     }
-
+    private void Update()
+    {
+        if (canMoveCamera)
+        {
+            if (Input.GetMouseButton(1))
+            {
+                currentZoom = Mathf.Lerp(currentZoom, targetZoom, Time.deltaTime * zoomSpeed);
+            }
+            else
+            {
+                
+                currentZoom = Mathf.Lerp(currentZoom, normalZoom, Time.deltaTime * zoomSpeed);
+            }
+            mainCamera.fieldOfView = currentZoom;
+        }
+    }
     void LateUpdate()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))

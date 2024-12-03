@@ -8,10 +8,7 @@ public class Enemy : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
-        gamerSlots.Sort(delegate (GameObject x, GameObject y)
-        {
-            return x.name.CompareTo(y.name);
-        });
+        gamerSlots.Sort(delegate (GameObject x, GameObject y) { return x.name.CompareTo(y.name); });
         buffSlots = GameObject.FindGameObjectsWithTag("Enemy's buff").ToList();
     }
     public void Update()
@@ -36,8 +33,8 @@ public class Enemy : Gamer
                         chosenCard.GoToPlayer(this.gameObject);
                         chosenCard.isAtTheCenter = false;
                         chosenCard.isAtTheHand = true;
+                        GamerChooser.EnemyHasMoved();
                     }
-                    GamerChooser.EnemyHasMoved();
                 }
             }
         }
@@ -47,7 +44,6 @@ public class Enemy : Gamer
         int randomNumber = Random.Range(0, 2);
         if (GamerChooser.enemyMove)
         {
-            GamerChooser.EnemyHasMoved();
             yield return new WaitForSeconds(5f);
             switch (randomNumber)
             {
@@ -59,6 +55,7 @@ public class Enemy : Gamer
                     break;
             }
         }
+        GamerChooser.EnemyHasMoved();
     }
     private void SkipMove()
     {
