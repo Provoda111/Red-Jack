@@ -10,11 +10,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject cardSurrenderText;
     [SerializeField] private Player player;
     [SerializeField] private Deck deck;
-    
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,6 +23,14 @@ public class UIController : MonoBehaviour
                 {
                     BlackJackHit();
                     GamerChooser.PlayerHasMoved();
+                }
+                if (Input.GetKeyUp(KeyCode.S))
+                {
+                    BlackJackStand();
+                }
+                if (Input.GetKeyUp(KeyCode.D))
+                {
+                    BlackJackSurrender();
                 }
             }
         }
