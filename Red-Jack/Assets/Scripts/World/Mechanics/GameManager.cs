@@ -46,4 +46,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    internal void ShowAllCards()
+    {
+
+    }
 }

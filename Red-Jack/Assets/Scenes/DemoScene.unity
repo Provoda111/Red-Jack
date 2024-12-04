@@ -399,7 +399,6 @@ MonoBehaviour:
   - {fileID: 748800313423445420, guid: 6f5c9f926a1cb8647a8d0d882300cb89, type: 3}
   - {fileID: 7515482420652955562, guid: 7e4e4c09d820ec34dbfd247cb5efdd72, type: 3}
   - {fileID: 8816023348059597911, guid: 4c8aafa92e8173947b4ee2add433d99b, type: 3}
-  cardHasBeenSharedToCenter: 0
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
 --- !u!1 &176056038
@@ -7067,6 +7066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamerSlots: []
   buffSlots: []
+  gameCards: []
   buffCards: []
   deck: {fileID: 156679788}
 --- !u!4 &815605929
@@ -8442,6 +8442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamerSlots: []
   buffSlots: []
+  gameCards: []
   buffCards: []
   deck: {fileID: 0}
   cursorCamera: {fileID: 1247853512}
@@ -10477,8 +10478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardSumm: {fileID: 1560408459}
   EnemyCardSumm: {fileID: 569307564}
-  player1: 0
-  player2: 0
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
 --- !u!4 &1840163159

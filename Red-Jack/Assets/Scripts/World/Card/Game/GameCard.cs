@@ -8,7 +8,7 @@ using UnityEngine;
 public class GameCard : MonoBehaviour
 {
     [SerializeField] internal int cardValue;
-    private Animator cardAnimator;
+    [SerializeField] private Animator cardAnimator;
     [SerializeField] internal bool isAtTheHand = false;
     [SerializeField] internal bool isAtThePlayer = false;
     internal bool isAtTheCenter = false;
@@ -98,9 +98,5 @@ public class GameCard : MonoBehaviour
     {
         TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
         cardValueText.text = $"{cardValue}";
-    }
-    internal void FromPlayerToCenter(GameObject caller)
-    {
-
     }
 }

@@ -287,9 +287,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardValue: 3
+  cardAnimator: {fileID: -2669158838880007908, guid: 29d6161b16de378468bf98bea7e7d085, type: 3}
   isAtTheHand: 0
+  isAtThePlayer: 0
   targetPosition: {x: 0, y: 0, z: 0}
   deck: {fileID: 0}
+  blackjack: {fileID: 0}
 --- !u!95 &4802529970924732688
 Animator:
   serializedVersion: 5
