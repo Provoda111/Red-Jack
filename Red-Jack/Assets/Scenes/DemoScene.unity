@@ -9401,7 +9401,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1247853512}
   zoomSpeed: 5
   targetZoom: 20
-  normalZoom: 60
+  normalZoom: 40
 --- !u!114 &1247853517
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,15 +8,13 @@ public static class GamerChooser
 
     public static event System.Action OnPlayerMoveChanged;
 
-    internal static void PlayerHasMoved() // NEEDS TO BE OPTIMIZED
+    internal static void PlayerHasMoved()
     {
-        Debug.Log("A");
         playerMove = false;
         enemyMove = true;
-        Debug.Log("B");
         OnPlayerMoveChanged?.Invoke();
     }
-    internal static void EnemyHasMoved() // NEEDS TO BE OPTIMIZED
+    internal static void EnemyHasMoved()
     {
         playerMove = true;
         enemyMove = false;

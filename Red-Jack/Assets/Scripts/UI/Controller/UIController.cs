@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
 
     private void UpdateUIVisibility()
     {
-        if (deck.cardHasBeenSharedToCenter && GamerChooser.playerMove)
+        if (Deck.cardHasBeenSharedToGamers && GamerChooser.playerMove)
         {
             ShowButtonUI();
         }
@@ -35,7 +35,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deck.cardHasBeenSharedToGamers)
+        if (Deck.cardHasBeenSharedToGamers)
         {
             if (GamerChooser.playerMove)
             {
@@ -52,8 +52,9 @@ public class UIController : MonoBehaviour
                 {
                     BlackJackSurrender();
                 }
-            }         
+            }
         }
+        UpdateUIVisibility();
     }
     private void ShowButtonUI()
     {
@@ -69,9 +70,7 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackHit()
     {
-        Debug.Log("1");
         deck.GiveCardToPlayer(player.gameObject);
-        Debug.Log("2");
     }
     private void BlackJackStand()
     {

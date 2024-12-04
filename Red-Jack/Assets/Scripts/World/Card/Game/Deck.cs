@@ -12,9 +12,9 @@ public class Deck : MonoBehaviour
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
 
-    [SerializeField] internal bool cardHasBeenSharedToCenter = false;
-
-    internal bool cardHasBeenSharedToGamers = false;
+    [SerializeField] static internal bool cardHasBeenSharedToCenter = false;
+    [SerializeField] static internal bool cardHasBeenSharedToGamers = false;
+    internal bool isRotated = false;
 
     [SerializeField] private Player player;
     [SerializeField] private Enemy enemy;
@@ -61,8 +61,8 @@ public class Deck : MonoBehaviour
         GiveCardToPlayer(player.gameObject);
         yield return new WaitForSeconds(3f);
         GiveCardToPlayer(enemy.gameObject);
-        yield return new WaitForSeconds(5f);
         cardHasBeenSharedToGamers = true;
+        yield return new WaitForSeconds(5f);
     }
     internal void GiveCardToEnemy()
     {

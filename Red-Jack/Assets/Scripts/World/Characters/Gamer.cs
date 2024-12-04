@@ -6,7 +6,7 @@ public class Gamer : MonoBehaviour
 {
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffSlots = new List<GameObject>();
-    [SerializeField] static internal List<GameObject> gameCards = new List<GameObject>();
+    [SerializeField] internal List<GameObject> gameCards = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
 
@@ -21,20 +21,23 @@ public class Gamer : MonoBehaviour
     }
     internal void AddCardToSlot(GameObject cardObject)
     {
-        GameObject slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
-        Transform slotTransform = slotDetect.transform;
-        if (slotTransform.childCount == 0)
+        if (gameCards.Count <= 5)
         {
-            slotPosition = slotTransform.position;
-            gameCards.Add(cardObject);
-            gamerSlots.Remove(slotDetect);
-            cardObject.transform.SetParent(slotTransform, true);
+            GameObject slotDetect = gamerSlots.Find(x => x.name.Contains("Slot"));
+            Transform slotTransform = slotDetect.transform;
+            if (slotTransform.childCount == 0)
+            {
+                slotPosition = slotTransform.position;
+                gameCards.Add(cardObject);
+                gamerSlots.Remove(slotDetect);
+                cardObject.transform.SetParent(slotTransform, true);
+            }
+            else
+            {
+                Debug.LogError("Slot already occupied!");
+            }
+            gamerValues += cardObject.GetComponent<GameCard>().cardValue;
         }
-        else
-        {
-            Debug.LogError("Slot already occupied!");
-        }
-        gamerValues += cardObject.GetComponent<GameCard>().cardValue;
     }
     internal void RemoveCardFromSlot(GameObject cardObject)
     {

@@ -17,7 +17,7 @@ public class Enemy : Gamer
     }
     internal void ChooseRandomCardFromCenter()
     {
-        if (deck.cardHasBeenSharedToCenter)
+        if (Deck.cardHasBeenSharedToCenter)
         {
             if (GamerChooser.enemyMove)
             {
@@ -54,8 +54,9 @@ public class Enemy : Gamer
                     SkipMove();
                     break;
             }
+            randomNumber = 3;
+            GamerChooser.EnemyHasMoved();
         }
-        GamerChooser.EnemyHasMoved();
     }
     private void SkipMove()
     {

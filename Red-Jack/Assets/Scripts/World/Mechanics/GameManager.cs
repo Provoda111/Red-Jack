@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Enemy enemy;
     [SerializeField] private Deck deck;
+    static internal bool GameEnd = false;
 
     private void Start()
     {
@@ -17,24 +18,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            StartCoroutine(deck.GiveCardToGamers());
-        }
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            enemy.ChooseRandomCardFromCenter();
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            CardGoesBackToDeck();
-        }
+        
     }
     internal void CardGoesBackToDeck()
     {
         Transform cardsAtTheCenterObject = GameObject.Find("CardsAtTheCenter").transform;
         GameCard lastCardCenter;
-        if (deck.cardHasBeenSharedToCenter && cardsAtTheCenterObject.childCount == 1)
+        if (Deck.cardHasBeenSharedToCenter && cardsAtTheCenterObject.childCount == 1)
         {
             Debug.Log("The last card on center can be returned");
             lastCardCenter = cardsAtTheCenterObject.GetComponentInChildren<GameCard>();

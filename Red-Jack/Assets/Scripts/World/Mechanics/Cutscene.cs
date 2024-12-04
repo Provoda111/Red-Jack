@@ -59,7 +59,7 @@ public class Cutscene : MonoBehaviour
                 break;
             case 4:
                 StartCoroutine(WaitTime(3f));
-                if (deck.cardHasBeenSharedToCenter)
+                if (Deck.cardHasBeenSharedToCenter)
                 {
                     if (enemy.gamerSlots.Count != 4)
                     {
@@ -77,7 +77,7 @@ public class Cutscene : MonoBehaviour
                 gameStep++;
                 break;
             case 6:
-                if (deck.cardHasBeenSharedToGamers)
+                if (Deck.cardHasBeenSharedToGamers)
                 {
                     if (GamerChooser.enemyMove)
                     {
