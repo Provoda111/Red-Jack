@@ -32,10 +32,6 @@ public class Gamer : MonoBehaviour
                 gamerSlots.Remove(slotDetect);
                 cardObject.transform.SetParent(slotTransform, true);
             }
-            else
-            {
-                Debug.LogError("Slot already occupied!");
-            }
             gamerValues += cardObject.GetComponent<GameCard>().cardValue;
         }
     }

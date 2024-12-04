@@ -39,24 +39,24 @@ public class GameCard : MonoBehaviour
         AddCardMover();
         if (!isAtTheHand)
         {
+            if (caller.name == "Player")
+            {
+                mover.OnReachedTarget += () =>
+                {
+                    isAtThePlayer = true;
+                };
+            }
+            else
+            {
+                mover.OnReachedTarget += () =>
+                {
+                    isAtTheHand = true;
+                };
+            }
             Gamer gamer = caller.GetComponent<Gamer>();
             gamer.AddCardToSlot(this.gameObject);
             this.targetPosition = gamer.slotPosition;
             mover.SetTarget(targetPosition, 1f);
-        }
-        if (caller.name == "Player")
-        {
-            mover.OnReachedTarget += () =>
-            {
-                isAtThePlayer = true;
-            };
-        }
-        else
-        {
-            mover.OnReachedTarget += () =>
-            {
-                isAtTheHand = true;
-            };
         }
     }
     public void GoToDeck()
@@ -65,11 +65,11 @@ public class GameCard : MonoBehaviour
         AddCardMover();
         this.targetPosition = deckPosition;
         mover.SetTarget(this.targetPosition, 1f);
+        deck.cardDeck.Add(this.gameObject);
         mover.OnReachedTarget += () =>
         {
             Destroy(this.gameObject);
         };
-        deck.cardDeck.Add(this.gameObject);
     }
     public void GoToCenter()
     {

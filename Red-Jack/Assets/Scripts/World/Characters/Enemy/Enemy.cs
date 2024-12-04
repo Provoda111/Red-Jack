@@ -42,21 +42,20 @@ public class Enemy : Gamer
     internal IEnumerator HitOrNo()
     {
         int randomNumber = Random.Range(0, 2);
-        if (GamerChooser.enemyMove)
+        yield return new WaitForSeconds(5f);
+        if (randomNumber == 0)
         {
-            yield return new WaitForSeconds(5f);
-            switch (randomNumber)
-            {
-                case 0:
-                    deck.GiveCardToPlayer(this.gameObject);
-                    break;
-                case 1:
-                    SkipMove();
-                    break;
-            }
-            randomNumber = 3;
-            GamerChooser.EnemyHasMoved();
+            deck.GiveCardToPlayer(this.gameObject);
         }
+        if (randomNumber == 1)
+        {
+            SkipMove();
+        }
+        GamerChooser.EnemyHasMoved();
+    }
+    internal IEnumerator StandOrNo()
+    {
+        yield return null;
     }
     private void SkipMove()
     {

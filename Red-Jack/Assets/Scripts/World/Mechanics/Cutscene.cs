@@ -82,6 +82,7 @@ public class Cutscene : MonoBehaviour
                     if (GamerChooser.enemyMove)
                     {
                         StartCoroutine(enemy.HitOrNo());
+                        GamerChooser.enemyMove = false;
                     }
                 }
                 break;
