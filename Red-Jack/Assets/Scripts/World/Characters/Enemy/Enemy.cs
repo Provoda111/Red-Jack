@@ -39,7 +39,7 @@ public class Enemy : Gamer
             }
         }
     }
-    internal IEnumerator HitOrNo()
+    internal IEnumerator MoveOrNo()
     {
         int randomNumber = Random.Range(0, 2);
         yield return new WaitForSeconds(5f);
@@ -61,4 +61,5 @@ public class Enemy : Gamer
     {
         Debug.Log("Enemy doesn't wan't to move");
     }
+    
 }

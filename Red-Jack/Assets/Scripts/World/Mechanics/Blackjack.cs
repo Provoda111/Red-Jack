@@ -58,4 +58,9 @@ public class Blackjack : MonoBehaviour
             EnemyCardSumm.color = Color.red;
         }
     }
+
+    private void EndGameCheck()
+    {
+        
+    }
 }

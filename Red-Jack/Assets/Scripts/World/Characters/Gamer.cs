@@ -11,6 +11,8 @@ public class Gamer : MonoBehaviour
     internal int gamerValues;
 
     static internal bool hasLost = false;
+    
+    static internal bool skipMove = false;
 
     internal Vector3 slotPosition;
   

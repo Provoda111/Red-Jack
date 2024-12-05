@@ -82,9 +82,11 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackSurrender()
     {
+        Player.skipMove = false;
         if (GamerChooser.playerMove)
         {
             Debug.Log("Surrender");
+            Player.skipMove = true;
         }
     }
 }
