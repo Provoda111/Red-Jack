@@ -37,10 +37,13 @@ public class Blackjack : MonoBehaviour
         {
             EnemyCardSumm.text = $"{enemy.gamerValues}/21";
         }
-        if (player.gamerValues <= 21)
+        if (player.gamerValues < 21)
+        {
+            CardSumm.color = Color.white;
+            //EnemyCardSumm.color = Color.green; ?
+        }else if (player.gamerValues == 21)
         {
             CardSumm.color = Color.green;
-            EnemyCardSumm.color = Color.green;
         }
         else if (player.gamerValues > 21)
         {
@@ -48,7 +51,7 @@ public class Blackjack : MonoBehaviour
         }
         if (enemy.gamerValues <= 21)
         {
-            EnemyCardSumm.color = Color.green;
+            EnemyCardSumm.color = Color.white;
         }
         else if (enemy.gamerValues > 21)
         {
