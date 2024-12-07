@@ -333,6 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154258656}
+  - component: {fileID: 154258657}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -355,6 +356,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &154258657
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154258655}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 888dd0fdede23464b8f618f880e8ce57, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -618560017890366721, guid: 888dd0fdede23464b8f618f880e8ce57, type: 2}
+    value: {fileID: 1247853514}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &156679786
 GameObject:
   m_ObjectHideFlags: 0
@@ -9469,7 +9489,7 @@ MonoBehaviour:
   player: {fileID: 1200078257}
   playerController: {fileID: 1200078259}
   animator: {fileID: 1247853514}
-  canMoveCamera: 0
+  canMoveCamera: 1
   mainCamera: {fileID: 1247853512}
   zoomSpeed: 5
   targetZoom: 20
