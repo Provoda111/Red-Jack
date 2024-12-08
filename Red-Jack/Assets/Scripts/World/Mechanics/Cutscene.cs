@@ -55,16 +55,14 @@ public class Cutscene : MonoBehaviour
                 break;
             case 3:           
                 StartCoroutine(deck.CardsToCenter());
+                StartCoroutine(WaitTime(3f));
                 gameStep++;
                 break;
             case 4:
                 StartCoroutine(WaitTime(3f));
                 if (Deck.cardHasBeenSharedToCenter)
                 {
-                    if (enemy.gamerSlots.Count != 4)
-                    {
-                        enemy.ChooseRandomCardFromCenter();
-                    }
+                    enemy.ChooseRandomCardFromCenter();
                     if (player.gamerSlots.Count < 5 && enemy.gamerSlots.Count < 5)
                     {
                         gameManager.CardGoesBackToDeck();

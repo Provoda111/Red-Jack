@@ -40,6 +40,7 @@ public class Deck : MonoBehaviour
             card.GoToCenter();
             cardDeck.Remove(cardDeck[cardIndex]);
             card.gameObject.name = $"Card{i + 1}";
+            Debug.Log($"Card{i + 1} has been given to center");
             yield return new WaitForSeconds(3.5f);
         }
         cardHasBeenSharedToCenter = true;

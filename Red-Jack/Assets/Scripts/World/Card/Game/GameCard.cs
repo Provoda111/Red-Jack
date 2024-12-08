@@ -94,7 +94,7 @@ public class GameCard : MonoBehaviour
     {
         mover = gameObject.AddComponent<CardMover>();
     }
-    internal void WriteCardInfo()
+    private void WriteCardInfo()
     {
         TextMeshPro cardValueText = GetComponentInChildren<TextMeshPro>();
         cardValueText.text = $"{cardValue}";
