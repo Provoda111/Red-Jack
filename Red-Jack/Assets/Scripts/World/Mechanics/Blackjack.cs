@@ -63,4 +63,14 @@ public class Blackjack : MonoBehaviour
     {
         
     }
+    public void TurnOnSummText()
+    { 
+        CardSumm.gameObject.SetActive(true);
+        EnemyCardSumm.gameObject.SetActive(true);
+    }
+    public void TurnOffSummText()
+    {
+        CardSumm.gameObject.SetActive(false);
+        EnemyCardSumm.gameObject.SetActive(false);
+    }
 }
