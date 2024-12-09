@@ -63,18 +63,10 @@ public class Deck : MonoBehaviour
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
     {
-        if (player.gameCards.Count > 0 && enemy.gameCards.Count > 0)
+        yield return new WaitForSeconds(3f);
+        if (player.gameCards.Count == 1 && enemy.gameCards.Count == 1)
         {
             Debug.Log("B");
-            GiveCardToPlayer(player.gameObject);
-            yield return new WaitForSeconds(3f);
-            GiveCardToPlayer(enemy.gameObject);
-            cardHasBeenSharedToGamers = true;
-            yield return new WaitForSeconds(5f);
-        }
-        if (player.gameCards.Count > 0 && enemy.gameCards.Count > 0)
-        {
-            Debug.Log("A");
             GiveCardToPlayer(player.gameObject);
             yield return new WaitForSeconds(3f);
             GiveCardToPlayer(enemy.gameObject);

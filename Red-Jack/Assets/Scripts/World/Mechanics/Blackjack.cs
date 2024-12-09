@@ -73,4 +73,12 @@ public class Blackjack : MonoBehaviour
         CardSumm.gameObject.SetActive(false);
         EnemyCardSumm.gameObject.SetActive(false);
     }
+    internal void PlayerLost()
+    {
+        Player.hasLost = true;
+    }
+    internal void EnemyLost()
+    {
+        Enemy.hasLost = true;
+    }
 }

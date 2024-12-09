@@ -44,23 +44,20 @@ public class Player : Gamer
             {
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
-                    if (GamerChooser.playerMove)
-                    {
-                        GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
-                        if (card.isAtTheCenter)
-                        {
-                            card.GoToPlayer(this.gameObject);
-                        }
-                    }
+                    ChooseCardByMouse();
                 }
             }
         }
     }
-    internal IEnumerator LaunchAwakeAnimation()
+    private void ChooseCardByMouse()
     {
-        //animator.SetBool("Awake", true);
-        yield return new WaitForSeconds(14f);
-        //animator.SetBool("Awake", false);
-        yield return new WaitForSeconds(2f);
+        if (GamerChooser.playerMove)
+        {
+            GameCard card = hit.collider.gameObject.GetComponent<GameCard>();
+            if (card.isAtTheCenter)
+            {
+                card.GoToPlayer(this.gameObject);
+            }
+        }
     }
 }

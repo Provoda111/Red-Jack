@@ -51,16 +51,20 @@ public class Cutscene : MonoBehaviour
         switch (gameStep)
         {
             case 1:
-                if (Deck.cardHasBeenSharedToCenter && enemy.gameCards.Count > 0 && player.gameCards.Count > 0)
+                if (Deck.cardHasBeenSharedToCenter)
                 {
                     StartCoroutine(deck.GiveCardToGamers());
-                    if (enemy.gameCards.Count >= 2 && player.gameCards.Count >= 2) // bug
+                    if (enemy.gameCards.Count == 2 && player.gameCards.Count == 2) // bug
                     {
                         gameStep++;
                     }
                 }
                 break;
             case 2:
+                if (GamerChooser.enemyMove)
+                {
+                    enemy.MoveOrNo();
+                }
                 break;
         }
         /*switch (gameStep)
@@ -107,9 +111,5 @@ public class Cutscene : MonoBehaviour
                 }
                 break;
         }*/
-    }
-    protected private IEnumerator WaitTime(float time)
-    {
-        yield return new WaitForSeconds(time);
     }
 }
