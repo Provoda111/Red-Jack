@@ -12,8 +12,8 @@ public class Deck : MonoBehaviour
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
 
-    [SerializeField] static internal bool cardHasBeenSharedToCenter = false;
-    [SerializeField] static internal bool cardHasBeenSharedToGamers = false;
+    [SerializeField] static public bool cardHasBeenSharedToCenter = false;
+    [SerializeField] static public bool cardHasBeenSharedToGamers = false;
     internal bool isRotated = false;
 
     [SerializeField] private Player player;
@@ -23,9 +23,13 @@ public class Deck : MonoBehaviour
     {
         
     }
-    internal void CallCardsToCenter()
+    public void CallCardsToCenter()
     {
         StartCoroutine(CardsToCenter());
+    }
+    public void CallCardsToGamers()
+    {
+        StartCoroutine(GiveCardToGamers());
     }
     internal IEnumerator CardsToCenter()
     {
@@ -59,18 +63,23 @@ public class Deck : MonoBehaviour
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
     {
-        GiveCardToPlayer(player.gameObject);
-        yield return new WaitForSeconds(3f);
-        GiveCardToPlayer(enemy.gameObject);
-        cardHasBeenSharedToGamers = true;
-        yield return new WaitForSeconds(5f);
-    }
-    internal void GiveCardToEnemy()
-    {
-        
-    }
-    internal void GiveCardToPlayer()
-    {
-
+        if (player.gameCards.Count > 0 && enemy.gameCards.Count > 0)
+        {
+            Debug.Log("B");
+            GiveCardToPlayer(player.gameObject);
+            yield return new WaitForSeconds(3f);
+            GiveCardToPlayer(enemy.gameObject);
+            cardHasBeenSharedToGamers = true;
+            yield return new WaitForSeconds(5f);
+        }
+        if (player.gameCards.Count > 0 && enemy.gameCards.Count > 0)
+        {
+            Debug.Log("A");
+            GiveCardToPlayer(player.gameObject);
+            yield return new WaitForSeconds(3f);
+            GiveCardToPlayer(enemy.gameObject);
+            cardHasBeenSharedToGamers = true;
+            yield return new WaitForSeconds(5f);
+        }
     }
 }

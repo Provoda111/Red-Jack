@@ -373,6 +373,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -618560017890366721, guid: 888dd0fdede23464b8f618f880e8ce57, type: 2}
     value: {fileID: 1247853514}
+  - key: {fileID: 4673749901095962179, guid: 888dd0fdede23464b8f618f880e8ce57, type: 2}
+    value: {fileID: 1247853514}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &156679786
@@ -490,6 +492,7 @@ MonoBehaviour:
   deckAnimator: {fileID: 1825914834}
   firstStepDone: 0
   gameStep: 0
+  director1: {fileID: 0}
 --- !u!4 &176056040
 Transform:
   m_ObjectHideFlags: 0
@@ -6044,7 +6047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569307563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9675,6 +9678,7 @@ GameObject:
   - component: {fileID: 1247853515}
   - component: {fileID: 1247853516}
   - component: {fileID: 1247853517}
+  - component: {fileID: 1247853518}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9740,14 +9744,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247853510}
-  m_LocalRotation: {x: 0.29346472, y: -0, z: -0, w: 0.95597}
+  m_LocalRotation: {x: 0.29346472, y: 0, z: 0, w: 0.9559699}
   m_LocalPosition: {x: -0.020999998, y: -0.56, z: 1.63}
   m_LocalScale: {x: 0.77903, y: 0.77903014, z: 0.77903014}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1200078258}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 394.131, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 359, y: 0, z: 0}
 --- !u!95 &1247853514
 Animator:
   serializedVersion: 5
@@ -9843,6 +9847,78 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &1247853518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247853510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 1f4b1e7436b54514f87e5b8433cf580a, type: 2}
+    - {fileID: 11400000, guid: fa8b6790d0e957041acf855161f0c257, type: 2}
+    - {fileID: 11400000, guid: d730f40b232c7604eb4adad3564a8de3, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1840163158}
+          m_TargetAssemblyTypeName: Blackjack, Assembly-CSharp
+          m_MethodName: TurnOnSummText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1247853516}
+          m_TargetAssemblyTypeName: PlayerCamera, Assembly-CSharp
+          m_MethodName: EnableCameraMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 156679788}
+          m_TargetAssemblyTypeName: Deck, Assembly-CSharp
+          m_MethodName: CallCardsToCenter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 815605928}
+          m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+          m_MethodName: ChooseRandomCardFromCenter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1250429483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5620023247811269349, guid: 1527a0cbd402ee2429fd6695e19c6786, type: 3}
@@ -10163,7 +10239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1560408459
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class Enemy : Gamer
     {
 
     }
-    internal void ChooseRandomCardFromCenter()
+    public void ChooseRandomCardFromCenter()
     {
         if (Deck.cardHasBeenSharedToCenter)
         {
@@ -39,10 +39,9 @@ public class Enemy : Gamer
             }
         }
     }
-    internal IEnumerator MoveOrNo()
+    public void MoveOrNo()
     {
         int randomNumber = Random.Range(0, 2);
-        yield return new WaitForSeconds(5f);
         if (randomNumber == 0)
         {
             deck.GiveCardToPlayer(this.gameObject);

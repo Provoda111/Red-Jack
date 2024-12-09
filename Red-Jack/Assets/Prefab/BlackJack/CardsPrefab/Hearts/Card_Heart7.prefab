@@ -284,7 +284,7 @@ Animator:
   m_GameObject: {fileID: 3137997925796175148}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33aef7f023415394b8fdfe8c9bb4f0a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -308,6 +308,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardValue: 7
+  cardAnimator: {fileID: 0}
   isAtTheHand: 0
+  isAtThePlayer: 0
   targetPosition: {x: 0, y: 0, z: 0}
   deck: {fileID: 0}
+  blackjack: {fileID: 0}

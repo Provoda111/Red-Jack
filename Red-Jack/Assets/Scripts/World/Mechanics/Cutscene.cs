@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Rendering;
+using UnityEngine.Playables;
 public class Cutscene : MonoBehaviour
 {
     // Classes and Game objects
@@ -28,6 +29,8 @@ public class Cutscene : MonoBehaviour
 
     [SerializeField] private int gameStep;
 
+    [SerializeField] private PlayableDirector director1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +42,28 @@ public class Cutscene : MonoBehaviour
     {
         GameFirstStep();
     }
+    static internal void PauseTimeline()
+    {
+
+    }
     private void GameFirstStep()
     {
         switch (gameStep)
+        {
+            case 1:
+                if (Deck.cardHasBeenSharedToCenter && enemy.gameCards.Count > 0 && player.gameCards.Count > 0)
+                {
+                    StartCoroutine(deck.GiveCardToGamers());
+                    if (enemy.gameCards.Count >= 2 && player.gameCards.Count >= 2) // bug
+                    {
+                        gameStep++;
+                    }
+                }
+                break;
+            case 2:
+                break;
+        }
+        /*switch (gameStep)
         {
             case 1:
                 StartCoroutine(player.LaunchAwakeAnimation());
@@ -50,7 +72,7 @@ public class Cutscene : MonoBehaviour
             case 2:
                 if (!playerAnimator.GetBool("Awake"))
                 {
-                    gameStep++;
+                    //gameStep++;
                 }
                 break;
             case 3:           
@@ -79,12 +101,12 @@ public class Cutscene : MonoBehaviour
                 {
                     if (GamerChooser.enemyMove)
                     {
-                        StartCoroutine(enemy.MoveOrNo());
+                        enemy.MoveOrNo();
                         GamerChooser.enemyMove = false;
                     }
                 }
                 break;
-        }
+        }*/
     }
     protected private IEnumerator WaitTime(float time)
     {
