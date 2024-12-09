@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
+using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class UIController : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject cardSurrenderText;
     [SerializeField] private Player player;
     [SerializeField] private Deck deck;
+    [SerializeField] private GameObject buffCardUI;
+
     private void OnEnable()
     {
         GamerChooser.OnPlayerMoveChanged += UpdateUIVisibility; 
@@ -35,26 +36,43 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Deck.cardHasBeenSharedToGamers)
+        if (Deck.cardHasBeenSharedToGamers && GamerChooser.playerMove)
         {
-            if (GamerChooser.playerMove)
-            {
-                if (Input.GetKeyUp(KeyCode.H))
-                {
-                    BlackJackHit();
-                    GamerChooser.PlayerHasMoved();
-                }
-                if (Input.GetKeyUp(KeyCode.S))
-                {
-                    BlackJackStand();
-                }
-                if (Input.GetKeyUp(KeyCode.D))
-                {
-                    BlackJackSurrender();
-                }
-            }
+            HandlePlayerInput();
         }
         UpdateUIVisibility();
+    }
+
+    private void HandlePlayerInput()
+    {
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            BlackJackHit();
+            GamerChooser.PlayerHasMoved();
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            BlackJackStand();
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            BlackJackSurrender();
+        }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            ShowBuffCardUI();
+        }
+        if (Input.GetKeyUp(KeyCode.Escape)) 
+        {
+            if (buffCardUI.activeSelf == true)
+            {
+                HideBuffCardUI();
+            }
+            else
+            {
+                
+            }
+        }
     }
     private void ShowButtonUI()
     {
@@ -74,11 +92,8 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackStand()
     {
-        if (GamerChooser.playerMove)
-        {
-            Debug.Log("Player doesn't wan't to move");
-            GamerChooser.PlayerHasMoved();
-        }
+        if (!GamerChooser.playerMove) return;
+        GamerChooser.PlayerHasMoved();
     }
     private void BlackJackSurrender()
     {
@@ -89,4 +104,8 @@ public class UIController : MonoBehaviour
             Player.skipMove = true;
         }
     }
+    private void ShowBuffCardUI() => buffCardUI.SetActive(true);
+    private void HideBuffCardUI() => buffCardUI.SetActive(false);
+    //private void ShowEscmenu() => buffCardUI.SetActive(true);
+    //private void HideEscmenu() => buffCardUI.SetActive(false);
 }

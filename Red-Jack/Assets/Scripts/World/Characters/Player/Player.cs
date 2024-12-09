@@ -1,16 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
-
 public class Player : Gamer
 {
-
     public UnityEngine.Camera cursorCamera;
     private string hitTag;
 
@@ -27,11 +18,7 @@ public class Player : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Player's card").ToList();
-        gamerSlots.Sort(delegate (GameObject x, GameObject y)
-        {
-            return x.name.CompareTo(y.name);
-        });
-        buffSlots = GameObject.FindGameObjectsWithTag("Player's buff").ToList();
+        gamerSlots.Sort((x, y) => x.name.CompareTo(y.name));
     }
     private void Update()
     {

@@ -8,8 +8,7 @@ public class Enemy : Gamer
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
-        gamerSlots.Sort(delegate (GameObject x, GameObject y) { return x.name.CompareTo(y.name); });
-        buffSlots = GameObject.FindGameObjectsWithTag("Enemy's buff").ToList();
+        gamerSlots.Sort((x, y) => x.name.CompareTo(y.name));
     }
     public void Update()
     {
@@ -60,5 +59,9 @@ public class Enemy : Gamer
     {
         Debug.Log("Enemy doesn't wan't to move");
     }
-    
+
+    private void UseBuffCard()
+    {
+        
+    }
 }
