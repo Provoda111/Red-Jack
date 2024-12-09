@@ -18,9 +18,6 @@ public class BuffCard : MonoBehaviour
     [SerializeField] internal Image buffcardImage;
 
     internal buffCardType buffType;
-    
-    [SerializeField] internal Vector3 targetPosition;
-    static internal Vector3 targetOffset;
 
     CardMover mover;
 
@@ -48,7 +45,7 @@ public class BuffCard : MonoBehaviour
         }
         
     }
-    internal void Spawn()
+    static internal void Spawn()
     {
         
     }

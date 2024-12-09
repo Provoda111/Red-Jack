@@ -58,6 +58,7 @@ public class Cutscene : MonoBehaviour
                     {
                         gameStep++;
                     }
+                    gameManager.CardGoesBackToDeck();
                 }
                 break;
             case 2:

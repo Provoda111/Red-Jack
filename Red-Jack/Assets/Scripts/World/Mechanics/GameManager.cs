@@ -32,20 +32,6 @@ public class GameManager : MonoBehaviour
             //.Where(card => card.isAtTheCenter);
         }
     }
-    internal void GamersChooseCard()
-    {
-        for (int i = 0; i < 1; i++)
-        {
-            if (GamerChooser.playerMove)
-            {
-                GamerChooser.playerMove = true;
-            }
-            if (GamerChooser.enemyMove)
-            {
-                enemy.ChooseRandomCardFromCenter();
-            }
-        }
-    }
     internal void ShowAllCards()
     {
 
