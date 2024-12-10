@@ -6879,8 +6879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1666124268}
   audioSource: {fileID: 633198502}
-  ShootAudioClip: {fileID: 0}
-  MissAudioClip: {fileID: 0}
+  ShootAudioClip: {fileID: 8300000, guid: 090ebac7f85f76c42b2ce08b95f9bf40, type: 3}
+  MissAudioClip: {fileID: 8300000, guid: ce6941df823f8784ba51e8345b75b144, type: 3}
 --- !u!114 &633198499
 MonoBehaviour:
   m_ObjectHideFlags: 0
