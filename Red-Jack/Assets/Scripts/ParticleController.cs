@@ -7,7 +7,8 @@ public class ParticleController : MonoBehaviour
     public new ParticleSystem particleSystem;
 
     public AudioSource audioSource; 
-    public AudioClip audioClip;
+    public AudioClip ShootAudioClip;
+    public AudioClip MissAudioClip;
     void Start()
     {
         if (audioSource == null)
@@ -15,20 +16,29 @@ public class ParticleController : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        audioSource.clip = audioClip;
+        
     }
 
-    public void PlaySound()
+    public void PlayShootSound()
     {
+        audioSource.clip = ShootAudioClip;
         audioSource.Play(); 
     }
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            particleSystem.Play();
+        }
     }
     public void Shot()
     {
-        particleSystem.Play();
+        particleSystem.Play(); // Toimii vain yhden kerran
+    }
+    public void Miss()
+    {
+        audioSource.clip = MissAudioClip;
+        audioSource.Play();
     }
 }
