@@ -21,18 +21,19 @@ public class BuffcardUI : MonoBehaviour
     {
         Vector3[] v = new Vector3[4];
         buffCardMenu.GetComponent<RectTransform>().GetWorldCorners(v);
-        Vector3 spawnSlotPosition = new Vector3(0, 20, 0);
-        Vector3 spawnSlotOffset = new Vector3(0, 0, 0);
+        Vector3 spawnSlotPosition = new Vector3(100, -50, 0);
         //buffCardMenuPanel.SetActive(true);
         for (int i = 0; i < player.buffCards.Count; i++)
         {
+            int yOffSet = 0;
+            Vector3 spawnSlotOffset = new Vector3(200, yOffSet, 0);
             if (i % 3 == 0)
             {
-
+                yOffSet += 100;
             }
             buffCardSlot = Instantiate(buffCardSlot, v[1] + 
                 spawnSlotPosition + spawnSlotOffset * i, Quaternion.identity, buffCardMenu.transform);
-            buffCardSlot.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, i, 300);
+            buffCardSlot.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 200 * i, 300);
 
             prefabName = player.buffCards[i].GetComponent<BuffCard>().buffCardName;
             prefabImage = player.buffCards[i].GetComponent<BuffCard>().buffcardImage;

@@ -6785,7 +6785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1666124268}
   audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  ShootAudioClip: {fileID: 0}
+  MissAudioClip: {fileID: 0}
 --- !u!95 &633198496
 Animator:
   serializedVersion: 5
@@ -8498,7 +8499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1861714698}
   audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  ShootAudioClip: {fileID: 0}
+  MissAudioClip: {fileID: 0}
 --- !u!114 &1044483169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8672,7 +8674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb784fe9cf51674ea82ebe61d8530e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabName: {fileID: 0}
+  prefabName: 
   prefabImage: {fileID: 0}
   prefabDesc: {fileID: 0}
   buffCardSlot: {fileID: 2218720517761710349, guid: db75838de26e18a4bbdae406a9e2805b, type: 3}
@@ -9074,6 +9076,9 @@ MonoBehaviour:
   buffCards:
   - {fileID: 1358099927730828075, guid: 58b005e1690f536438fdc4549e49abde, type: 3}
   - {fileID: 1358099927730828075, guid: 1eaf5dbd98448f14abac5b245c97902d, type: 3}
+  - {fileID: 1358099927730828075, guid: 0b7f64cc2648fef40bf291e46afaa80a, type: 3}
+  - {fileID: 1358099927730828075, guid: 0b7f64cc2648fef40bf291e46afaa80a, type: 3}
+  - {fileID: 1358099927730828075, guid: 0b7f64cc2648fef40bf291e46afaa80a, type: 3}
   - {fileID: 1358099927730828075, guid: 0b7f64cc2648fef40bf291e46afaa80a, type: 3}
   deck: {fileID: 0}
   cursorCamera: {fileID: 1247853512}
