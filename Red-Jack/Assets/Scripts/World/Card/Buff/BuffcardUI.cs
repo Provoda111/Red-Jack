@@ -11,30 +11,32 @@ public class BuffcardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI prefabDesc;
     [SerializeField] private GameObject buffCardSlot;
     [SerializeField] private GameObject buffCardMenu;
+    [SerializeField] private GameObject buffCardGetMenu;
     [SerializeField] private Player player;
-
-    private void Start()
-    {
-        //prefabDesc = buffCardDescription;
-    }
+    
     internal void DrawCardOnMenu()
     {
-        Vector3[] v = new Vector3[4];
-        buffCardMenu.GetComponent<RectTransform>().GetWorldCorners(v);
-        Vector3 spawnSlotPosition = new Vector3(100, -50, 0);
-        //buffCardMenuPanel.SetActive(true);
+        Vector3[] corners = new Vector3[4];
+        buffCardMenu.GetComponent<RectTransform>().GetWorldCorners(corners);
+    
+
+        Vector3 spawnSlotPosition = corners[1];
+        
+        int xOffset = 250; 
+        int yOffset = 100; 
+        buffCardMenu.SetActive(true);
         for (int i = 0; i < player.buffCards.Count; i++)
         {
-            int yOffSet = 0;
-            Vector3 spawnSlotOffset = new Vector3(200, yOffSet, 0);
-            if (i % 3 == 0)
-            {
-                yOffSet += 100;
-            }
-            buffCardSlot = Instantiate(buffCardSlot, v[1] + 
-                spawnSlotPosition + spawnSlotOffset * i, Quaternion.identity, buffCardMenu.transform);
-            buffCardSlot.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 200 * i, 300);
+            int xPosition = i / 2; 
+            int yPosition = i % 2; 
+            
+            Vector3 cardSlotPosition = spawnSlotPosition + new Vector3(xOffset * xPosition, 
+                -yOffset * yPosition, 0);
+            
+            GameObject newBuffCardSlot = Instantiate(buffCardSlot, cardSlotPosition, 
+                Quaternion.identity, buffCardMenu.transform);
 
+            newBuffCardSlot.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, xOffset * xPosition, 300);
             prefabName = player.buffCards[i].GetComponent<BuffCard>().buffCardName;
             prefabImage = player.buffCards[i].GetComponent<BuffCard>().buffcardImage;
             buffCardSlot.GetComponentInChildren<TextMeshProUGUI>().text = prefabName.ToString();
@@ -43,6 +45,7 @@ public class BuffcardUI : MonoBehaviour
     }
     private void DrawCardOnGive()
     {
-
+        buffCardGetMenu.SetActive(true);
+        
     }
 }

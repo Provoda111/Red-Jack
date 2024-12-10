@@ -48,6 +48,10 @@ public class Gamer : MonoBehaviour
     {
         buffCards.Add(buffCardObject);
     }
+    internal void AddBuffCardForPlayer()
+    {
+        
+    }
     internal void RemoveBuffCard(GameObject buffCardObject)
     {
         if (buffCards.Count > 0)

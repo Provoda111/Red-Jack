@@ -11,6 +11,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform cardSpawner;
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
+    [SerializeField] internal List<GameObject> buffCardDeck = new List<GameObject>();
 
     [SerializeField] static public bool cardHasBeenSharedToCenter = false;
     [SerializeField] static public bool cardHasBeenSharedToGamers = false;
@@ -49,8 +50,6 @@ public class Deck : MonoBehaviour
         }
         cardHasBeenSharedToCenter = true;
     }
-
-    
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
@@ -66,12 +65,16 @@ public class Deck : MonoBehaviour
         yield return new WaitForSeconds(3f);
         if (player.gameCards.Count == 1 && enemy.gameCards.Count == 1)
         {
-            Debug.Log("B");
             GiveCardToPlayer(player.gameObject);
             yield return new WaitForSeconds(3f);
             GiveCardToPlayer(enemy.gameObject);
             cardHasBeenSharedToGamers = true;
             yield return new WaitForSeconds(5f);
         }
+    }
+
+    internal void GiveBuffCardToGamers()
+    {
+        
     }
 }

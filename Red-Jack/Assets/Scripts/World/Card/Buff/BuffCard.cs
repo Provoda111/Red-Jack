@@ -1,8 +1,4 @@
-using TMPro;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum buffCardType
 {
@@ -16,11 +12,14 @@ public class BuffCard : MonoBehaviour
     internal string buffCardName;
     internal string buffCardDescription;
     [SerializeField] internal Sprite buffcardImage;
+    private Animator buffCardAnimator;
+    [SerializeField] private ParticleSystem buffCardSpawnParticle;
 
     internal buffCardType buffType;
 
     private void Start()
     {
+        buffCardAnimator = GetComponent<Animator>();
         if (System.Enum.TryParse(name, out buffCardType parsedBuffType))
         {
             buffType = parsedBuffType;
@@ -37,9 +36,8 @@ public class BuffCard : MonoBehaviour
                 buffCardDescription = "Destroy";
                 break;
         }
-        
     }
-    internal void Spawn()
+    internal void Spawn(GameObject caller)
     {
         switch (buffType)
         {
@@ -50,5 +48,10 @@ public class BuffCard : MonoBehaviour
             case buffCardType.Destroy:
                 break;
         }
+    }
+
+    public void BuffCardEffect()
+    {
+        buffCardSpawnParticle.Play();
     }
 }

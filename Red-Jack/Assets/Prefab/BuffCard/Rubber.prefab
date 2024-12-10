@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5514139715171136011}
   - component: {fileID: 7718437226761883996}
   - component: {fileID: -3246220083958714056}
+  - component: {fileID: 5331688272130462871}
   m_Layer: 0
   m_Name: Rubber
   m_TagString: Untagged
@@ -97,3 +98,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffcardImage: {fileID: 21300000, guid: 278890d209377d04eaccfecf4c7e494a, type: 3}
+  buffCardSpawnParticle: {fileID: 6280281539998945384, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
+--- !u!95 &5331688272130462871
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358099927730828075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cab2409d767b81d42adc262a7d9c3592, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
