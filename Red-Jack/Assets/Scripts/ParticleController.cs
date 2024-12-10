@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class ParticleController : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
+
+    public AudioSource audioSource; 
+    public AudioClip audioClip;
     void Start()
     {
-        particleSystem.Stop();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.clip = audioClip;
     }
 
+    public void PlaySound()
+    {
+        audioSource.Play(); 
+    }
 
     void Update()
     {
-        if (Input.GetKeyUp("a"))
-        {
-            Shot();
-        }
+
     }
     public void Shot()
     {
-        StartCoroutine(PlayAndWait()); 
-    }
-
-    private IEnumerator PlayAndWait()
-    {
         particleSystem.Play();
-        yield return new WaitForSeconds(1f);
-        particleSystem.Stop();
     }
-
-
 }
