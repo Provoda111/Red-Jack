@@ -13,9 +13,13 @@ public class BuffcardUI : BuffCard
     {
         prefabName.text = buffCardName;
         prefabImage = buffcardImage;
-        prefabDesc = buffCardDescription.ToString();
+        //prefabDesc = buffCardDescription;
     }
     private void DrawCardOnMenu()
+    {
+
+    }
+    private void DrawCardOnGive()
     {
 
     }
