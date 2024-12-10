@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class BuffcardUI : MonoBehaviour
+public class BuffcardUI : BuffCard
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI prefabName;
+    [SerializeField] private Sprite prefabImage;
+    [SerializeField] private TextMeshProUGUI prefabDesc;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        prefabName.text = buffCardName;
+        prefabImage = buffcardImage;
+        prefabDesc = buffCardDescription.ToString();
+    }
+    private void DrawCardOnMenu()
+    {
+
     }
 }
