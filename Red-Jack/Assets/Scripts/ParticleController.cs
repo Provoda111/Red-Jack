@@ -5,10 +5,9 @@ using UnityEngine;
 public class ParticleController : MonoBehaviour
 {
     public ParticleSystem particleSystem;
-    public bool Shoot = false;
     void Start()
     {
-        //particleSystem.Stop();
+        particleSystem.Stop();
     }
 
 
@@ -16,14 +15,19 @@ public class ParticleController : MonoBehaviour
     {
         if (Input.GetKeyUp("a"))
         {
-            Shoot = true;
+            Shot();
         }
     }
     public void Shot()
     {
-        
-        //particleSystem.Play();
-        //Shoot = false;  
+        StartCoroutine(PlayAndWait()); 
+    }
+
+    private IEnumerator PlayAndWait()
+    {
+        particleSystem.Play();
+        yield return new WaitForSeconds(1f);
+        particleSystem.Stop();
     }
 
 
