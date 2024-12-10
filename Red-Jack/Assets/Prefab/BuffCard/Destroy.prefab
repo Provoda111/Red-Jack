@@ -96,5 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1ecdf53446a43498780efc17b957db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffcardImage: {fileID: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
+  buffcardImage: {fileID: 21300000, guid: 09194174a83968540a8cbb38d2c4f1ae, type: 3}

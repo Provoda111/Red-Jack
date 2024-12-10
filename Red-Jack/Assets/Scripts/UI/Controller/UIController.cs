@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Deck deck;
     [SerializeField] private GameObject buffCardUI;
+    [SerializeField] private GameObject escapeMenu;
 
     private void OnEnable()
     {
@@ -68,9 +69,13 @@ public class UIController : MonoBehaviour
             {
                 HideBuffCardUI();
             }
-            else
+            else if (escapeMenu.activeSelf == false)
             {
-                
+                ShowEscmenu();
+            }
+            else if (escapeMenu.activeSelf == true)
+            {
+                HideEscmenu();
             }
         }
     }
@@ -106,6 +111,6 @@ public class UIController : MonoBehaviour
     }
     private void ShowBuffCardUI() => buffCardUI.SetActive(true);
     private void HideBuffCardUI() => buffCardUI.SetActive(false);
-    //private void ShowEscmenu() => buffCardUI.SetActive(true);
-    //private void HideEscmenu() => buffCardUI.SetActive(false);
+    private void ShowEscmenu() => escapeMenu.SetActive(true);
+    private void HideEscmenu() => escapeMenu.SetActive(false);
 }
