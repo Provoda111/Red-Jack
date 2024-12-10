@@ -15,16 +15,10 @@ public class BuffCard : MonoBehaviour
 {
     internal string buffCardName;
     internal string buffCardDescription;
-    [SerializeField] internal Image buffcardImage;
+    [SerializeField] internal Sprite buffcardImage;
 
     internal buffCardType buffType;
 
-    CardMover mover;
-
-    private void ToString()
-    {
-        buffCardName = buffType.ToString();
-    }
     private void Start()
     {
         if (System.Enum.TryParse(name, out buffCardType parsedBuffType))
@@ -37,7 +31,7 @@ public class BuffCard : MonoBehaviour
                 buffCardDescription = "Rubber";
                 break;
             case buffCardType.Add:
-                buffCardDescription = "Add";
+                buffCardDescription = "This buffcard ";
                 break;
             case buffCardType.Destroy:
                 buffCardDescription = "Destroy";
@@ -45,8 +39,16 @@ public class BuffCard : MonoBehaviour
         }
         
     }
-    static internal void Spawn()
+    internal void Spawn()
     {
-        
+        switch (buffType)
+        {
+            case buffCardType.Rubber:
+                break;
+            case buffCardType.Add:
+                break;
+            case buffCardType.Destroy:
+                break;
+        }
     }
 }
