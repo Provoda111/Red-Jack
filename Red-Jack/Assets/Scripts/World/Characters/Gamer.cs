@@ -6,7 +6,7 @@ public class Gamer : MonoBehaviour
 {
     [SerializeField] internal List<GameObject> gamerSlots = new List<GameObject>();
     [SerializeField] internal List<GameObject> gameCards = new List<GameObject>();
-    [SerializeField] static internal List<GameObject> buffCards = new List<GameObject>();
+    [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
 
     static internal bool hasLost = false;
@@ -54,9 +54,5 @@ public class Gamer : MonoBehaviour
         {
             buffCards.Remove(buffCardObject);
         }
-    }
-    internal void Surrender()
-    {
-
     }
 }

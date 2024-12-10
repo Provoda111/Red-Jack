@@ -41,6 +41,13 @@ public class UIController : MonoBehaviour
         {
             HandlePlayerInput();
         }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            Debug.Log("A1");
+            BuffcardUI buffcardUI = GameObject.Find("buffCardUIController").GetComponent<BuffcardUI>();
+            buffcardUI.DrawCardOnMenu();
+            //ShowBuffCardUI();
+        }
         UpdateUIVisibility();
     }
 
@@ -61,7 +68,9 @@ public class UIController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.T))
         {
-            ShowBuffCardUI();
+            //BuffcardUI buffcardUI = GameObject.Find("buffCardUIController").GetComponent<BuffcardUI>();
+            //buffcardUI.DrawCardOnMenu();
+            //ShowBuffCardUI();
         }
         if (Input.GetKeyUp(KeyCode.Escape)) 
         {
