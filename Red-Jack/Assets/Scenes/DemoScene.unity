@@ -6571,6 +6571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -158958372862875739, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 388464119351971990, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6578,6 +6582,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_Name
       value: Revolver P
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986807112246738141, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_IsActive
@@ -6607,6 +6615,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6619225641134156614, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7999753236989434319, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6614,6 +6626,14 @@ PrefabInstance:
     - target: {fileID: 8028681712372841482, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351053838077304830, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675996533091738409, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517364486e5fd274c8beb1e9043859af, type: 3}
@@ -8556,9 +8576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1861714698}
-  audioSource: {fileID: 0}
-  ShootAudioClip: {fileID: 0}
-  MissAudioClip: {fileID: 0}
+  audioSource: {fileID: 1044483172}
+  ShootAudioClip: {fileID: 8300000, guid: 090ebac7f85f76c42b2ce08b95f9bf40, type: 3}
+  MissAudioClip: {fileID: 8300000, guid: ce6941df823f8784ba51e8345b75b144, type: 3}
 --- !u!114 &1044483169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8571,6 +8591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98f2ce5058ad3445b2e57af7c62bd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShootQue: 1
+  WhereBullet: 0
 --- !u!82 &1044483172
 AudioSource:
   m_ObjectHideFlags: 0
