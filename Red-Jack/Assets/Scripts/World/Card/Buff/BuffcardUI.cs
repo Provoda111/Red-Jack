@@ -41,8 +41,8 @@ public class BuffcardUI : MonoBehaviour
             buffCardSlot.GetComponentInChildren<Image>().sprite = buffPrefab.buffcardImage;
         }
     }
-    private void DrawCardOnGive()
+    static public void DrawCardOnGive()
     {
-        buffCardGetMenu.SetActive(true);
+        //buffCardGetMenu.SetActive(true);
     }
 }
