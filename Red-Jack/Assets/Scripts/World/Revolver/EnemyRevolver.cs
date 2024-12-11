@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class EnemyRevolver : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Revolver revolver;
+    private Blackjack blackjack;
     void Start()
     {
-        
+        revolver = GetComponent<Revolver>();
+        blackjack = GetComponent<Blackjack>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemyTryShot()
     {
-        
+        if(revolver.ShootQue == revolver.WhereBullet)
+        {
+            EnemyShoot();
+        }else
+        {
+            EnemyMisFire();
+        }
+    }
+    void EnemyShoot()
+    {
+        blackjack.PlayerLost();
+    }
+    void EnemyMisFire()
+    {
+        revolver.ShootQue++;
     }
 }

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Revolver : MonoBehaviour
 {
-    int ShootQue = 1;
-    int WhereBullet;
-    private void Start()
+    private Blackjack blackjack;
+    public int ShootQue = 1;
+    public int WhereBullet;
+    public void Start()
     {
         WhereBullet = Random.Range(1, 7);
+
+        blackjack = GetComponent<Blackjack>();
     }
 
-    void TryToShot ()
+    public void TryToShot ()
     {
         if (ShootQue == WhereBullet)
         {
@@ -24,9 +27,9 @@ public class Revolver : MonoBehaviour
     }
     void Shoot()
     {
-
+        blackjack.EnemyLost();
     }
-    void MisFire()
+    public void MisFire()
     {
         ShootQue++;
     }
