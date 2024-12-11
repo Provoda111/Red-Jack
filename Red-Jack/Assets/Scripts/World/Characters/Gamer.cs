@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Gamer : MonoBehaviour
@@ -48,15 +49,25 @@ public class Gamer : MonoBehaviour
     {
         buffCards.Add(buffCardObject);
     }
-    internal void AddBuffCardForPlayer()
+    internal void AddBuffCardForPlayer(GameObject buffCardObject)
     {
-        
+        buffCards.Add(buffCardObject);
     }
     internal void RemoveBuffCard(GameObject buffCardObject)
     {
         if (buffCards.Count > 0)
         {
             buffCards.Remove(buffCardObject);
+        }
+    }
+    internal void UseBuffCard(GameObject caller)
+    {
+        switch (caller.name)
+        {
+            case "Player":
+                break;
+            case "Enemy":
+                break;
         }
     }
 }

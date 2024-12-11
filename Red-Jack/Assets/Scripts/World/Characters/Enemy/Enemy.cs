@@ -60,8 +60,9 @@ public class Enemy : Gamer
         Debug.Log("Enemy doesn't wan't to move");
     }
 
-    private void UseBuffCard()
+    private void UseEnemyBuffCard()
     {
-        
+        int randomNumber = Random.Range(0, buffCards.Count + 1);
+        UseBuffCard(buffCards[randomNumber]);
     }
 }
