@@ -43,7 +43,6 @@ public class UIController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.T))
         {
-            Debug.Log("A1");
             BuffcardUI buffcardUI = GameObject.Find("buffCardUIController").GetComponent<BuffcardUI>();
             buffcardUI.DrawCardOnMenu();
             //ShowBuffCardUI();
