@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Revolver : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Revolver : MonoBehaviour
     void Shoot()
     {
         blackjack.EnemyLost();
+        SceneManager.LoadScene("WinScene");
     }
     public void MisFire()
     {
