@@ -6841,6 +6841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4022557464af47d48be34e1b318bdf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Revolver: {fileID: 0}
 --- !u!1 &646571205
 GameObject:
   m_ObjectHideFlags: 0
