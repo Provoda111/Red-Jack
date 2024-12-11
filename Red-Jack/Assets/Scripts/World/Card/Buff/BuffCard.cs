@@ -32,7 +32,10 @@ public class BuffCard : MonoBehaviour
                 break;
         }
     }
-
+    internal void GoToDeck()
+    {
+        
+    }
     public void BuffCardEffect()
     {
         buffCardSpawnParticle.Play();

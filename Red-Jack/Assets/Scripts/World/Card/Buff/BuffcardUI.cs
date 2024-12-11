@@ -36,15 +36,13 @@ public class BuffcardUI : MonoBehaviour
 
             newBuffCardSlot.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge
                 (RectTransform.Edge.Left, xOffset * xPosition, 300);
-            prefabName = player.buffCards[i].GetComponent<BuffCard>().buffCardName;
-            prefabImage = player.buffCards[i].GetComponent<BuffCard>().buffcardImage;
-            buffCardSlot.GetComponentInChildren<TextMeshProUGUI>().text = prefabName.ToString();
-            buffCardSlot.GetComponentInChildren<Image>().sprite = prefabImage;
+            var buffPrefab = player.buffCards[i].GetComponent<BuffCard>();
+            buffCardSlot.GetComponentInChildren<TextMeshProUGUI>().text = buffPrefab.buffCardName.ToString();
+            buffCardSlot.GetComponentInChildren<Image>().sprite = buffPrefab.buffcardImage;
         }
     }
     private void DrawCardOnGive()
     {
         buffCardGetMenu.SetActive(true);
-        
     }
 }

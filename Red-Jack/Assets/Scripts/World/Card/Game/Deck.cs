@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using Random = System.Random;
 
 public class Deck : MonoBehaviour
 {
@@ -24,6 +25,15 @@ public class Deck : MonoBehaviour
     {
         
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            StartCoroutine(GiveBuffCardToGamers());
+        }
+    }
+
     public void CallCardsToCenter()
     {
         StartCoroutine(CardsToCenter());
@@ -72,9 +82,32 @@ public class Deck : MonoBehaviour
             yield return new WaitForSeconds(5f);
         }
     }
-
-    internal void GiveBuffCardToGamers()
+    internal IEnumerator GiveBuffCardToGamers()
     {
-        
+        int randomBuffCard = UnityEngine.Random.Range(0, buffCardDeck.Count + 1);
+        GameObject buffSpawner = GameObject.Find("BuffSpawn");
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log("b");
+            GameObject buffCard = Instantiate(buffCardDeck[randomBuffCard], buffSpawner.transform.position,
+                buffCardDeck[randomBuffCard].transform.rotation);
+            CardMover mover = buffCard.AddComponent<CardMover>();
+            GameObject targetPosition = GameObject.Find("TargetPositionBuff");
+            mover.SetTarget(targetPosition.transform.position, 0.8f);
+            mover.OnReachedTarget += () =>
+            {
+                player.buffCards.Add(buffCard);
+                if (player.buffCards.Count < 1)
+                {
+                    enemy.buffCards.Add(buffCard);
+                }
+                buffSpawner.transform.position = new Vector3(buffSpawner.transform.position.x,
+                    buffSpawner.transform.position.y, buffSpawner.transform.position.z + 1.069f);
+                targetPosition.transform.position = new Vector3(targetPosition.transform.position.x
+                    , targetPosition.transform.position.y,targetPosition.transform.position.z + 1.069f);
+            };
+            yield return new WaitForSeconds(3f);
+        }
+        // z + 1.069
     }
 }
