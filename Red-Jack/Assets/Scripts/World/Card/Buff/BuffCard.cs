@@ -30,14 +30,12 @@ public class BuffCard : MonoBehaviour
         switch (buffType)
         {
             case buffCardType.Rubber:
-
                 if (oppositeGamer.gameCards.Count > 0)
                 {
                     GameObject cardToRemove = oppositeGamer.gameCards[0]; 
                     oppositeGamer.RemoveCardFromSlot(cardToRemove);
                 }
                 break;
-
             case buffCardType.Add:
 
                 //GameObject newCardToAdd = callerGamer.deck.GiveCardToPlayer(); 

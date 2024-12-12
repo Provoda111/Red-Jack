@@ -60,7 +60,14 @@ public class Blackjack : MonoBehaviour
 
     private void EndGameCheck()
     {
-        
+        if (player.gamerValues < enemy.gamerValues)
+        {
+            
+        }
+        else if (player.gamerValues > enemy.gamerValues)
+        {
+            
+        }
     }
     public void TurnOnSummText()
     { 

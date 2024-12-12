@@ -14,8 +14,11 @@ public class Deck : MonoBehaviour
     [SerializeField] internal List<GameObject> cardDeck = new List<GameObject>();
     [SerializeField] internal List<GameObject> buffCardDeck = new List<GameObject>();
 
+    [SerializeField] internal List<GameObject> allgameCards;
+
     [SerializeField] static public bool cardHasBeenSharedToCenter = false;
     [SerializeField] static public bool cardHasBeenSharedToGamers = false;
+    
     internal bool isRotated = false;
 
     [SerializeField] private Player player;
