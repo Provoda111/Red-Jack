@@ -110,8 +110,8 @@ public class Blackjack : MonoBehaviour
                     break;
             }
             // Reset CardSumm
-            enemy.gamerValues = 0;
-            player.gamerValues = 0;
+            //enemy.gamerValues = 0;
+            //player.gamerValues = 0;
             // Who Shooting
             if (whoShoot == "Player")
             {
