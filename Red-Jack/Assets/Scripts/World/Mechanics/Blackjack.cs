@@ -59,14 +59,48 @@ public class Blackjack : MonoBehaviour
     {
         if (Player.skipMove && Enemy.skipMove)
         {
-            if (player.gamerValues < enemy.gamerValues)
-            {
-            
-            }
-            else if (player.gamerValues > enemy.gamerValues)
-            {
-            
-            }
+            // Lasketaan kuka voitti
+            switch (player.gamerValues) {
+                case < 21:
+                    if (enemy.gamerValues > 21)
+                    {
+                        CardSumm.color = Color.green;
+                        EnemyCardSumm.color = Color.red;
+                    }
+                    else if (enemy.gamerValues < 21)
+                    {
+                        if (enemy.gamerValues < player.gamerValues)
+                        {
+                            CardSumm.color = Color.green;
+                            EnemyCardSumm.color = Color.red;
+                        }
+                        else
+                        {
+                            CardSumm.color = Color.red;
+                            EnemyCardSumm.color = Color.green;
+                        }
+                    }
+                    break;
+                case > 21:
+                    if (enemy.gamerValues < 21)
+                    {
+                        CardSumm.color = Color.red;
+                        EnemyCardSumm.color = Color.green;
+                    }else if (enemy.gamerValues > 21)
+                    {
+                        if (enemy.gamerValues > player.gamerValues)
+                        {
+                            CardSumm.color = Color.green;
+                            EnemyCardSumm.color = Color.red;
+                        }
+                        else 
+                        {
+                            CardSumm.color = Color.red;
+                            EnemyCardSumm.color = Color.green;
+                        }
+                    }
+                    break;
+                    }
         }
     }
     public void TurnOnSummText()
