@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        blackjack = GameObject.Find("Blackjack").GetComponent<Blackjack>();
         deck = GameObject.Find("Deck").GetComponent<Deck>();
         //GamerChooser.MoveDeterminer();
     }
