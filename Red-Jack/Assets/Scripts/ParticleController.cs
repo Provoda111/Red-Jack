@@ -27,10 +27,7 @@ public class ParticleController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            particleSystem.Play();
-        }
+
     }
     public void Shot()
     {
