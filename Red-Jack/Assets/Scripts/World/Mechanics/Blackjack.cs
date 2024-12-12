@@ -55,7 +55,7 @@ public class Blackjack : MonoBehaviour
         }
     }
 
-    private void EndGameCheck()
+    internal void EndGameCheck()
     {
         if (Player.skipMove && Enemy.skipMove)
         {

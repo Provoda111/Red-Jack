@@ -8,17 +8,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Enemy enemy;
     [SerializeField] private Deck deck;
+    [SerializeField] private Blackjack blackjack;
     static internal bool GameEnd = false;
 
     private void Start()
     {
+        blackjack = GameObject.Find("Blackjack").GetComponent<Blackjack>();
         deck = GameObject.Find("Deck").GetComponent<Deck>();
         //GamerChooser.MoveDeterminer();
     }
 
     private void Update()
     {
-        
+        if (Player.skipMove && Enemy.skipMove)
+        {
+            blackjack.EndGameCheck();
+        }
     }
     internal void CardGoesBackToDeck()
     {
@@ -35,5 +40,10 @@ public class GameManager : MonoBehaviour
     internal void ShowAllCards()
     {
 
+    }
+
+    internal void ResetGame()
+    {
+        
     }
 }
