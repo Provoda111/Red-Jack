@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 using UnityEngine.SceneManagement;
 
 public class Revolver : MonoBehaviour
@@ -39,5 +40,27 @@ public class Revolver : MonoBehaviour
         MissFire = true;
         ShootQue++;
         MissFire = false;
+    }
+
+
+    void EnemyTryShot()
+    {
+        if (ShootQue == WhereBullet)
+        {
+            EnemyShoot();
+        }
+        else
+        {
+            EnemyMisFire();
+        }
+    }
+    void EnemyShoot()
+    {
+        blackjack.PlayerLost();
+        SceneManager.LoadScene("GameOver");
+    }
+    void EnemyMisFire()
+    {
+        ShootQue++;
     }
 }
