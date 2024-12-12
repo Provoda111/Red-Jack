@@ -51,6 +51,7 @@ public class UIController : MonoBehaviour
 
     private void HandlePlayerInput()
     {
+        Player.skipMove = false;
         if (Input.GetKeyUp(KeyCode.H))
         {
             BlackJackHit();
@@ -100,20 +101,20 @@ public class UIController : MonoBehaviour
     }
     private void BlackJackHit()
     {
+        Player.skipMove = false;
         deck.GiveCardToPlayer(player.gameObject);
     }
     private void BlackJackStand()
     {
+        Player.skipMove = true;
         if (!GamerChooser.playerMove) return;
         GamerChooser.PlayerHasMoved();
     }
     private void BlackJackSurrender()
     {
-        Player.skipMove = false;
         if (GamerChooser.playerMove)
         {
             Debug.Log("Surrender");
-            Player.skipMove = true;
         }
     }
     private void ShowBuffCardUI() => buffCardUI.SetActive(true);

@@ -65,13 +65,16 @@ public class Deck : MonoBehaviour
     }
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
+        Debug.Log("a2");
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
         int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
         GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
                 newCardRotation);
+        Debug.Log("a");
         GameCard card = cardObject.GetComponent<GameCard>();
         card.GoToPlayer(whoGetsCard);
         cardDeck.Remove(cardDeck[cardIndex]);
+        Debug.Log("a1");
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
     {

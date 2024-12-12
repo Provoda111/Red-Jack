@@ -40,7 +40,9 @@ public class Enemy : Gamer
     }
     public void MoveOrNo()
     {
+        skipMove = false;
         int randomNumber = Random.Range(0, 2);
+        GamerChooser.EnemyHasMoved();
         if (randomNumber == 0)
         {
             skipMove = false;
@@ -50,7 +52,6 @@ public class Enemy : Gamer
         {
             SkipMove();
         }
-        GamerChooser.EnemyHasMoved();
     }
     internal IEnumerator StandOrNo()
     {

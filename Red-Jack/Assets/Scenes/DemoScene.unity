@@ -430,6 +430,7 @@ MonoBehaviour:
   - {fileID: 1358099927730828075, guid: 0b7f64cc2648fef40bf291e46afaa80a, type: 3}
   - {fileID: 1358099927730828075, guid: 1eaf5dbd98448f14abac5b245c97902d, type: 3}
   - {fileID: 1358099927730828075, guid: 58b005e1690f536438fdc4549e49abde, type: 3}
+  allgameCards: []
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
 --- !u!1 &176056038
@@ -470,7 +471,7 @@ MonoBehaviour:
   deckAnimator: {fileID: 1825914834}
   firstStepDone: 0
   gameStep: 0
-  director1: {fileID: 0}
+  director1: {fileID: 154258657}
 --- !u!4 &176056040
 Transform:
   m_ObjectHideFlags: 0
@@ -8441,7 +8442,7 @@ MonoBehaviour:
   cardSurrenderText: {fileID: 857931552}
   player: {fileID: 1200078259}
   deck: {fileID: 156679788}
-  buffCardUI: {fileID: 0}
+  buffCardUI: {fileID: 1775545154}
   escapeMenu: {fileID: 0}
 --- !u!1 &1164339474
 GameObject:

@@ -14,10 +14,7 @@ public class Blackjack : MonoBehaviour
 
     private GameCard enemyFirstCard;
 
-    void Start()
-    {
-        
-    }
+    
     void Update()
     {
         if (enemy.gameCards.Count > 0)
@@ -60,13 +57,16 @@ public class Blackjack : MonoBehaviour
 
     private void EndGameCheck()
     {
-        if (player.gamerValues < enemy.gamerValues)
+        if (Player.skipMove && Enemy.skipMove)
         {
+            if (player.gamerValues < enemy.gamerValues)
+            {
             
-        }
-        else if (player.gamerValues > enemy.gamerValues)
-        {
+            }
+            else if (player.gamerValues > enemy.gamerValues)
+            {
             
+            }
         }
     }
     public void TurnOnSummText()
