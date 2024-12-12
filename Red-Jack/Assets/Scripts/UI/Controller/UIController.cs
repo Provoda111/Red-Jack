@@ -73,15 +73,15 @@ public class UIController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Escape)) 
         {
-            if (buffCardUI.activeSelf == true)
+            if (buffCardUI.activeSelf == true && escapeMenu.activeSelf)
             {
                 HideBuffCardUI();
             }
-            else if (escapeMenu.activeSelf == false)
+            if (!escapeMenu.activeSelf)
             {
                 escapeMenu.SetActive(true);
             }
-            else if (escapeMenu.activeSelf == true)
+            else if (escapeMenu.activeSelf)
             {
                 escapeMenu.SetActive(false);
             }
