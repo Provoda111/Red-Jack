@@ -79,11 +79,11 @@ public class UIController : MonoBehaviour
             }
             else if (escapeMenu.activeSelf == false)
             {
-                ShowEscmenu();
+                escapeMenu.SetActive(true);
             }
             else if (escapeMenu.activeSelf == true)
             {
-                HideEscmenu();
+                escapeMenu.SetActive(false);
             }
         }
     }
@@ -119,6 +119,4 @@ public class UIController : MonoBehaviour
     }
     private void ShowBuffCardUI() => buffCardUI.SetActive(true);
     private void HideBuffCardUI() => buffCardUI.SetActive(false);
-    private void ShowEscmenu() => escapeMenu.SetActive(true);
-    private void HideEscmenu() => escapeMenu.SetActive(false);
 }
