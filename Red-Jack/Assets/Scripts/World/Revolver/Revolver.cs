@@ -33,7 +33,7 @@ public class Revolver : MonoBehaviour
             MisFire();
         }
     }
-    void Shoot()
+    public void Shoot()
     {
         RevolverAnimation("Shoot");
         blackjack.EnemyLost();
