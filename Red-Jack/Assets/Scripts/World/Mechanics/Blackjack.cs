@@ -60,33 +60,56 @@ public class Blackjack : MonoBehaviour
     {
         if (Player.skipMove && Enemy.skipMove)
         {
-            string result = "";
+            // Who Win Round
+            switch (player.gamerValues)
+            {
+                case < 21:
+                    if (enemy.gamerValues > 21)
+                    {
+                        CardSumm.color = Color.green;
+                        EnemyCardSumm.color = Color.red;
+                        whoShoot = ("Player");
+                    }
+                    else if (enemy.gamerValues < 21)
+                    {
+                        if (enemy.gamerValues < player.gamerValues)
+                        {
+                            CardSumm.color = Color.green;
+                            EnemyCardSumm.color = Color.red;
+                            whoShoot = ("Player");
+                        }
+                        else
+                        {
+                            CardSumm.color = Color.red;
+                            EnemyCardSumm.color = Color.green;
+                            whoShoot = ("Enemy");
+                        }
+                    }
+                    break;
+                case > 21:
+                    if (enemy.gamerValues < 21)
+                    {
+                        CardSumm.color = Color.red;
+                        EnemyCardSumm.color = Color.green;
+                        whoShoot = ("Enemy");
+                    }
+                    else if (enemy.gamerValues > 21)
+                    {
+                        if (enemy.gamerValues > player.gamerValues)
+                        {
+                            CardSumm.color = Color.green;
+                            EnemyCardSumm.color = Color.red;
+                            whoShoot = ("Player");
+                        }
+                        else
+                        {
+                            CardSumm.color = Color.red;
+                            EnemyCardSumm.color = Color.green;
+                            whoShoot = ("Enemy");
+                        }
+                    }
+                break;
 
-            // Kuka voitti pelin?
-            if (player.gamerValues <= 21 && (player.gamerValues > enemy.gamerValues || enemy.gamerValues > 21))
-            {
-                result = "Player wins!";
-                whoShoot = "Player";
-                CardSumm.color = Color.green;
-                EnemyCardSumm.color = Color.red;
-            }
-            else
-            {
-                result = "Enemy wins!";
-                whoShoot = "Enemy";
-                CardSumm.color = Color.red;
-                EnemyCardSumm.color = Color.green;
-            }
-
-            Debug.Log(result);
-
-            if (whoShoot == "Player")
-            {
-                revolver.TryToShot();
-            }
-            else
-            {
-                revolver.EnemyTryShot();
             }
         }
     }
