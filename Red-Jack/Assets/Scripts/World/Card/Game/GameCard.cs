@@ -61,9 +61,9 @@ public class GameCard : MonoBehaviour
         AddCardMover();
         this.targetPosition = deckPosition;
         mover.SetTarget(this.targetPosition, 1f);
-        deck.cardDeck.Add(this.gameObject);
         mover.OnReachedTarget += () =>
         {
+            deck.cardDeck.Add(this.gameObject);
             Destroy(this.gameObject);
         };
     }

@@ -68,49 +68,6 @@ public class Cutscene : MonoBehaviour
                 }
                 break;
         }
-        /*switch (gameStep)
-        {
-            case 1:
-                StartCoroutine(player.LaunchAwakeAnimation());
-                gameStep++;
-                break;
-            case 2:
-                if (!playerAnimator.GetBool("Awake"))
-                {
-                    //gameStep++;
-                }
-                break;
-            case 3:           
-                StartCoroutine(deck.CardsToCenter());
-                StartCoroutine(WaitTime(3f));
-                gameStep++;
-                break;
-            case 4:
-                StartCoroutine(WaitTime(3f));
-                if (Deck.cardHasBeenSharedToCenter)
-                {
-                    enemy.ChooseRandomCardFromCenter();
-                    if (player.gamerSlots.Count < 5 && enemy.gamerSlots.Count < 5)
-                    {
-                        gameManager.CardGoesBackToDeck();
-                        gameStep++;
-                    }
-                }
-                break;
-            case 5:
-                StartCoroutine(deck.GiveCardToGamers());
-                gameStep++;
-                break;
-            case 6:
-                if (Deck.cardHasBeenSharedToGamers)
-                {
-                    if (GamerChooser.enemyMove)
-                    {
-                        enemy.MoveOrNo();
-                        GamerChooser.enemyMove = false;
-                    }
-                }
-                break;
-        }*/
+        
     }
 }

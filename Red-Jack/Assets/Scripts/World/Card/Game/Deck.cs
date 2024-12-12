@@ -26,15 +26,12 @@ public class Deck : MonoBehaviour
 
     private void Start()
     {
-        
+        //allgameCards = cardDeck;
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            StartCoroutine(GiveBuffCardToGamers());
-        }
+        
     }
 
     public void CallCardsToCenter()
@@ -65,43 +62,19 @@ public class Deck : MonoBehaviour
     }
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
-        if (cardDeck.Count == 0) 
-        {
-            Debug.LogError("Deck is empty. No cards to give.");
-            return;
-        }
-
         int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
-
-        if (cardDeck[cardIndex] == null) 
-        {
-            Debug.LogWarning($"Card at index {cardIndex} in the deck is null.");
-            return;
-        }
-
+        Debug.Log($"{cardIndex}");
         deckAnimator.SetTrigger("GiveCardsToCenter");
-
         Debug.Log("a2");
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
+
         GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
                 newCardRotation);
-        if (cardObject == null)
-        {
-            Debug.LogError("Instantiated cardObject is null.");
-            return;
-        }
+        //cardDeck.Remove(cardDeck[cardIndex]);
         Debug.Log("a");
-        GameCard card = cardObject.GetComponent<GameCard>();
-        if (card == null) 
-        {
-            Debug.LogError("GameCard component is missing on the instantiated card.");
-            Destroy(cardObject); 
-            return;
-        }
-
-        card.GoToPlayer(whoGetsCard);
-
-        cardDeck.RemoveAt(cardIndex); 
+        cardObject.GetComponent<GameCard>().GoToPlayer(whoGetsCard);
+        cardObject = null;
+        cardIndex = 0;
         Debug.Log("a1");
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
@@ -113,7 +86,6 @@ public class Deck : MonoBehaviour
             yield return new WaitForSeconds(3f);
             GiveCardToPlayer(enemy.gameObject);
             cardHasBeenSharedToGamers = true;
-            yield return new WaitForSeconds(5f);
         }
     }
     internal IEnumerator GiveBuffCardToGamers()

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Player.skipMove) Debug.Log("PlayerSkipMove: TRUE");
+        if (Enemy.skipMove) Debug.Log("EnemySkipMove: TRUE");
+
         if (Player.skipMove && Enemy.skipMove)
         {
             blackjack.EndGameCheck();

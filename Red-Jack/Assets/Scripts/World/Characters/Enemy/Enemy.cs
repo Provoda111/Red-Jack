@@ -46,7 +46,7 @@ public class Enemy : Gamer
         if (randomNumber == 0)
         {
             skipMove = false;
-            deck.GiveCardToPlayer(this.gameObject);
+            deck.GiveCardToPlayer(gameObject);
         }
         if (randomNumber == 1)
         {
@@ -59,8 +59,11 @@ public class Enemy : Gamer
     }
     private void SkipMove()
     {
-        Debug.Log("Enemy doesn't wan't to move");
+        Debug.Log("Enemy doesn't want to move.");
         skipMove = true;
+
+        // Tarkista pelin lopetustilanne
+        FindObjectOfType<UIController>().TryEndGame();
     }
 
     private void UseEnemyBuffCard()
