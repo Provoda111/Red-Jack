@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy : Gamer
 {
+    public bool EnemySkip = false;
     public void Start()
     {
         gamerSlots = GameObject.FindGameObjectsWithTag("Enemy's card").ToList();
@@ -40,6 +41,7 @@ public class Enemy : Gamer
     }
     public void MoveOrNo()
     {
+        EnemySkip = false;
         int randomNumber = Random.Range(0, 2);
         if (randomNumber == 0)
         {
@@ -58,6 +60,7 @@ public class Enemy : Gamer
     private void SkipMove()
     {
         Debug.Log("Enemy doesn't wan't to move");
+        EnemySkip = true;
     }
 
     private void UseEnemyBuffCard()
