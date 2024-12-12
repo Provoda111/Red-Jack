@@ -65,6 +65,7 @@ public class Deck : MonoBehaviour
     }
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
+        deckAnimator.SetTrigger("GiveCardsToCenter");
         Debug.Log("a2");
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
         int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
@@ -74,6 +75,7 @@ public class Deck : MonoBehaviour
         GameCard card = cardObject.GetComponent<GameCard>();
         card.GoToPlayer(whoGetsCard);
         cardDeck.Remove(cardDeck[cardIndex]);
+        Debug.Log($"Card has been given to center");
         Debug.Log("a1");
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED

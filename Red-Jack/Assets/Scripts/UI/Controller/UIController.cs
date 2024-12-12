@@ -36,7 +36,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Deck.cardHasBeenSharedToGamers && GamerChooser.playerMove)
+        if (Deck.cardHasBeenSharedToGamers)
         {
             HandlePlayerInput();
         }
@@ -52,37 +52,43 @@ public class UIController : MonoBehaviour
     private void HandlePlayerInput()
     {
         Player.skipMove = false;
-        if (Input.GetKeyUp(KeyCode.H))
+        if (GamerChooser.playerMove)
         {
-            BlackJackHit();
-            GamerChooser.PlayerHasMoved();
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            BlackJackStand();
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            BlackJackSurrender();
-        }
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            //BuffcardUI buffcardUI = GameObject.Find("buffCardUIController").GetComponent<BuffcardUI>();
-            //buffcardUI.DrawCardOnMenu();
-            //ShowBuffCardUI();
+            if (Input.GetKeyUp(KeyCode.H))
+            {
+                BlackJackHit();
+                GamerChooser.PlayerHasMoved();
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                BlackJackStand();
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                BlackJackSurrender();
+            }
+            if (Input.GetKeyUp(KeyCode.T))
+            {
+                //BuffcardUI buffcardUI = GameObject.Find("buffCardUIController").GetComponent<BuffcardUI>();
+                //buffcardUI.DrawCardOnMenu();
+                //ShowBuffCardUI();
+            }
         }
         if (Input.GetKeyUp(KeyCode.Escape)) 
         {
-            if (buffCardUI.activeSelf == true && escapeMenu.activeSelf)
+            Debug.Log("3");
+            if (buffCardUI.activeSelf == true && !escapeMenu.activeSelf)
             {
                 HideBuffCardUI();
             }
             if (!escapeMenu.activeSelf)
             {
+                Debug.Log("1");
                 escapeMenu.SetActive(true);
             }
             else if (escapeMenu.activeSelf)
             {
+                Debug.Log("2");
                 escapeMenu.SetActive(false);
             }
         }

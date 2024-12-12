@@ -22,6 +22,7 @@ public class EscapeMenu : MonoBehaviour
     }
     public void ReturnToGame()
     {
+        Debug.Log("4");
         escMenuPanel.SetActive(false);
     }
 }

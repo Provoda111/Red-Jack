@@ -65,7 +65,13 @@ public class Enemy : Gamer
 
     private void UseEnemyBuffCard()
     {
-        int randomNumber = Random.Range(0, buffCards.Count + 1);
+        if (buffCards.Count == 0)
+        {
+            Debug.LogWarning("No buff cards available.");
+            return;
+        }
+
+        int randomNumber = Random.Range(0, buffCards.Count);
         UseBuffCard(buffCards[randomNumber]);
     }
 }
