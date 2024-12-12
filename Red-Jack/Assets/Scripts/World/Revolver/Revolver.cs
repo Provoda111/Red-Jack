@@ -37,6 +37,7 @@ public class Revolver : MonoBehaviour
     {
         RevolverAnimation("Shoot");
         blackjack.EnemyLost();
+        SceneManager.LoadScene("WinScene");
     }
     public void MisFire()
     {
@@ -67,6 +68,7 @@ public class Revolver : MonoBehaviour
     {
         RevolverAnimation("EnemyShoot");
         blackjack.PlayerLost();
+        SceneManager.LoadScene("GameOver");
     }
     void EnemyMisFire()
     {
