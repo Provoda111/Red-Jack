@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Revolver : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     private Blackjack blackjack;
     public int ShootQue = 1;
     public int WhereBullet;
@@ -18,7 +20,7 @@ public class Revolver : MonoBehaviour
         blackjack = GetComponent<Blackjack>();
     }
 
-    public void TryToShot ()
+    internal void TryToShot ()
     {
         if (ShootQue == WhereBullet)
         {
@@ -40,10 +42,11 @@ public class Revolver : MonoBehaviour
         MissFire = true;
         ShootQue++;
         MissFire = false;
+        gameManager.ResetGame();
     }
 
 
-    void EnemyTryShot()
+    internal void EnemyTryShot()
     {
         if (ShootQue == WhereBullet)
         {
@@ -62,5 +65,6 @@ public class Revolver : MonoBehaviour
     void EnemyMisFire()
     {
         ShootQue++;
+        gameManager.ResetGame();
     }
 }

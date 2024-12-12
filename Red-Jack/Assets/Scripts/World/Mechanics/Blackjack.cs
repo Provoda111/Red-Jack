@@ -11,9 +11,10 @@ public class Blackjack : MonoBehaviour
 
     [SerializeField] private Player player;
     [SerializeField] private Enemy enemy;
+    [SerializeField] private Revolver revolver;
 
     private GameCard enemyFirstCard;
-
+    string whoShoot;
     
     void Update()
     {
@@ -66,6 +67,7 @@ public class Blackjack : MonoBehaviour
                     {
                         CardSumm.color = Color.green;
                         EnemyCardSumm.color = Color.red;
+                        whoShoot = ("Player");
                     }
                     else if (enemy.gamerValues < 21)
                     {
@@ -73,11 +75,13 @@ public class Blackjack : MonoBehaviour
                         {
                             CardSumm.color = Color.green;
                             EnemyCardSumm.color = Color.red;
+                            whoShoot = ("Player");
                         }
                         else
                         {
                             CardSumm.color = Color.red;
                             EnemyCardSumm.color = Color.green;
+                            whoShoot = ("Enemy");
                         }
                     }
                     break;
@@ -86,21 +90,32 @@ public class Blackjack : MonoBehaviour
                     {
                         CardSumm.color = Color.red;
                         EnemyCardSumm.color = Color.green;
-                    }else if (enemy.gamerValues > 21)
+                        whoShoot = ("Enemy");
+                    }
+                    else if (enemy.gamerValues > 21)
                     {
                         if (enemy.gamerValues > player.gamerValues)
                         {
                             CardSumm.color = Color.green;
                             EnemyCardSumm.color = Color.red;
+                            whoShoot = ("Player");
                         }
                         else 
                         {
                             CardSumm.color = Color.red;
                             EnemyCardSumm.color = Color.green;
+                            whoShoot = ("Enemy");
                         }
                     }
                     break;
-                    }
+            }
+            if (whoShoot == "Player")
+            {
+                revolver.TryToShot();
+            }else if (whoShoot == "Enemy")
+            {
+                revolver.EnemyTryShot();
+            }
         }
     }
     public void TurnOnSummText()
