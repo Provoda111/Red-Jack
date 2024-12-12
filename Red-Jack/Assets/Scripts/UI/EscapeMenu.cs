@@ -5,32 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
+    public GameObject escMenuPanel;
     public GameObject settingsMenu;
 
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
-
-    void GoToSettings()
+    public void GoToSettings()
     {
         settingsMenu.SetActive(true);
     }
-    void LeaveSettings()
+    public void LeaveSettings()
     { 
         settingsMenu.SetActive(false); 
     }
-    void GoToMainMenu()
+    public void GoToMainMenu()
     {
         SceneManager.LoadScene(sceneName: "UI_Test");
     }
-    void ReturnToGame()
+    public void ReturnToGame()
     {
-        mainMenu.SetActive(false);
+        escMenuPanel.SetActive(false);
     }
 }
