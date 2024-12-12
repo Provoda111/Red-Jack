@@ -65,17 +65,43 @@ public class Deck : MonoBehaviour
     }
     internal void GiveCardToPlayer(GameObject whoGetsCard)
     {
+        if (cardDeck.Count == 0) 
+        {
+            Debug.LogError("Deck is empty. No cards to give.");
+            return;
+        }
+
+        int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
+
+        if (cardDeck[cardIndex] == null) 
+        {
+            Debug.LogWarning($"Card at index {cardIndex} in the deck is null.");
+            return;
+        }
+
         deckAnimator.SetTrigger("GiveCardsToCenter");
+
         Debug.Log("a2");
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
-        int cardIndex = UnityEngine.Random.Range(0, cardDeck.Count);
         GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
                 newCardRotation);
+        if (cardObject == null)
+        {
+            Debug.LogError("Instantiated cardObject is null.");
+            return;
+        }
         Debug.Log("a");
         GameCard card = cardObject.GetComponent<GameCard>();
+        if (card == null) 
+        {
+            Debug.LogError("GameCard component is missing on the instantiated card.");
+            Destroy(cardObject); 
+            return;
+        }
+
         card.GoToPlayer(whoGetsCard);
-        cardDeck.Remove(cardDeck[cardIndex]);
-        Debug.Log($"Card has been given to center");
+
+        cardDeck.RemoveAt(cardIndex); 
         Debug.Log("a1");
     }
     internal IEnumerator GiveCardToGamers() // NEEDS TO BE OPTIMIZED
