@@ -60,7 +60,7 @@ public class Blackjack : MonoBehaviour
     {
         if (Player.skipMove && Enemy.skipMove)
         {
-            // Lasketaan kuka voitti
+            // Who Win Round
             switch (player.gamerValues) {
                 case < 21:
                     if (enemy.gamerValues > 21)
@@ -109,6 +109,10 @@ public class Blackjack : MonoBehaviour
                     }
                     break;
             }
+            // Reset CardSumm
+            enemy.gamerValues = 0;
+            player.gamerValues = 0;
+            // Who Shooting
             if (whoShoot == "Player")
             {
                 revolver.TryToShot();
