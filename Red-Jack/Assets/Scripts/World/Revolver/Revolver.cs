@@ -15,7 +15,7 @@ public class Revolver : MonoBehaviour
     private Animator animator;
     public void Start()
     {
-        WhereBullet = Random.Range(1, 7);
+        WhereBullet = Random.Range(1, 2);
 
         blackjack = GetComponent<Blackjack>();
 
@@ -41,13 +41,12 @@ public class Revolver : MonoBehaviour
     }
     public void MisFire()
     {
-        RevolverAnimation("MisFire");
-        ShootQue++;
-        gameManager.ResetGame();
+        RevolverAnimation("MisShoot");
+        MisFireShared();
     }
-    public void RevolverAnimation(string Trigger)
+    public void RevolverAnimation(string TriggerName)
     {
-            animator.SetTrigger(Trigger); 
+            animator.SetTrigger(TriggerName); 
     }
 
     internal void EnemyTryShot()
@@ -70,7 +69,15 @@ public class Revolver : MonoBehaviour
     void EnemyMisFire()
     {
         RevolverAnimation("EnemyMis");
+        MisFireShared();
+    }
+
+    void MisFireShared()
+    {
         ShootQue++;
-        gameManager.ResetGame();
+        if (gameManager != null)
+        {
+            gameManager.ResetGame();
+        }
     }
 }

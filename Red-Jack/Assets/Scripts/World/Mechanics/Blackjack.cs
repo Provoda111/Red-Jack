@@ -60,6 +60,8 @@ public class Blackjack : MonoBehaviour
     {
         if (Player.skipMove && Enemy.skipMove)
         {
+            Debug.Log("EndRound");
+            EnemyCardSumm.text = $"{enemy.gamerValues}/21";
             // Who Win Round
             switch (player.gamerValues)
             {
@@ -69,6 +71,7 @@ public class Blackjack : MonoBehaviour
                         CardSumm.color = Color.green;
                         EnemyCardSumm.color = Color.red;
                         whoShoot = ("Player");
+                        Debug.Log("PlayerWin");
                     }
                     else if (enemy.gamerValues < 21)
                     {
@@ -77,12 +80,14 @@ public class Blackjack : MonoBehaviour
                             CardSumm.color = Color.green;
                             EnemyCardSumm.color = Color.red;
                             whoShoot = ("Player");
+                            Debug.Log("PlayerWin");
                         }
                         else
                         {
                             CardSumm.color = Color.red;
                             EnemyCardSumm.color = Color.green;
                             whoShoot = ("Enemy");
+                            Debug.Log("EnemyWin");
                         }
                     }
                     break;
@@ -92,6 +97,7 @@ public class Blackjack : MonoBehaviour
                         CardSumm.color = Color.red;
                         EnemyCardSumm.color = Color.green;
                         whoShoot = ("Enemy");
+                        Debug.Log("EnemyWin");
                     }
                     else if (enemy.gamerValues > 21)
                     {
@@ -100,17 +106,21 @@ public class Blackjack : MonoBehaviour
                             CardSumm.color = Color.green;
                             EnemyCardSumm.color = Color.red;
                             whoShoot = ("Player");
+                            Debug.Log("PlayerWin");
                         }
                         else
                         {
                             CardSumm.color = Color.red;
                             EnemyCardSumm.color = Color.green;
                             whoShoot = ("Enemy");
+                            Debug.Log("EnemyWin");
                         }
                     }
                 break;
 
             }
+            StartCoroutine(EndRound());
+            
         }
     }
     public void TurnOnSummText()
@@ -125,10 +135,29 @@ public class Blackjack : MonoBehaviour
     }
     internal void PlayerLost()
     {
-        Player.hasLost = true;
+        //Player.hasLost = true;
     }
     internal void EnemyLost()
     {
-        Enemy.hasLost = true;
+        //Enemy.hasLost = true;
+    }
+
+    IEnumerator EndRound()
+    {
+        yield return new WaitForSeconds(3f);
+
+        //enemy.gamerValues = 0;
+        //player.gamerValues = 0;
+        CardSumm.color = Color.white;
+        EnemyCardSumm.color = Color.white;
+        //EnemyCardSumm.text = $"? + {enemy.gamerValues - enemyFirstCard.cardValue} /21";
+        if (whoShoot == "Player")
+        {
+            revolver.TryToShot();
+        }
+        else
+        {
+            revolver.EnemyTryShot();
+        }
     }
 }

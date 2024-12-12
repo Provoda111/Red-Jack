@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private Deck deck;
     [SerializeField] private Blackjack blackjack;
+    [SerializeField] private Revolver revolver;
     static internal bool GameEnd = false;
 
     private void Start()
@@ -46,6 +47,18 @@ public class GameManager : MonoBehaviour
 
     internal void ResetGame()
     {
-        
+        revolver.Start();
+        //DestroyAllCards();
+    }
+
+    void DestroyAllCards()
+    {
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
+
+        foreach (GameObject card in cards)
+        {
+            Destroy(card);
+        }
+
     }
 }

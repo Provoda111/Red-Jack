@@ -125,12 +125,12 @@ public class UIController : MonoBehaviour
     }
     private void ShowBuffCardUI() => buffCardUI.SetActive(true);
     private void HideBuffCardUI() => buffCardUI.SetActive(false);
-    public void TryEndGame()
+    /*public void TryEndGame()
     {
         if (Player.skipMove && Enemy.skipMove)
         {
             Debug.Log("Both players chose to stand. Checking game results.");
             FindObjectOfType<Blackjack>().EndGameCheck();
         }
-    }
+    }*/
 }

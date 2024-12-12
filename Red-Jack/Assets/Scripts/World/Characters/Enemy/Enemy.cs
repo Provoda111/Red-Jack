@@ -43,7 +43,16 @@ public class Enemy : Gamer
         skipMove = false;
         int randomNumber = Random.Range(0, 2);
         GamerChooser.EnemyHasMoved();
-        if (randomNumber == 0)
+        if (gamerValues < 18)
+        {
+            skipMove = false;
+            deck.GiveCardToPlayer(gameObject);
+        }
+        if (gamerValues  >18)
+        {
+            SkipMove();
+        }
+        /*if (randomNumber == 0)
         {
             skipMove = false;
             deck.GiveCardToPlayer(gameObject);
@@ -51,7 +60,7 @@ public class Enemy : Gamer
         if (randomNumber == 1)
         {
             SkipMove();
-        }
+        }*/
     }
     internal IEnumerator StandOrNo()
     {
@@ -63,7 +72,7 @@ public class Enemy : Gamer
         skipMove = true;
 
         // Tarkista pelin lopetustilanne
-        FindObjectOfType<UIController>().TryEndGame();
+        //FindObjectOfType<UIController>().TryEndGame();
     }
 
     private void UseEnemyBuffCard()

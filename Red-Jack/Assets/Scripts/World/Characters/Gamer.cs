@@ -10,7 +10,7 @@ public class Gamer : MonoBehaviour
     [SerializeField] internal List<GameObject> buffCards = new List<GameObject>();
     internal int gamerValues;
 
-    static internal bool hasLost = false;
+    //static internal bool hasLost = false;
     
     static internal bool skipMove = false;
 
