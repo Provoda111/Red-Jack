@@ -5725,7 +5725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1200078259}
   enemy: {fileID: 815605928}
-  deck: {fileID: 0}
+  deck: {fileID: 156679788}
+  blackjack: {fileID: 1840163158}
 --- !u!4 &446797990
 Transform:
   m_ObjectHideFlags: 0
@@ -7266,7 +7267,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e96fa539506a82f4097ae5999f559460, type: 2}
     - target: {fileID: 919132149155446097, guid: 39cf9d14611121e45b275b6b33296db8, type: 3}
       propertyPath: m_Name
-      value: Table (1)
+      value: Gun Table (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 39cf9d14611121e45b275b6b33296db8, type: 3}
       propertyPath: m_LocalScale.z
