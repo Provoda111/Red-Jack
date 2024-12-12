@@ -7319,6 +7319,7 @@ MonoBehaviour:
   gameCards: []
   buffCards: []
   deck: {fileID: 156679788}
+  EnemySkip: 0
 --- !u!4 &815605929
 Transform:
   m_ObjectHideFlags: 0
