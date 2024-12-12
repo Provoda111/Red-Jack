@@ -11,7 +11,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private Deck deck;
     [SerializeField] private GameObject buffCardUI;
     [SerializeField] private GameObject escapeMenu;
-
     private void OnEnable()
     {
         GamerChooser.OnPlayerMoveChanged += UpdateUIVisibility; 
