@@ -68,7 +68,7 @@ public class Deck : MonoBehaviour
         Debug.Log("a2");
         Quaternion newCardRotation = Quaternion.Euler(-90, 90, 90);
 
-        GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,
+        GameObject cardObject = Instantiate(cardDeck[cardIndex], cardSpawner.position,  
                 newCardRotation);
         //cardDeck.Remove(cardDeck[cardIndex]);
         Debug.Log("a");
