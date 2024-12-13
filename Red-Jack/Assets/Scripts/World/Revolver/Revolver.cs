@@ -49,7 +49,7 @@ public class Revolver : MonoBehaviour
     {
         RevolverAnimation("MisShoot");
         MisFireShared();
-        Music.SetActive(true);
+        
     }
     public void RevolverAnimation(string TriggerName)
     {
@@ -80,17 +80,14 @@ public class Revolver : MonoBehaviour
     {
         RevolverAnimation("EnemyMis");
         MisFireShared();
-        Music.SetActive(true);
     }
 
     void MisFireShared()
     {
         ShootQue++;
+        Music.SetActive(true);
         StartCoroutine(OverScreen(""));
-        if (gameManager != null)
-        {
             gameManager.ResetGame();
-        }
     }
     IEnumerator OverScreen(string Shooter)
     {

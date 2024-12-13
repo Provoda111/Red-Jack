@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         enemy.gamerValues = 0;
         Player.skipMove = false;
         Enemy.skipMove = false;
+        
     }
 
     void DestroyAllCards()
