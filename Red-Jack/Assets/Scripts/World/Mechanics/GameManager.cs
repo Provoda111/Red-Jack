@@ -20,13 +20,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Player.skipMove) Debug.Log("PlayerSkipMove: TRUE");
+        /*if (Player.skipMove) Debug.Log("PlayerSkipMove: TRUE");
         if (Enemy.skipMove) Debug.Log("EnemySkipMove: TRUE");
 
         if (Player.skipMove && Enemy.skipMove)
         {
             blackjack.EndGameCheck();
-        }
+        }*/
     }
     internal void CardGoesBackToDeck()
     {
@@ -48,17 +48,17 @@ public class GameManager : MonoBehaviour
     internal void ResetGame()
     {
         revolver.Start();
-        //DestroyAllCards();
+        DestroyAllCards();
+        player.gamerValues = 0;
+        enemy.gamerValues = 0;
+        Player.skipMove = false;
+        Enemy.skipMove = false;
     }
 
     void DestroyAllCards()
     {
-        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
-
-        foreach (GameObject card in cards)
-        {
-            Destroy(card);
-        }
+        
+        
 
     }
 }

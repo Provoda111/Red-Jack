@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChipSpawner : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ChipSpawner : MonoBehaviour
     {
         // Aloitetaan PokerChipien spawnauksen aikataulutus
         InvokeRepeating(nameof(SpawnPokerChip), 0f, spawnInterval);
+        StartCoroutine(WaitAndExit());
     }
 
     private void SpawnPokerChip()
@@ -30,5 +32,11 @@ public class ChipSpawner : MonoBehaviour
 
         // Instansioidaan PokerChip
         Instantiate(pokerChipPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    IEnumerator WaitAndExit()
+    {
+        yield return new WaitForSeconds(15f);
+        SceneManager.LoadScene("UI_Test");
     }
 }

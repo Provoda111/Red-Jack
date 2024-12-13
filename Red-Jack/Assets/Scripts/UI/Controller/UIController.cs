@@ -115,6 +115,7 @@ public class UIController : MonoBehaviour
         Player.skipMove = true;
         if (!GamerChooser.playerMove) return;
         GamerChooser.PlayerHasMoved();
+        TryEndGame();
     }
     private void BlackJackSurrender()
     {
@@ -125,12 +126,12 @@ public class UIController : MonoBehaviour
     }
     private void ShowBuffCardUI() => buffCardUI.SetActive(true);
     private void HideBuffCardUI() => buffCardUI.SetActive(false);
-    /*public void TryEndGame()
+    public void TryEndGame()
     {
-        if (Player.skipMove && Enemy.skipMove)
+        if (Player.skipMove == true && Enemy.skipMove == true)
         {
             Debug.Log("Both players chose to stand. Checking game results.");
             FindObjectOfType<Blackjack>().EndGameCheck();
         }
-    }*/
+    }
 }

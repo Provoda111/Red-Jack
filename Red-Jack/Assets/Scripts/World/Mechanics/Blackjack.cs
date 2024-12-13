@@ -58,12 +58,12 @@ public class Blackjack : MonoBehaviour
 
     internal void EndGameCheck()
     {
-        if (Player.skipMove && Enemy.skipMove)
-        {
-            Debug.Log("EndRound");
+        EnemyCardSumm.color = Color.white;
+        CardSumm.color = Color.white;
+        Debug.Log("EndRound");
             EnemyCardSumm.text = $"{enemy.gamerValues}/21";
-            // Who Win Round
-            switch (player.gamerValues)
+        // Who Win Round
+        switch (player.gamerValues)
             {
                 case < 21:
                     if (enemy.gamerValues > 21)
@@ -121,7 +121,6 @@ public class Blackjack : MonoBehaviour
             }
             StartCoroutine(EndRound());
             
-        }
     }
     public void TurnOnSummText()
     { 
@@ -144,7 +143,7 @@ public class Blackjack : MonoBehaviour
 
     IEnumerator EndRound()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         //enemy.gamerValues = 0;
         //player.gamerValues = 0;

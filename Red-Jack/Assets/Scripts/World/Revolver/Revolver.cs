@@ -12,10 +12,14 @@ public class Revolver : MonoBehaviour
     public int ShootQue = 1;
     public int WhereBullet;
 
+    public GameObject PlayerControl;
+    public GameObject Music;
+
     private Animator animator;
     public void Start()
     {
-        WhereBullet = Random.Range(1, 2);
+        Debug.Log("Shoot " + ShootQue);
+        WhereBullet = Random.Range(1, 7);
 
         blackjack = GetComponent<Blackjack>();
 
@@ -24,6 +28,7 @@ public class Revolver : MonoBehaviour
 
     internal void TryToShot ()
     {
+        Music.SetActive(false);
         if (ShootQue == WhereBullet)
         {
             Shoot();
@@ -35,14 +40,16 @@ public class Revolver : MonoBehaviour
     }
     internal void Shoot()
     {
+        
+        PlayerControl.SetActive(false);
         RevolverAnimation("Shoot");
-        //blackjack.EnemyLost();
-        SceneManager.LoadScene("WinScene");
+        StartCoroutine(OverScreen("Player"));
     }
     public void MisFire()
     {
         RevolverAnimation("MisShoot");
         MisFireShared();
+        Music.SetActive(true);
     }
     public void RevolverAnimation(string TriggerName)
     {
@@ -51,6 +58,7 @@ public class Revolver : MonoBehaviour
 
     internal void EnemyTryShot()
     {
+        Music.SetActive(false);
         if (ShootQue == WhereBullet)
         {
             EnemyShoot();
@@ -62,22 +70,37 @@ public class Revolver : MonoBehaviour
     }
     void EnemyShoot()
     {
+        
+        PlayerControl.SetActive(false);
         RevolverAnimation("EnemyShoot");
-        //blackjack.PlayerLost();
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(OverScreen("Enemy"));
+
     }
     void EnemyMisFire()
     {
         RevolverAnimation("EnemyMis");
         MisFireShared();
+        Music.SetActive(true);
     }
 
     void MisFireShared()
     {
         ShootQue++;
+        StartCoroutine(OverScreen(""));
         if (gameManager != null)
         {
             gameManager.ResetGame();
+        }
+    }
+    IEnumerator OverScreen(string Shooter)
+    {
+        yield return new WaitForSeconds(4f);
+        if(Shooter == "Player")
+        {
+            SceneManager.LoadScene("WinScene");
+        }else if (Shooter == "Enemy")
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
